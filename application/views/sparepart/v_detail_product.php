@@ -5,11 +5,11 @@
         <div class="breadcrumbs-main clearfix">
             <h2><?php echo $row->sparepart_name; ?></h2>
             <ul>
-                <li><a href="#">Category sparepart</a><span class="separator">:</span></li>
+                <li><a href="#">Spareparts</a><span class="separator">/ </span></li>
                 <li>
                      <?php 
                         $spc = $row->sparepart_category;
-                        $this->db->where('category_slug',$spc);
+                        $this->db->where('category_id',$spc);
                         $r = $this->db->get('sparepart_category');
                         if($r->num_rows()>0)
                         {
@@ -18,10 +18,10 @@
                             }
                         }
                         foreach($datasparepart as $dts)?>
-                
+                <strong>
                     <?php echo $dts['category_title'] ; ?>
 
-                </li>
+                </strong></li>
             </ul>
         </div>
     </div>
@@ -29,105 +29,39 @@
 </div>
 
 <div class="wrapper-main brandshop clearfix">
-        	<div class="spacer15"></div><!--spacer-->
-        	<div class="container">
-            	<div class="inner-block"><!------Main Inner-------->
-                	<div class="row">
+            <div class="spacer15"></div><!--spacer-->
+            <div class="container">
+                <div class="inner-block"><!------Main Inner-------->
+                    <div class="row">
                         <div class="col-md-9 col-sm-8">
-                        	<div class="main-contant xs-spacer20 clearfix">
-                            	<div class="contant-wrapper">
+                            <div class="main-contant xs-spacer20 clearfix">
+                                <div class="contant-wrapper">
                                     <div class="details-view"><!-- Start Product Details -->
                                         <div class="clearfix">
                                             <div class="product-img"><!-- Product Images -->
                                                 <div id="info-img">
                                                     <!-- <span class="pro offer">30% off</span> -->
-                                                    <div class="swiper-container gallery-top top-img">
-                                                        <div class="swiper-wrapper">
-                                                            <?php if(!empty($row->sparepart_image)){?>
-                                                                <div data-swiper-autoplay="5000" class="swiper-slide"><img  src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
-                                                            <?php } ?>
-                                                            <?php if(!empty($row->sparepart_image_2)){?>
-                                                                <div data-swiper-autoplay="5000" class="swiper-slide"><img  src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_2; ?>" alt="" /></div>
-                                                            <?php } ?>
-                                                            <?php if(!empty($row->sparepart_image_3)){?>
-                                                                <div data-swiper-autoplay="5000" class="swiper-slide"><img  src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_3; ?>" alt="" /></div>
-                                                            <?php } ?>
-                                                            <?php if(!empty($row->sparepart_image_4)){?>
-                                                                <div data-swiper-autoplay="5000" class="swiper-slide"><img  src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_4; ?>" alt="" /></div>
-                                                            <?php } ?>
+                                                    <div class="swiper-container top-img">
+                                                        <div class="swiper-wrapper"><!-- Images Slider -->
+                                                            <div class="swiper-slide"><img data-zoom-image="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
                                                         </div>
-                                         
+                                                        <!-- Add Arrows -->
                                                         <div class="swiper-button-next s-nav fa fa-angle-right"></div>
                                                         <div class="swiper-button-prev s-nav fa fa-angle-left"></div>
                                                     </div>
-                                                    <div style="overflow:hidden;" class="product-thumbs clearfix gallery-thumbs">
-                                                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-                                                        <?php if(!empty($row->sparepart_image)){?>
-                                                            <div data-swiper-autoplay="5000" data-index="1" class="swiper-slide thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
-                                                        <?php } ?>
-                                                        <?php if(!empty($row->sparepart_image_2)){?>
-                                                            <div data-swiper-autoplay="5000" data-index="2" class="swiper-slide thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_2; ?>" alt="" /></div>
-                                                        <?php } ?>
-
-                                                        <?php if(!empty($row->sparepart_image_3)){?>
-                                                            <div data-swiper-autoplay="5000" data-index="3" class="swiper-slide thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_3; ?>" alt="" /></div>
-                                                        <?php } ?>
-                                                        <?php if(!empty($row->sparepart_image_4)){?>
-                                                            <div data-swiper-autoplay="5000" data-index="4" class="swiper-slide thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_4; ?>" alt="" /></div>
-                                                        <?php } ?>
-                                                        </div>
-                    
+                                                    <div class="product-thumbs clearfix"><!-- Thumb Images -->
+                                                        <div data-index="0" class="thumb-item active"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
+                                                        <div data-index="1" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
+                                                        <div data-index="2" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
+                                                        <div data-index="3" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
                                                     </div>
-                                                    <style type="text/css">
-                                                    .gallery-top {
-                                                        height: 80%;
-                                                        width: 100%;
-                                                    }
-                                                    .gallery-top img { 
-                                                        display: block;
-                                                        margin: auto;
-                                                    }
-                                                    .gallery-thumbs {
-                                                        height: 20%;
-                                                        box-sizing: border-box;
-                                                        padding: 10px 0;
-                                                    }
-                                                    .gallery-thumbs .swiper-slide {
-                                                        width: 25%;
-                                                        height: 100%;
-                
-                                                    }
-                                                    .gallery-thumbs .swiper-slide-active {
-                                                        opacity: 1;
-                                                    }
-
-                                                    .gallery-thumbs .swiper-wrapper {
-
-                                                    margin-left: -37%; //according to the number of slides
-
-                                                    }
-                                                    </style>
-
                                                 </div>
                                             </div><!-- End Product Images -->
                                             <div class="product-info">
                                                <!--  <h4><?php echo $row->sparepart_name; ?></h4> -->
                                                 <div class="price-box">
-                                                    <?php 
-                                                        $price =  $row->sparepart_price;
-                                                        $discount = $this->session->userdata('discount_price');
-                                                        $total_discount = $price * $discount / 100;
-                                                        $total_price = $price - $total_discount;
-                                                        if(!empty($this->session->userdata('user_id'))) { 
-                                                        
-                                                    ?>
-                                                        <p class="new-price"><span style="font-size:26px;">Rp. <?php echo $total_price; ?> </span></p>
-                                                        <p class="old-price"><span>Rp. <?php echo $row->sparepart_price; ?></span></p>
-                                                        
-                                                    <?php  }else{?>
-                                                        <p class="new-price"><span style="font-size:26px;">Rp.<?php echo $row->sparepart_price; ?></span></p>
-                                                    <?php } ?>
-   
+                                                    <p class="new-price"><span style="font-size:26px;">Rp. <?php echo $row->sparepart_price; ?></span></p>
+                                                   <!--  <p class="old-price"><span>Rp. 340.00</span></p> -->
                                                 </div>
                                                 <span class="product_stock">Stock :  
                                                 <?php
@@ -139,7 +73,7 @@
                                                 ?>
                                                 </span>
                                                 <div class="short-description">
-                                                    <p><?php echo $row->sparepart_text_preview; ?> </p>
+                                                    <p> Nam tempus turpis metus scelerisque placerat nulla deutos solicitud felis. Pellentesque diam dolortum etos lobortis des mollis utrisus lamcorper mattis drostique </p>
                                                 </div>
                                                 <div class="row">
                                                   <div class="col-lg-6">
@@ -156,19 +90,6 @@
                                                         foreach($data1 as $manu)?>
                                                     <img src="<?php echo base_url('assets/image/manufacturer/').$manu['manu_image'] ?>">
                                                   </div>
-                                                  <div class="col-lg-6">
-                                                      <?php $this->load->library('cart');
-                                                        if($this->cart->contents()){ 
-                                                            foreach($this->cart->contents() as $items)
-                                                            if($row->sparepart_name == $items['name']) { ?>
-                                                                
-                                                                <a href="<?php echo base_url('cart/show_cart'); ?>"  class="btn btn-success" style="margin-top:30px;">This sparepart <br> already in your cart!</a>    
-
-                                                           <?php } 
-                                                        }
-                                                       ?>
-                                                        
-                                                  </div>
                                                 </div>
                                                 <div class="row product-item">
                                                     <?php echo form_open('cart/add_cart_item'); ?>
@@ -179,13 +100,9 @@
                                                     </div>
                                                     <div class="cart-btn col-sm-4 col-xs-6">
                                                             <input type="hidden" name="sparepart_id" value="<?php echo $row->sparepart_id ?>">
-                                                            <?php if(!empty($this->session->userdata('user_id'))) { ?>
-                                                                    <input type="hidden" name="sparepart_price" value="<?php echo $total_price ?>">
-                                                            <?php }else { ?>
-                                                                    <input type="hidden" name="sparepart_price" value="<?php echo $row->sparepart_price ?>">
-                                                            <?php } ?> 
+                                                            <input type="hidden" name="sparepart_price" value="<?php echo $row->sparepart_price ?>">
                                                             <input type="hidden" name="sparepart_code" value="<?php echo $row->sparepart_code ?>">
-                                                            <input type="hidden" name="sparepart_name" value="<?php echo $row->sparepart_name ?>">
+                                                            <input type="hidden" name="sparepart_name" value="<?php echo $row->sparepart_slug ?>">
                                                             <input type="hidden" name="sparepart_image" value="<?php echo $row->sparepart_image ?>">
                                                             <input type="hidden" name="sparepart_manufacturer" value="<?php echo $manu['manu_title'] ?>">
                                                             <input type="submit" class="btn" value="Add To List">
@@ -195,7 +112,7 @@
                                             </div>
                                         </div>
                                     </div><!-- End Product Details -->
-        							<div class="spacer30"></div><!--spacer-->
+                                    <div class="spacer30"></div><!--spacer-->
                                     <div class="tab-panel clearfix"><!-- Tab -->
                                         <!-- Tabs Nav -->
                                         <ul class="nav nav-tabs" role="tablist">
@@ -212,7 +129,7 @@
                                             </div>
                                         </div>
                                     </div>
-        							<div class="spacer30"></div><!--spacer-->
+                                    <div class="spacer30"></div><!--spacer-->
                                     <div class="upsell clearfix">
                                         <h4 class="heading">Related Products</h4>
                                         <div class="owl-carousel upsell-products">
@@ -246,10 +163,26 @@
                                             <?php } ?>
                                         </div>
                                     </div>
-                            	</div>
+                                </div>
                             </div>
                         </div>
-                       <?php $this->load->view('sparepart/sidebar_sparepart'); ?>
+                       <div class="col-md-3 col-sm-4">
+                          <div class="side-bar clearfix"><!--Side Bar-->
+                                <div class="aside categories"><!--Side Categories-->
+                                   <h4 class="heading">Manufacturers</h4>
+                                     <ul class="categories-main">
+                                        <li>
+                                            <a role="button"  href="<?php echo base_url('spareparts/all'); ?>">All Manufacturers</a>
+                                        </li>
+                                        <?php foreach ($manufacturer as $m) { ?>
+                                        <li>
+                                            <a role="button" data-toggle="collapse" href="<?php echo base_url('product/manufacturer/'.$m->manu_id); ?>" aria-expanded="false" aria-controls="link1"><?php echo $m->manu_title; ?><i class="pull-right fa fa-plus"></i></a>
+                                        </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div><!--End Side Categories-->
+                            </div><!--End Side Bar-->
+                        </div>
                     </div>
                 </div>
             </div>

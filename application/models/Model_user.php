@@ -50,7 +50,7 @@ class model_user extends CI_Model
 		
 		$from_email = 'zuhaidisaleh99@gmail.com';
 		$subject = 'Verify Your Email Address';
-		$message = 'Dear Admin Besha Analitika,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://localhost/besha-analitika2/login/verify/admin/'.$username.'<br /><br /><br />Thanks<br />';
+		$message = 'Dear Admin Besha Analitika,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/login/verify/admin/'.$username.'<br /><br /><br />Thanks<br />';
 		
 		//configure email settings
 		$config['protocol'] = 'smtp';

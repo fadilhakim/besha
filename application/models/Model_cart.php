@@ -22,7 +22,6 @@ class model_cart extends CI_Model {
      	$image = $this->input->post('sparepart_image');
      	$name = $this->input->post('sparepart_name');
      	$manu = $this->input->post('sparepart_manufacturer');
-	    
 	    $this->db->select('*');
 	    $this->db->from('sparepart_tbl');
 	    $this->db->where('sparepart_id = '.$id.''); // Select where id matches the posted id

@@ -424,11 +424,6 @@ class admin extends CI_Controller {
 		$this->load->view('admin/v_edit_sparepart',$data);
 		$this->load->view('templates/footer-admin');
 	}
-	
-	function test()
-	{
-		echo "well done ";	
-	}
 
 	
 }

@@ -1,8 +1,8 @@
-	   <div class="wrapper-breadcrumbs clearfix">
-        	<div class="spacer30"></div><!--spacer-->
-       		<div class="container">
-             	<div class="breadcrumbs-main clearfix">
-                	<h2>
+       <div class="wrapper-breadcrumbs clearfix">
+            <div class="spacer30"></div><!--spacer-->
+            <div class="container">
+                <div class="breadcrumbs-main clearfix">
+                    <h2>
                         <?php if(!empty($spareparts)) {?>
                         <?php
 
@@ -37,19 +37,19 @@
                     <ul>
                         <li><a href="#">Spareparts</a></li>
                     </ul>
-             	</div>
-          	</div>
-        	<div class="spacer15"></div><!--spacer-->
-     	</div>
+                </div>
+            </div>
+            <div class="spacer15"></div><!--spacer-->
+        </div>
 
         <div class="wrapper-main brandshop clearfix">
-        	<div class="spacer15"></div><!--spacer-->
-        	<div class="container">
-            	<div class="inner-block"><!------Main Inner-------->
-                	<div class="row">
+            <div class="spacer15"></div><!--spacer-->
+            <div class="container">
+                <div class="inner-block"><!------Main Inner-------->
+                    <div class="row">
                         <div class="col-md-9 col-sm-8">
-                        	<div class="main-contant clearfix">
-                            	<div class="contant-wrapper">
+                            <div class="main-contant clearfix">
+                                <div class="contant-wrapper">
                                     <div class="image-category">
                                         <img src="images/banner/img-1.png" alt=""/>
                                     </div>
@@ -61,7 +61,7 @@
                                                 <a href="<?php echo base_url('sparepart/manufacturer/').$dt['manu_id']; ?>" class="view-grid"><i class="fa fa-th"></i><span>Grid</span></a>
                                                 <a href="<?php echo base_url('spareparts/manufacturer/').$dt['manu_id']; ?>" class="view-list active"><i class="fa fa-list"></i><span>List</span></a>
                                             </div>
-                                            <!-- END VIEW -->	
+                                            <!-- END VIEW -->   
                                         </div>
                                         <div class="pull-right">
                                             <!-- SHOW PAGE -->
@@ -115,7 +115,8 @@
                                                             $discount = $this->session->userdata('discount_price');
                                                             $total_discount = $price * $discount / 100;
                                                             $total_price = $price - $total_discount;
-                                                            if(!empty($this->session->userdata('user_id'))) { 
+                                                            $user = $this->session->userdata('user_id');
+                                                            if(!empty($user)) { 
                                                             
                                                             ?>
                                                                 Rp. <?php echo $total_price; ?>
@@ -150,18 +151,18 @@
                                         </div>
                                         <div class="spacer30"></div><!--spacer-->
                                         <div class="row">
-                                        	<div class="col-sm-12">
-                              					<div class="toolbar clearfix">
+                                            <div class="col-sm-12">
+                                                <div class="toolbar clearfix">
                                                     <div class="pager"><!--pagination -->
                                                         <ul class="pagination pull-left">
                                                            <?php echo $links; ?>
                                                         </ul>
                                                     </div><!-- End pagination -->
                                                 </div>
-                                        	</div>
+                                            </div>
                                         </div>
                                     </div><!-- End Product List -->
-                            	</div>
+                                </div>
                             </div>
                         </div>
                         <?php $this->load->view('sparepart/sidebar_sparepart'); ?>

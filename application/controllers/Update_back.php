@@ -8,7 +8,6 @@ class update extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('model_update');
-		$this->load->library("Upload2");
 	}
 
 	function update_slider() {
@@ -313,7 +312,7 @@ class update extends CI_Controller {
 		}
 		
 		
-		/* $config = array(
+		$config = array(
 
 			'upload_path' => "./assets/image/product",
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -323,7 +322,7 @@ class update extends CI_Controller {
 			'max_height' => "2200",
 			'max_width' => "2200"
 
-		);*/
+		);
 		
 			$data = array(
 			'product_id' => $product_id,	
@@ -352,42 +351,12 @@ class update extends CI_Controller {
 			
 
 
-			/* $this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
 			$this->upload->do_upload('product_image_new_1');
 			$this->upload->do_upload('product_image_new_2');
 			$this->upload->do_upload('product_image_new_3');
-			$this->upload->do_upload('product_image_new_4');*/
-			
-			//upload baru
-			if(!empty($_FILES["product_image_new_1"]["name"]))
-			{
-				$arr1["new_path"] = "assets/image/product";
-				$arr1["element"]  = "product_image_new_1"; 
-				$a = $this->upload2->upload_process($arr1);
-			}
-			
-			if(!empty($_FILES["product_image_new_2"]["name"]))
-			{
-				$arr2["new_path"] = "assets/image/product";
-				$arr2["element"]  = "product_image_new_2"; 
-				$b = $this->upload2->upload_process($arr2);
-			}
-			
-			if(!empty($_FILES["product_image_new_3"]["name"]))
-			{
-				$arr3["new_path"] = "assets/image/product";
-				$arr3["element"]  = "product_image_new_3"; 
-				$c = $this->upload2->upload_process($arr3);
-			}
-			
-			if(!empty($_FILES["product_image__new_4"]["name"]))
-			{
-				$arr4["new_path"] = "assets/image/product";
-				$arr4["element"]  = "product_image_new_4"; 
-				$d = $this->upload2->upload_process($arr4);
-			}
-			
+			$this->upload->do_upload('product_image_new_4');
 			$this->model_update->update_product($product_id,$data);
 		
 
