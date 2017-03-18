@@ -12,47 +12,62 @@ class update extends CI_Controller {
 	}
 
 	function update_slider() {
-		$slider_id = $this->input->post('slider_id');
-		$slider_title = $this->input->post('slider_title');
-		$slider_link = $this->input->post('slider_link');
-		$slider_image_old = $this->input->post('silder_image_old');
-		$slider_image_new = $_FILES['silder_image_new']['name'];
-		$config = array(
-
-			'upload_path' => "./assets/image/slider",
-			'allowed_types' => "gif|jpg|png|jpeg|pdf",
-			'remove_spaces' => FALSE,
-			'overwrite' => TRUE,
-			'max_size' => "2048000", 
-			'max_height' => "2200",
-			'max_width' => "2200"
-
-		);
-		if ($slider_image_new == '') {
-
+		
+			$slider_id 		  = $this->input->post('slider_id');
+			$slider_title 	  = $this->input->post('slider_title');
+			$slider_link 	  = $this->input->post('slider_link');
+			$slider_image_old = $this->input->post('silder_image_old');
+			
+			$slider_image_new = $_FILES['silder_image_new']['name'];
+			
+			/* $config = array(
+	
+				'upload_path' => "./assets/image/slider",
+				'allowed_types' => "gif|jpg|png|jpeg|pdf",
+				'remove_spaces' => FALSE,
+				'overwrite' => TRUE,
+				'max_size' => "2048000", 
+				'max_height' => "2200",
+				'max_width' => "2200"
+	
+			); */
+			
+			if ($slider_image_new == '') {
+	
+				$data = array(
+				
+				  'slider_title' => $slider_title,
+				  'silder_image' => $slider_image_old,
+				  'slider_link' => $slider_link
+				
+				);
+				
+				$this->model_update->update_slider($slider_id,$data);
+			}
+			else {
+	
 			$data = array(
-			'slider_title' => $slider_title,
-			'silder_image' => $slider_image_old,
-			'slider_link' => $slider_link
-			);
-			$this->model_update->update_slider($slider_id,$data);
-		}
-		else {
-
-			$data = array(
-			'slider_title' => $slider_title,
-			'silder_image' => $slider_image_new,
-			'slider_link' => $slider_link
+				
+				'slider_title' => $slider_title,
+				'silder_image' => $slider_image_new,
+				'slider_link' => $slider_link
+				
 			);
 
-			$this->load->library('upload', $config);
+			/* $this->load->library('upload', $config);
 			$this->upload->initialize($config);
-			$this->upload->do_upload('silder_image_new');
+			$this->upload->do_upload('assets/image/slider');*/
+			
+			$new_path = "assets/image/slider";
+			if(!empty($slider_image_new))
+			{
+				$arr3["new_path"] = $new_path;
+				$arr3["element"]  = "silder_image_new"; 
+				$c = $this->upload2->upload_process($arr3);
+			}
+			
 			$this->model_update->update_slider($slider_id,$data);
 		}
-		
-
-		
 
 		redirect('admin/slider');	
 	}
@@ -64,7 +79,8 @@ class update extends CI_Controller {
 		$manu_desc = $this->input->post('manu_desc');
 		$manu_image_old = $this->input->post('manu_image_old');
 		$manu_image_new = $_FILES['manu_image_new']['name'];
-		$config = array(
+		
+		/*$config = array(
 
 			'upload_path' => "./assets/image/manufacturer",
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -74,29 +90,49 @@ class update extends CI_Controller {
 			'max_height' => "2200",
 			'max_width' => "2200"
 
-		);
+		);*/
+		
 		if ($manu_image_new == '') {
 
 			$data = array(
-			'manu_title' => $manu_title,
-			'manu_image' => $manu_image_old,
-			'manu_link' => $manu_link,
-			'manu_desc' => $manu_desc
+			
+			  'manu_title' => $manu_title,
+			  'manu_image' => $manu_image_old,
+			  'manu_link' => $manu_link,
+			  'manu_desc' => $manu_desc
+			
 			);
+			
 			$this->model_update->update_manufacturer($manu_id,$data);
 		}
 		else {
 
 			$data = array(
-			'manu_title' => $manu_title,
-			'manu_image' => $manu_image_new,
-			'manu_link' => $manu_link,
-			'manu_desc' => $manu_desc
+			
+			  'manu_title' => $manu_title,
+			  'manu_image' => $manu_image_new,
+			  'manu_link' => $manu_link,
+			  'manu_desc' => $manu_desc
+			
 			);
 
-			$this->load->library('upload', $config);
+			/* $this->load->library('upload', $config);
 			$this->upload->initialize($config);
-			$this->upload->do_upload('manu_image_new');
+			$this->upload->do_upload('manu_image_new');*/
+			
+			$new_path = "assets/image/manufacturer";
+			if(!empty($_FILES["manu_image_new"]["name"]))
+			{
+	
+				$arr3["new_path"] = $new_path;
+	
+				$arr3["element"]  = "manu_image_new"; 
+	
+				$c = $this->upload2->upload_process($arr3);
+	
+			}
+			
+			
 			$this->model_update->update_manufacturer($manu_id,$data);
 		}
 		
@@ -107,6 +143,7 @@ class update extends CI_Controller {
 	}
 
 	function update_event() {
+		
 		$event_id = $this->input->post('event_id');
 		$event_title = $this->input->post('event_name');
 		$event_desc = $this->input->post('event_desc');
@@ -119,7 +156,8 @@ class update extends CI_Controller {
 		else {
 			$image_1 = $_FILES['event_image']['name'];
 		}
-		$config = array(
+		
+		/*$config = array(
 
 			'upload_path' => "./assets/image/events",
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -129,26 +167,35 @@ class update extends CI_Controller {
 			'max_height' => "2200",
 			'max_width' => "2200"
 
+		);*/
+
+		$data = array(
+		
+		'news_title' => $event_title,
+		'news_image' => $image_1,
+		'news_desc' => $event_desc
+		
 		);
 
-			$data = array(
-			'news_title' => $event_title,
-			'news_image' => $image_1,
-			'news_desc' => $event_desc
-			);
-
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-			$this->upload->do_upload('event_image');
-			$this->model_update->update_event($event_id,$data);
+		/*$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		$this->upload->do_upload('event_image');*/
 		
-
+		$new_path = "assets/image/events";
+		if(!empty($_FILES['event_image']['name']))
+		{
+			$arr["new_path"] = $new_path;
+			$arr["element"] = "event_image";
+			$this->upload2->upload_process($arr);
+		}
 		
+		$this->model_update->update_event($event_id,$data);
 
 		redirect('admin/event');	
 	}
 
 	function update_news() {
+		
 		$news_id = $this->input->post('news_id');
 		$news_title = $this->input->post('news_name');
 		$news_desc = $this->input->post('news_desc');
@@ -171,7 +218,7 @@ class update extends CI_Controller {
 		}
 
 
-		$config = array(
+		/* $config = array(
 
 			'upload_path' => "./assets/image/news",
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -181,19 +228,36 @@ class update extends CI_Controller {
 			'max_height' => "2200",
 			'max_width' => "2200"
 
-		);
+		);*/
 
 			$data = array(
+			
 			'news_title' => $news_title,
 			'news_image' => $image_1,
 			'news_desc' => $news_desc,
 			'news_thumbnail' => $image_2
+			
 			);
 
-			$this->load->library('upload', $config);
+			/* $this->load->library('upload', $config);
 			$this->upload->initialize($config);
 			$this->upload->do_upload('news_image');
-			$this->upload->do_upload('news_thumb_image');
+			$this->upload->do_upload('news_thumb_image'); */
+			
+			if(!empty($_FILES['news_thumb']['image']))
+			{
+				$arr["new_path"] = "assets/image/news/";
+				$arr["element"]  = "news_thumb"; 
+				$d = $this->upload2->upload_process($arr);
+			}
+			
+			if(!empty($_FILES['news_image']['name']))
+			{
+				$arr["new_path"] = "assets/image/news/";
+				$arr["element"]  = "news_image"; 
+				$d = $this->upload2->upload_process($arr);
+			}
+			
 			$this->model_update->update_news($news_id,$data);
 		
 
@@ -204,13 +268,13 @@ class update extends CI_Controller {
 
 	function update_discount() {
 
-		$discount_id = $this->input->post('discount_id');
-		$discount_code = $this->input->post('discount_code');
+		$discount_id 	= $this->input->post('discount_id');
+		$discount_code  = $this->input->post('discount_code');
 		$discount_price = $this->input->post('discount_price');
-		$discount_name= $this->input->post('discount_name');
-		$discount_desc = $this->input->post('discount_desc');
-		$start_date = $this->input->post('start_date');
-		$expired_date = $this->input->post('expired_date');
+		$discount_name	= $this->input->post('discount_name');
+		$discount_desc  = $this->input->post('discount_desc');
+		$start_date 	= $this->input->post('start_date');
+		$expired_date 	= $this->input->post('expired_date');
 
 
 		$data = array(
@@ -446,7 +510,7 @@ class update extends CI_Controller {
 		}
 		
 	
-		$config = array(
+		/* $config = array(
 
 			'upload_path' => "./assets/sp/images/products",
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -456,7 +520,7 @@ class update extends CI_Controller {
 			'max_height' => "2200",
 			'max_width' => "2200"
 
-		);
+		); */
 		
 			$data = array(
 			'sparepart_name' => $sparepart_name,
@@ -480,12 +544,63 @@ class update extends CI_Controller {
 		);
 
 	
-			$this->load->library('upload', $config);
+			/* $this->load->library('upload', $config);
 			$this->upload->initialize($config);
 			$this->upload->do_upload('sparepart_image_new_1');
 			$this->upload->do_upload('sparepart_image_new_2');
 			$this->upload->do_upload('sparepart_image_new_3');
-			$this->upload->do_upload('sparepart_image_new_4');
+			$this->upload->do_upload('sparepart_image_new_4');*/
+			
+			$new_path = "assets/sp/images/products/";
+			if(!empty($_FILES["sparepart_image_new_1"]["name"]))
+	
+			{
+	
+				$arr1["new_path"] = $new_path;
+	
+				$arr1["element"]  = "sparepart_image"; 
+	
+				$a = $this->upload2->upload_process($arr1);
+	
+			}
+	
+			
+	
+			if(!empty($_FILES["sparepart_image_new_2"]["name"]))
+	
+			{
+	
+				$arr2["new_path"] = $new_path;
+	
+				$arr2["element"]  = "sparepart_image_new_2"; 
+	
+				$b = $this->upload2->upload_process($arr2);
+	
+			}
+	
+			
+	
+			if(!empty($_FILES["sparepart_image_new_3"]["name"]))
+			{
+	
+				$arr3["new_path"] = $new_path;
+	
+				$arr3["element"]  = "sparepart_image_new_3"; 
+	
+				$c = $this->upload2->upload_process($arr3);
+	
+			}
+	
+			
+	
+			if(!empty($_FILES["sparepart_image_new_4"]["name"]))
+			{
+				$arr4["new_path"] = $new_path;
+				$arr4["element"]  = "sparepart_image_new_4"; 
+				$d = $this->upload2->upload_process($arr4);
+			}
+			
+			
 			$this->model_update->update_sparepart($sparepart_id,$data);
 
 		redirect('admin/list_sparepart');	

@@ -19,6 +19,22 @@
 			
 		}
 		
+		function check_allowed_type()
+		{
+			
+		}
+		
+		function check_size()
+		{
+			
+		}
+		
+		function check_dimension()
+		{
+			
+			
+		}
+		
 		function upload_process($arr)
 		{
 			$element = $arr["element"];

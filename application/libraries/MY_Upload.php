@@ -31,6 +31,7 @@ class MY_Upload extends CI_Upload
         }
     }
     public function do_upload($field = 'userfile') {
+		
         if (!isset($_FILES[$field])) {
             return false;
         }

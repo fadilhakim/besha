@@ -56,8 +56,6 @@ class insert extends CI_Controller {
 
 	}
 
-
-
 	function do_upload() {
 
 
@@ -120,16 +118,9 @@ class insert extends CI_Controller {
 
 	}
 
-
-
-
-
 	function insert_product()
 
 	{
-
-
-
 
 
 		$product_title = $this->input->post('product_title');
@@ -342,15 +333,8 @@ class insert extends CI_Controller {
 
 	}
 
-
-
 	function insert_sparepart()
-
 	{
-
-
-
-
 
 		$sparepart_name = $this->input->post('sparepart_name');
 
@@ -400,7 +384,7 @@ class insert extends CI_Controller {
 
 
 
-		$config['upload_path']	=	'./assets/sp/images/products/' ;
+		/* $config['upload_path']	=	'./assets/sp/images/products/' ;
 
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
 
@@ -412,7 +396,7 @@ class insert extends CI_Controller {
 
 		$config['max_height']	=  '1250';
 
-		$config['max_width'] 	=	'1300';
+		$config['max_width'] 	=	'1300'; */
 
 
 
@@ -468,13 +452,59 @@ class insert extends CI_Controller {
 
 		$this->upload->initialize($config);
 
-		$this->upload->do_upload('sparepart_image');
-
+		/* $this->upload->do_upload('sparepart_image');
 		$this->upload->do_upload('sparepart_image_2');
-
 		$this->upload->do_upload('sparepart_image_3');
+		$this->upload->do_upload('sparepart_image_4'); */
+		
+		$new_path = "assets/sp/images/products/";
+		if(!empty($_FILES["sparepart_image"]["name"]))
 
-		$this->upload->do_upload('sparepart_image_4');
+		{
+
+			$arr1["new_path"] = $new_path;
+
+			$arr1["element"]  = "sparepart_image"; 
+
+			$a = $this->upload2->upload_process($arr1);
+
+		}
+
+		
+
+		if(!empty($_FILES["sparepart_image_2"]["name"]))
+
+		{
+
+			$arr2["new_path"] = $new_path;
+
+			$arr2["element"]  = "sparepart_image_2"; 
+
+			$b = $this->upload2->upload_process($arr2);
+
+		}
+
+		
+
+		if(!empty($_FILES["sparepart_image_3"]["name"]))
+		{
+
+			$arr3["new_path"] = $new_path;
+
+			$arr3["element"]  = "sparepart_image_3"; 
+
+			$c = $this->upload2->upload_process($arr3);
+
+		}
+
+		
+
+		if(!empty($_FILES["sparepart_image_4"]["name"]))
+		{
+			$arr4["new_path"] = $new_path;
+			$arr4["element"]  = "sparepart_image_4"; 
+			$d = $this->upload2->upload_process($arr4);
+		}
 
 		$result = $this->model_insert->insert($data,'sparepart_tbl');
 
@@ -498,23 +528,12 @@ class insert extends CI_Controller {
 
 		$this->session->set_flashdata('error_product',$value);	
 
-
-
 		redirect('admin/list_sparepart');	
 
 	}
 
-	
-
-
-
 	function insert_slider()
-
 	{
-
-
-
-
 
 		$slider_title = $this->input->post('slider_title');
 
@@ -525,13 +544,7 @@ class insert extends CI_Controller {
 		/*str_replace(' ', '_', $slider_image);*/
 
 
-
-
-
-		$config = array(
-
-
-
+		/* $config = array(
 			'upload_path' => "./assets/image/slider/",
 
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -546,9 +559,7 @@ class insert extends CI_Controller {
 
 			'max_width' => "2200"
 
-
-
-		);
+		);*/
 
 
 
@@ -563,13 +574,17 @@ class insert extends CI_Controller {
 		);
 
 		
+		$new_path = "assets/image/slider/";
+		if(!empty($_FILES["slider_image"]["name"]))
+		{
 
-		$this->load->library('upload', $config);
+			$arr1["new_path"] = $new_path;
 
-		$this->upload->initialize($config);
+			$arr1["element"]  = "slider_image"; 
 
-		$this->upload->do_upload('slider_image');
+			$a = $this->upload2->upload_process($arr1);
 
+		}
 
 
 		$result = $this->model_insert->insert($data,'slider_tbl');
@@ -602,28 +617,16 @@ class insert extends CI_Controller {
 
 	}
 
-
-
 	function insert_client()
-
 	{
-
-
-
-
 
 		$client_name = $this->input->post('client_name');
 
 		$client_image = $_FILES['client_image']['name'];
 
 
-
-
-
-		$config = array(
-
-
-
+		/*$config = array(
+		
 			'upload_path' => "./assets/image/clients/",
 
 			'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -638,33 +641,25 @@ class insert extends CI_Controller {
 
 			'max_width' => "1400"
 
-
-
-		);
-
+		);*/
 
 
 		$data = array(
-
 			'client_name' => $client_name,
-
 			'client_image' => $client_image
-
 		);
-
 		
+		$new_path = "assets/image/clients/";
+		if(!empty($_FILES["client_image"]["name"]))
+		{
 
-		$this->load->library('upload', $config);
+			$arr1["new_path"] = $new_path;
+			$arr1["element"]  = "client_image"; 
+			$a = $this->upload2->upload_process($arr1);
 
-		$this->upload->initialize($config);
-
-		$this->upload->do_upload('client_image');
-
-
+		}
 
 		$result = $this->model_insert->insert($data,'client_tbl');
-
-
 
 		if($result!=false)
 
@@ -692,14 +687,8 @@ class insert extends CI_Controller {
 
 	}
 
-
-
 	function insert_manufacturer()
-
 	{
-
-
-
 
 
 		$manu_name = $this->input->post('manu_name');
@@ -714,9 +703,7 @@ class insert extends CI_Controller {
 
 
 
-		$config = array(
-
-
+		/*$config = array(
 
 			'upload_path' => "./assets/image/manufacturer/",
 
@@ -731,10 +718,7 @@ class insert extends CI_Controller {
 			'max_height' => "600",
 
 			'max_width' => "1400"
-
-
-
-		);
+		);*/
 
 
 
@@ -750,19 +734,22 @@ class insert extends CI_Controller {
 
 		);
 
-		
-
-		$this->load->library('upload', $config);
-
+		/*$this->load->library('upload', $config);
 		$this->upload->initialize($config);
+		$this->upload->do_upload('manu_image');*/
+		
+		$new_path = "assets/image/manufacturer/";
+		if(!empty($_FILES["menu_image"]["name"]))
+		{
 
-		$this->upload->do_upload('manu_image');
+			$arr1["new_path"] = $new_path;
+			$arr1["element"]  = "menu_image"; 
+			$a = $this->upload2->upload_process($arr1);
 
+		}
 
 
 		$result = $this->model_insert->insert($data,'manufacturer_tbl');
-
-
 
 		if($result!=false)
 
@@ -790,15 +777,8 @@ class insert extends CI_Controller {
 
 	}
 
-
-
 	function insert_event()
-
 	{
-
-
-
-
 
 		$event_name = $this->input->post('event_name');
 
@@ -807,12 +787,7 @@ class insert extends CI_Controller {
 		$event_image = $_FILES['event_image']['name'];
 
 
-
-
-
-		$config = array(
-
-
+		/*$config = array(
 
 			'upload_path' => "./assets/image/events/",
 
@@ -827,10 +802,7 @@ class insert extends CI_Controller {
 			'max_height' => "600",
 
 			'max_width' => "1400"
-
-
-
-		);
+		);*/
 
 
 
@@ -844,19 +816,19 @@ class insert extends CI_Controller {
 
 		);
 
-		
-
-		$this->load->library('upload', $config);
-
+		/* $this->load->library('upload', $config);
 		$this->upload->initialize($config);
+		$this->upload->do_upload('event_image'); */
+		
+		if(!empty($_FILES["event_image"]["name"]))
+		{
 
-		$this->upload->do_upload('event_image');
-
-
+			$arr4["new_path"] = "assets/image/events/";
+			$arr4["element"]  = "event_image"; 
+			$d = $this->upload2->upload_process($arr4);
+		}
 
 		$result = $this->model_insert->insert($data,'event_tbl');
-
-
 
 		if($result!=false)
 
@@ -876,23 +848,14 @@ class insert extends CI_Controller {
 
 		}
 
-		$this->session->set_flashdata('error_product',$value);	
-
-
+		$this->session->set_flashdata('error_product',$value);
 
 		redirect('admin/event');	
 
 	}
 
-
-
 	function insert_news()
-
 	{
-
-
-
-
 
 		$news_name = $this->input->post('news_name');
 
@@ -904,13 +867,7 @@ class insert extends CI_Controller {
 
 		$news_thumb_image = $_FILES['news_thumb_image']['name'];
 
-
-
-
-
-		$config = array(
-
-
+		/*$config = array(
 
 			'upload_path' => "./assets/image/news/",
 
@@ -925,10 +882,8 @@ class insert extends CI_Controller {
 			'max_height' => "600",
 
 			'max_width' => "1400"
-
-
-
-		);
+			
+		);*/
 
 
 
@@ -948,19 +903,26 @@ class insert extends CI_Controller {
 
 		
 
-		$this->load->library('upload', $config);
-
+		/*$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-
 		$this->upload->do_upload('news_image');
+		$this->upload->do_upload('news_thumb_image');*/
 
-		$this->upload->do_upload('news_thumb_image');
-
-
+		if(!empty($news_image))
+		{
+			$arr["new_path"] = "assets/image/news/";
+			$arr["element"]  = "news_image"; 
+			$d = $this->upload2->upload_process($arr);
+		}
+		
+		if(!empty($news_thumb_image))
+		{
+			$arr["new_path"] = "assets/image/news/";
+			$arr["element"]  = "news_thumb_image"; 
+			$d = $this->upload2->upload_process($arr);
+		}
 
 		$result = $this->model_insert->insert($data,'news_tbl');
-
-
 
 		if($result!=false)
 
