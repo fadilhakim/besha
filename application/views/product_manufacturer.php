@@ -77,7 +77,9 @@
           </div>
           <br />
           <div class="row products-category">
-           <?php if(!empty($product->result())) {?>
+           <?php
+            $hasil = $product->result();
+            if(!empty($hasil)) {?>
            <?php foreach($product->result() as $row){
               $product_title=$row->product_title;
               $product_descrption=$row->product_descrption;

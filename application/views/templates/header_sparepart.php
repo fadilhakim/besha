@@ -17,7 +17,7 @@
                             	<i class="fa fa-phone"></i>
                             </a>
                             <div class="i-hover dropdown-menu">
-                            	<span>111 1111 11</span>
+                            	<span>+62-21-4585-6666</span>
                          	</div>
                         </li>
                         <li class="dropdown">
@@ -47,9 +47,6 @@
                 <?php } else {?>
                 <div class="top-links clearfix fright">
                   <ul>
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i>My Account</a>
-                      </li>
                       <li class="dropdown">
                         <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
                       </li>
