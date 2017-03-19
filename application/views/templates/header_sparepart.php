@@ -105,7 +105,7 @@
                                     <?php $i = 1; ?>
                                     <?php foreach($this->cart->contents() as $items): ?>
                                     <div class="product clearfix">
-                                      <a href="#"><i class="fa fa-close"></i></a>
+                                      <a href="<?=base_url("cart/remove_item/$items[rowid]")?>"><i class="fa fa-close"></i></a>
                                       <figure class="product-images">
                                           <a href="#">
                                               <img src="<?php echo base_url('assets/sp/images/products/').$items['image']; ?>" alt=""/>
