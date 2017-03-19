@@ -354,7 +354,7 @@ class Model_sparepart extends CI_Model {
 
 		$subject = 'Verify Your Email Address';
 
-		$message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://besha-analitika.co.id/verify/users/' . md5($to_email) . '<br /><br /><br />Thanks<br />';
+		$message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/verify/users/' . md5($to_email) . '<br /><br /><br />Thanks<br />';
 
 		
 

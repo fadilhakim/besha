@@ -34,7 +34,7 @@
                             	<div class="contant-wrapper">
                                     <div class="contact-details" style="padding-left: 0px;">
                                         <div class="row">
-                                            <form action="<?php echo base_url('login-action'); ?>" method="post">
+                                            <form action="<?php echo base_url('login-action-2'); ?>" method="post">
                                                 <div class="col-lg-12 contact-form">
 
                                                     <div class="col-sm-12">

@@ -760,6 +760,79 @@ class sparepart extends CI_Controller {
 
 	}
 
+	function login_action_2(){
+
+		$email = $this->input->post('email');
+
+		$password = md5($this->input->post('password'));
+
+		$this->load->model('login_model_sparepart');
+
+		$cek = $this->login_model_sparepart->cek_login($email, $password);
+
+		if($cek->num_rows()==1){
+
+
+
+			foreach ($cek->result() as $data) { }
+
+				
+
+				if($data->act_status == '0') {
+
+
+
+					$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                                                Silahkan Konfirmas email anda terlebih Dahulu.
+
+                                            </div>');
+
+					redirect(base_url("login"));
+
+				}
+
+				else {
+
+					$sess_data['user_id'] = $data->user_id;
+
+					$sess_data['email'] = $data->email;
+
+					$sess_data['discount_price'] = $data->discount_price;
+
+					$this->session->set_userdata($sess_data);
+
+					redirect(base_url('sparepart'));
+
+				}
+
+			
+
+
+
+			
+
+
+
+		}else{
+
+			$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                                                Maaf username/password yang anda masukan salah.
+
+                                            </div>');
+
+			redirect(base_url("login"));
+
+		}
+
+	}
+
+
 
 
 	function logout(){

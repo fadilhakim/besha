@@ -84,6 +84,7 @@ $route['sparepart/contact_post'] = 'sparepart/contact_post';
 
 $route['sparepart/signup'] = 'sparepart/signup';
 $route['login-action'] = 'sparepart/login_action';
+$route['login-action-2'] = 'sparepart/login_action_2';
 $route['verify'] = 'sparepart/verify';
 $route['success'] = 'sparepart/success';
 
