@@ -3,7 +3,9 @@
        		<div class="container">
              	<div class="breadcrumbs-main clearfix">
                 	<h2>
-                        <?php if($this->uri->segment(2) != 'category') { echo "All Manufacturers"; } 
+                        <?php 
+						$uri2 = $this->uri->segment(2); 
+						if($uri2 != 'category') { echo "All Manufacturers"; } 
                              else if(empty($spareparts)) {
                                 $manu_name = $this->uri->segment(3);
                                 $this->db->where('manu_id',$manu_name );
@@ -133,11 +135,14 @@
                                                         <h4 class="p-title"><?php echo $sp->sparepart_name; ?></h4>
                                                         <div class="price">
                                                             <?php 
-                                                                $price =  $sp->sparepart_price;
+                                                                
+																
+																$price =  $sp->sparepart_price;
                                                                 $discount = $this->session->userdata('discount_price');
                                                                 $total_discount = $price * $discount / 100;
                                                                 $total_price = $price - $total_discount;
-                                                                if(!empty($this->session->userdata('user_id'))) { 
+												$user_id = $this->session->userdata('user_id');
+                                                if(!empty($user_id)) { 
                                                                 
                                                                 ?>
                                                                     Rp. <?php echo $total_price; ?>
@@ -165,6 +170,7 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- End Item -->
+                                                
                                             <?php } } ?>
                                             
                                         </div>

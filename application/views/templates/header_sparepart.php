@@ -102,7 +102,7 @@
                                     <?php $i = 1; ?>
                                     <?php foreach($this->cart->contents() as $items): ?>
                                     <div class="product clearfix">
-                                      <a href="#"><i class="fa fa-close"></i></a>
+                                      <a href="<?=base_url("cart/remove_item/$items[rowid]")?>"><i class="fa fa-close"></i></a>
                                       <figure class="product-images">
                                           <a href="#">
                                               <img src="<?php echo base_url('assets/sp/images/products/').$items['image']; ?>" alt=""/>
@@ -113,7 +113,7 @@
                                               <a href="<?php echo base_url('cart/show_cart'); ?>"><?php echo substr($items['name'],0,35); ?></a>
                                             </h5>
                                             <div class="product-rate">
-                                              <span>Rp. <?php echo $items['price']; ?></span>
+                                              <span>Rp. <?php echo number_format($items['price']); ?></span>
                                             </div>
                                         </div>
                                     </div>

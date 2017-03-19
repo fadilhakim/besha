@@ -109,6 +109,12 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
     	$this->cart->destroy(); // Destroy all cart data
     	redirect('spareparts/all'); // Refresh te page
 	}
+	
+	function send_email_invoice()
+	{
+			
+		
+	}
 
  
 }
