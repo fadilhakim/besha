@@ -116,7 +116,7 @@
                                               <a href="<?php echo base_url('cart/show_cart'); ?>"><?php echo substr($items['name'],0,35); ?></a>
                                             </h5>
                                             <div class="product-rate">
-                                              <span>Rp. <?php echo $items['price']; ?></span>
+                                              <span>Rp. <?php echo number_format($items['price']); ?></span>
                                             </div>
                                         </div>
                                     </div>
