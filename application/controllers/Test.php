@@ -69,14 +69,34 @@
 			var_dump($a);
 		}
 		
-		function filter()
+		function send_email_bro()
 		{
-			$start = $this->input->post("start");
-			
-			$data["start"] = $start;
-			$data["end"]   = $end;
-		
-				
-			$this->load->view("index",$data);
+			error_reporting(E_ALL);
+
+			$this->load->library("MY_Email2");
+	
+			$content = array(
+
+				"subject" 		=> "Selamat Datang di Besha-analitika.co.id",
+
+				"subject_title"  => "besha-analitika.co.id",
+
+				"to" 			 => "alhusna901@gmail.com", //ganti dengan email seatizen
+
+				"data" 		    => array(),
+
+				"message" 		=> "hello bro",
+
+				"mv" 			=> FALSE
+
+			); 
+
+			$user = "test_email";
+
+			// $this->load->view($content["message"],$dtt);
+
+			$this->my_email->send_email($user,$content);
+
+			echo $this->my_email->get_email_message();
 		}
 	}
