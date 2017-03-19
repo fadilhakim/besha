@@ -598,7 +598,9 @@ class sparepart extends CI_Controller {
 
 				'shipping_address' => $shipping_address,
 
-				'billing_address' => $billing_address
+				'billing_address' => $billing_address,
+
+				'act_status' => 1
 
 			);
 
@@ -620,7 +622,7 @@ class sparepart extends CI_Controller {
 
 					$this->session->set_flashdata('msg','You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!');
 
-					redirect('success');
+					redirect('registration/success');
 
 				}
 
@@ -978,6 +980,28 @@ class sparepart extends CI_Controller {
 
 
 
+	}
+
+	function user_registration_sucess(){
+		$this->load->view('templates/meta_sparepart');
+
+		$this->load->view('templates/header_sparepart');
+
+
+        $this->load->view('sparepart/v_success');
+
+        $this->load->view('templates/footer_sparepart');
+	}
+
+	function user_registration_after_confirm(){
+		$this->load->view('templates/meta_sparepart');
+
+		$this->load->view('templates/header_sparepart');
+
+
+        $this->load->view('sparepart/v_login_user');
+
+        $this->load->view('templates/footer_sparepart');
 	}
 
 }

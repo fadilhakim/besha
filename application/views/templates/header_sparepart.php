@@ -166,7 +166,7 @@
                 		<li>
                      		<a href="<?php echo base_url('sparepart'); ?>">Spareparts</a>
                     </li>
-                    <li><a href="<?php echo base_url('sparepart/jasa'); ?>">Jasa</a></li>
+                    <<!-- li><a href="<?php echo base_url('sparepart/jasa'); ?>">Jasa</a></li> -->
                     <li><a href="<?php echo base_url('sparepart/contact'); ?>">Contact</a></li>
                     
                   </ul>
