@@ -79,4 +79,9 @@
 				
 			$this->load->view("index",$data);
 		}
+		
+		function lala()
+		{
+			echo "iam here ";	
+		}
 	}
