@@ -411,7 +411,9 @@ class admin extends CI_Controller {
 
 		$this->load->model('model_sparepart');
 		$data['category'] = $this->model_sparepart->list_sparepart_category();
-
+		
+		//print_r($data); exit;
+		
 		/*$getmanufacturer = $this->model_manufacturer->getManufacturer($id_brand);
 		$data['manufacturer'] = $getmanufacturer;
 
