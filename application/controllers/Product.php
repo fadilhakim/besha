@@ -59,7 +59,7 @@ class product extends CI_Controller {
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
 
-        $limit = $config["per_page"] = 5;
+        $limit = $config["per_page"] = 12;
         $config["uri_segment"] = 2;
 
         $this->pagination->initialize($config);

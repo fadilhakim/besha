@@ -238,7 +238,7 @@ class admin extends CI_Controller {
 		$this->load->view('templates/footer-admin');
 	}
 
-	public function news()
+	public function admin()
 	{
 
 		$this->load->model('model_news');

@@ -2,6 +2,7 @@
 <div class="wrapper-wide">
   <div id="header">
     <!-- Top Bar Start-->
+    <?php $this->load->view('sparepart/v_login_popup'); ?>
     <nav id="top" class="htop navbar navbar-default navbar-fixed-top" style="min-height:0px;">
       <div class="container">
         <div class="row"> <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
@@ -15,21 +16,20 @@
             
           </div>
           <div id="top-links" class="nav pull-right flip">
-            <!-- <ul>
+            <ul>
+            <?php if(!$this->session->userdata('email')){ ?>
               <li>
-                <div id="language" class="btn-group">
-                  <button class="btn-link dropdown-toggle" data-toggle="dropdown"> <span> <img src="<?php echo base_url('assets/image/flags/gb.png') ?>"  alt="English" title="English">English <i class="fa fa-caret-down"></i></span></button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="<?php echo base_url('assets/image/flags/gb.png') ?>" alt="English" title="English" /> English</button>
-                    </li>
-                    <li>
-                      <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="<?php echo base_url('assets/image/flags/id.png') ?>" alt="Arabic" title="Arabic" /> Indonesia</button>
-                    </li>
-                  </ul>
-                </div>
-            </li>
-            </ul> -->
+                <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+              </li>
+              <li class="dropdown">
+                <a href="<?php echo base_url('sparepart/signup'); ?>">Sign up</a>
+              </li>
+             <?php } else {?>
+              <li>
+                <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
+              </li>
+            <?php } ?>
+            </ul>
           </div>
         </div>
       </div>

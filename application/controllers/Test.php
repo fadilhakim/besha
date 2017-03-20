@@ -99,4 +99,9 @@
 
 			echo $this->my_email->get_email_message();
 		}
+		
+		function lala()
+		{
+			echo "iam here ";	
+		}
 	}

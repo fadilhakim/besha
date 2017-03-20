@@ -84,6 +84,7 @@ $route['sparepart/contact_post'] = 'sparepart/contact_post';
 
 $route['sparepart/signup'] = 'sparepart/signup';
 $route['login-action'] = 'sparepart/login_action';
+$route['login-action-2'] = 'sparepart/login_action_2';
 $route['verify'] = 'sparepart/verify';
 $route['success'] = 'sparepart/success';
 
@@ -188,3 +189,7 @@ $route['admin/edit/admin_f'] = 'update/update_admin';
 
 $route['login/verify/admin/(:any)'] = 'admin_users/verify';
 $route['login/verify/submit'] = 'admin_users/verify_submit';
+
+//users confirm email
+$route['registration/success'] = 'sparepart/user_registration_sucess';
+$route['verify/users/(:any)'] = 'sparepart/user_registration_after_confirm';
