@@ -108,10 +108,6 @@ class Model_sparepart extends CI_Model {
 
 		}
 
-
-
-
-
 		public function getproductfromIdandCode($id,$code){
 
 
@@ -136,7 +132,7 @@ class Model_sparepart extends CI_Model {
 
 
 
-			return $query->result();
+			return $query;
 
 				
 
@@ -166,7 +162,7 @@ class Model_sparepart extends CI_Model {
 
 			$query = $this->db->get();
 
-			return $query->result();
+			return $query;
 
 				
 

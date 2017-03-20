@@ -228,12 +228,11 @@ class delete extends CI_Controller {
         $image = $this->input->post('slider_image');*/
 
 		$id = $this->uri->segment(4);
-
 		$code = $this->uri->segment(5);
-
+		
 		$this->load->model('model_sparepart');
 
-		$getdata['getimage'] = $this->model_sparepart->getproductfromIdandCode($id,$code);
+		$getdata['getimage'] = $this->model_sparepart->getproductfromIdandCode($id,$code)->row();
 
 		//foreach ($getdata['getimage'] as $row);
 		

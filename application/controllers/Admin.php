@@ -400,7 +400,7 @@ class admin extends CI_Controller {
 		$code=$this->uri->segment(4);
 
 		$this->load->model('model_sparepart');
-		$data['sparepart'] = $this->model_sparepart->getproductfromIdandCode($id,$code);
+		$data['sparepart'] = $this->model_sparepart->getproductfromIdandCode($id,$code)->result();
 	
 		/*$this->load->model('model_update');
 		$data['product'] = $this->model_update->list_product($slug); */
