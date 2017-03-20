@@ -145,10 +145,10 @@
                                                 if(!empty($user_id)) { 
                                                                 
                                                                 ?>
-                                                                    Rp. <?php echo $total_price; ?>
+                                                                    Rp. <?php echo  number_format($total_price); ?>
                                                                     
                                                                 <?php  }else{?>
-                                                                    Rp.<?php echo $sp->sparepart_price; ?>
+                                                                    Rp.<?php echo  number_format($sp->sparepart_price); ?>
                                                                 <?php }
                                                             ?>
                                                         </div>

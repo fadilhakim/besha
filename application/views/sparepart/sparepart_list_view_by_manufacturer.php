@@ -119,10 +119,10 @@
                                                             if(!empty($user)) { 
                                                             
                                                             ?>
-                                                                Rp. <?php echo $total_price; ?>
+                                                                Rp. <?php echo number_format($total_price); ?>
                                                                 
                                                             <?php  }else{?>
-                                                                Rp.<?php echo $row->sparepart_price; ?>
+                                                                Rp.<?php echo  number_format($row->sparepart_price); ?>
                                                             <?php }
                                                         ?>
                                                     </div>

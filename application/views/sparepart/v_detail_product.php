@@ -60,7 +60,7 @@
                                             <div class="product-info">
                                                <!--  <h4><?php echo $row->sparepart_name; ?></h4> -->
                                                 <div class="price-box">
-                                                    <p class="new-price"><span style="font-size:26px;">Rp. <?php echo $row->sparepart_price; ?></span></p>
+                                                    <p class="new-price"><span style="font-size:26px;">Rp. <?php echo  number_format($row->sparepart_price); ?></span></p>
                                                    <!--  <p class="old-price"><span>Rp. 340.00</span></p> -->
                                                 </div>
                                                 <span class="product_stock">Stock :  
@@ -156,7 +156,7 @@
                                                                 <a href="#">
                                                                     <?php echo $related['sparepart_name']; ?>
                                                                 </a>
-                                                                <span>Rp. <?php echo $related['sparepart_price']; ?></span>
+                                                                <span>Rp. <?php echo  number_format($related['sparepart_price']); ?></span>
                                                             </li>
                                                         </ul>
                                             </div>

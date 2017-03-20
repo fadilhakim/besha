@@ -132,7 +132,7 @@
                                          	</li>
                                          	<li>
                                             	Total Price:
-                                            	<span>Rp <?php echo $this->cart->total(); ?></span>
+                                            	<span>Rp <?php echo  number_format($this->cart->total()); ?></span>
                                          	</li>
                                       	</ul>
                                       	<ul class="pull-right action-btn">
