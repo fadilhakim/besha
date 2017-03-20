@@ -28,7 +28,8 @@ class Model_news extends CI_Model {
 			$query = $this->db->get();
 			if($query)
 			{
-				return $query->result();	
+				//return $query->result();	
+				return $query->row();
 			}
 			else
 			{

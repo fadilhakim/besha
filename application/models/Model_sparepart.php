@@ -136,7 +136,7 @@ class Model_sparepart extends CI_Model {
 
 
 
-			return $query->result();
+			return $query->row();
 
 				
 
@@ -166,7 +166,7 @@ class Model_sparepart extends CI_Model {
 
 			$query = $this->db->get();
 
-			return $query->result();
+			return $query->row();
 
 				
 

@@ -112,7 +112,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	
 	function send_email_invoice()
 	{
-			
+		
 		
 	}
 
