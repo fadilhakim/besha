@@ -423,8 +423,6 @@ class delete extends CI_Controller {
 
     }
 
-
-
     public function delete_voucher() {
 
 
@@ -436,8 +434,6 @@ class delete extends CI_Controller {
 		redirect('admin/discount');
 
 	}
-
-
 
 	public function delete_admin() {
 
