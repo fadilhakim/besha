@@ -19,6 +19,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Sparepart Title</th>
+                                            <th>Sparepart Code</th>
                                             <th>Sparepart Display</th>
                                             <th>Sparepart Category</th>
                                             <th>Sparepart Manufacturer</th>
@@ -34,6 +35,7 @@
                                         <tr>
                                             <td><?php echo $i; $i++;?></td>
                                             <td><?php echo $p->sparepart_name; ?></td>
+                                            <td><?php echo $p->sparepart_code; ?></td>
                                             <td>
                                                 <?php if ($p->sparepart_image != ''){ ?>
                                                     <img src="<?php echo base_url('assets/sp/images/products/').$p->sparepart_image; ?>" width='120' class="img-responsive ss">
