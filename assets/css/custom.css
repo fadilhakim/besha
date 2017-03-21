@@ -1,10 +1,10 @@
 
 .owl-carousel.single-slider.owl-theme .owl-controls .owl-page.active span, .owl-carousel.single-slider.owl-theme .owl-controls.clickable .owl-page:hover span {
-	background: #FE8301 !important;
+    background: #FE8301 !important;
 }
 
 .owl-theme .owl-controls .owl-page span {
-	background: #FE8301 !important;
+    background: #FE8301 !important;
 }
 
 @font-face {
@@ -27,12 +27,12 @@
 }
 
 .code-f {
-	font-family: "kenzo";
-	letter-spacing: 0.8px;
+    font-family: "kenzo";
+    letter-spacing: 0.8px;
 }
 
 .font-code {
-	font-family: 'americana';
+    font-family: 'americana';
 }
 
 article
