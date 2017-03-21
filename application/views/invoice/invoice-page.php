@@ -35,6 +35,7 @@
         width:100%;
         line-height:inherit;
         text-align:left;
+		
     }
     
     .invoice-box table td{
@@ -164,7 +165,7 @@
                 <td>
                     Product Image
                 </td>
-				<td>
+				<td style="text-align:left !important">
                 	Product name
                 </td>
                 <td>
@@ -192,9 +193,11 @@
             <tr class="item">
                 <td>
                     <img 
-                    src="<?php echo base_url('assets/sp/images/products/').$items['image']; ?>" />
+                    src="<?=check_image_sparepart($items['id'])?>" width="100" height="100" />
+                    
+                   
                 </td>
-                <td>
+                <td style="text-align:left !important">
                 	<?=$detail_sparepart->sparepart_name?>
                 </td>
                 <td>
@@ -202,7 +205,7 @@
                 </td>
                 
                 <td>
-                	<?=$items["qty"]?>
+                	<?=$items["qty"]?> 
                 </td>
                 <td>
                 	<?=$items["price"]?>
