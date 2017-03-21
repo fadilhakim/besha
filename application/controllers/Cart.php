@@ -5,6 +5,8 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
     public function __construct(){
       parent::__construct();
    	  $this->load->model('model_cart');
+	  $this->load->helper("check_data");
+	  
   	}
 
 	function add_cart_item(){
@@ -122,8 +124,6 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 		
 		//print_r($cart);
 		$user_session = $this->session->all_userdata();
-		
-		print_r($user_session);
 		 
 		$this->load->view("invoice/invoice-page");
 	}
