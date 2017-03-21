@@ -93,7 +93,8 @@
                                                                 $discount = $this->session->userdata('discount_price');
                                                                 $total_discount = $price * $discount / 100;
                                                                 $total_price = $price - $total_discount;
-                                                                if(!empty($this->session->userdata('user_id'))) { 
+                                                                $user_session_id = $this->session->userdata('user_id');
+                                                                    if(!empty($user_session_id)) { 
                                                                 
                                                                 ?>
                                                                     Rp. <?php echo $total_price; ?>
