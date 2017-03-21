@@ -58,6 +58,9 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	}
 
 	function show_cart(){
+		
+		$this->load->model('model_sparepart');
+		
 		$this->load->view('templates/meta_sparepart');
 		$this->load->view('templates/header_sparepart');
     	$this->load->view('sparepart/v_cart');
@@ -112,8 +115,17 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	
 	function send_email_invoice()
 	{
+		$this->load->model("model_user");
+		$this->load->model("model_sparepart");
 		
+		$cart = $this->cart->contents();
 		
+		//print_r($cart);
+		$user_session = $this->session->all_userdata();
+		
+		print_r($user_session);
+		 
+		$this->load->view("invoice/invoice-page");
 	}
 
  

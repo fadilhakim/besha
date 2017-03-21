@@ -84,4 +84,13 @@ class model_user extends CI_Model
 		$stock = $this->db->get('admin_tbl');
 		return $stock->result();
 	}
+	
+	function get_user_detail($user_id)
+	{
+		$str = "SELECT * FROM user_tbl WHERE user_id = '$user_id' ";	
+		$q = $this->db->query($str);
+		$f = $q->row_array();
+		
+		return $f;
+	}
 }

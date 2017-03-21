@@ -1,4 +1,6 @@
-<?php if(!$this->cart->contents()){ ?>
+<?php 
+
+if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
     <div class="container">
@@ -43,7 +45,13 @@
                                         </thead>
                                         <tbody>
                                         <?php $i = 1; ?>
-                                        <?php foreach($this->cart->contents() as $items): ?>
+                                        <?php 
+										
+										foreach($this->cart->contents() as $items): 
+											
+						$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
+											
+										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
                                             <tr>
                                                 <td class="product-name-col">
@@ -51,7 +59,7 @@
                                                         <a href="#"><img src="<?php echo base_url('assets/sp/images/products/').$items['image']; ?>" alt=""></a>
                                                     </figure>
                                                     <h2 class="product-name">
-                                                        <a href="#"><?php echo $items['name']; ?></a>
+                                                        <a href="#"><?php echo $detail_sparepart->sparepart_name; ?></a>
                                                     </h2>
                                                     <ul>
                                                         <li>Manufacturer: <?php echo $items['manu']; ?></li>
