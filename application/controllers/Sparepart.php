@@ -634,7 +634,7 @@ class sparepart extends CI_Controller {
 
 					$this->session->set_flashdata('msg','Oops! Error.  Please try again!');
 
-					redirect('success');
+					redirect('sparepart/signup');
 
 					
 
