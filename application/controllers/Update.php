@@ -558,7 +558,7 @@ class update extends CI_Controller {
 	
 				$arr1["new_path"] = $new_path;
 	
-				$arr1["element"]  = "sparepart_image"; 
+				$arr1["element"]  = "sparepart_image_new_1"; 
 	
 				$a = $this->upload2->upload_process($arr1);
 	
@@ -600,7 +600,10 @@ class update extends CI_Controller {
 				$d = $this->upload2->upload_process($arr4);
 			}
 			
+			//print_r($_FILES);
 			
+			//var_dump($a);
+				
 			$this->model_update->update_sparepart($sparepart_id,$data);
 
 		redirect('admin/list_sparepart');	
