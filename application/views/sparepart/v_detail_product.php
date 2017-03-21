@@ -73,7 +73,7 @@
                                                 ?>
                                                 </span>
                                                 <div class="short-description">
-                                                    <p> Nam tempus turpis metus scelerisque placerat nulla deutos solicitud felis. Pellentesque diam dolortum etos lobortis des mollis utrisus lamcorper mattis drostique </p>
+                                                    <?php $row->sparepart_desc ?>
                                                 </div>
                                                 <div class="row">
                                                   <div class="col-lg-6">
