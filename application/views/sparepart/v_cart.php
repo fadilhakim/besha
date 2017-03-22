@@ -178,7 +178,7 @@ if(!$this->cart->contents()){ ?>
                                             </table>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
-                                                <button onclick="myFunction()" class="btn btn-custom btn-lger min-width-sm">Print Checkout</button>
+                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm">Print Checkout</button></a>
                                             </div>
                                             <script>
                                                 function myFunction() {

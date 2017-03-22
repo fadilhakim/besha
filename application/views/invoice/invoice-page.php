@@ -16,7 +16,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title><?=$name_pdf?></title>
     
     <style>
     .invoice-box{
@@ -120,7 +120,7 @@
                     </table>
                 </td>
             </tr>
-            
+            <hr>
             <tr class="information">
                 <td colspan="6">
                     <table>
@@ -132,9 +132,9 @@
                             </td>
                             
                             <td>
-                                <?=$detail_user["company_name"]?>.<br>
-                               <?=$detail_user["contact_person"]?><br>
-                                 <?=$user_sess["email"]?>
+                               <?=$detail_user["company_name"]?>.<br>
+							   <?=$detail_user["contact_person"]?><br>
+                               <?=$user_sess["email"]?>
                             </td>
                         </tr>
                     </table>
@@ -208,10 +208,10 @@
                 	<?=$items["qty"]?> 
                 </td>
                 <td>
-                	<?=$items["price"]?>
+                	Rp. <?=number_format($items["price"])?>
                 </td>
                 <td>
-                    <?=$items["subtotal"]?>
+                    Rp. <?=number_format($items["subtotal"])?>
                 </td>
             </tr>
             <?php
@@ -221,10 +221,10 @@
             
             
             <tr class="total">
-                <td colspan="5"></td>
+                <td colspan="5" align="right"> <h3> Total: </h3> </td>
                 
                 <td>
-                   Total: $385.00
+                   <h3> Rp. <?=number_format($this->cart->total())?> </h3>
                 </td>
             </tr>
         </table>
