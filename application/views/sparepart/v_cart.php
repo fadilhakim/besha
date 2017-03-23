@@ -49,7 +49,7 @@ if(!$this->cart->contents()){ ?>
 										
 										foreach($this->cart->contents() as $items): 
 											
-						$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
+											$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
 											
 										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
@@ -106,6 +106,7 @@ if(!$this->cart->contents()){ ?>
                                                     <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
                                                 </ul>
                                                 <div class="tab-content">
+                                                
                                                     <div class="tab-pane fade in active" id="shipping">
                                                         <form action="#" class="clearfix">
                                                             <p class="ship-desc">Enter your destination to get a shipping estimate</p>
