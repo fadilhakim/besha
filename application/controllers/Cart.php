@@ -131,12 +131,11 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 		$date = date("d-m-Y"); 
 		$name_pdf = "Besha invoice $date.pdf";
 		
-		$data["name_pdf"] = $name_pdf;
-		//print_r($cart);
-		$user_session = $this->session->all_userdata();		
 		
- 		$html =  $this->load->view("invoice/invoice-page",$data,true); 
-		//$html = $this->load->view("invoice/invoice-fancy-page",$data,true);
+		
+		$data["name_pdf"] = $name_pdf;
+ 		//$html =  $this->load->view("invoice/invoice-page",$data,true); 
+		$html = $this->load->view("invoice/invoice-fancy-page",$data,true);
 		
  		$this->m_pdf->generate_pdf($html, "Besha invoice $date.pdf");	
 	}

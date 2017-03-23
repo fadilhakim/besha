@@ -892,7 +892,15 @@ class Model_sparepart extends CI_Model {
 
 	}
 
-
+	function get_sparepart_detail($sparepart_id)
+	{
+		$str = "SELECT * FROM sparepart_tbl WHERE sparepart_id = '$sparepart_id' ";
+		$q = $this->db->query($str);
+		$f = $q->row_array();
+		
+		return $f;	
+		
+	}
 
 
 

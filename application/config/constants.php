@@ -83,3 +83,15 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+// DATA BESHA ANALITIKA
+define("TITLE","BESHA ANALITIKA");
+define("BASE_URL","http://localhost/besha");
+define("NO_TELP","+62-21-4585-6666");
+define("PHONE","(+62-21) 4585-6666");
+define("FAX","(+62 21) 4585 7600");
+define("ALAMAT","Jl. Boulevard Barat Kompleks Perkantoran Gading <br> Bukit Indah Blok N No.23 <br>  Kelapa Gading, Jakarta Utara, Indonesia, 14240");
+define("ADDRESS","Jl. Boulevard Barat Kompleks Perkantoran Gading <br> Bukit Indah Blok N No.23 <br> Kelapa Gading, Jakarta Utara, Indonesia, 14240");
+define("INFO_EMAIL","info@besha-analitika.co.id");
+define("EMAIL_SPAREPART","info@besha-analitika.co.id");
+define("ABOUT_US","PT Besha Analitika is a privately held laboratory instrument company based in Jakarta, Indonesia. Since our inception in the year 1999, we are engaged in importing, trading and supplying of scientific laboratory equipment which are known for their high accuracy, precision, durability and high end technology from trusted manufacturer.");

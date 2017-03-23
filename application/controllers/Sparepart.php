@@ -482,7 +482,7 @@ class sparepart extends CI_Controller {
 
 		$id=$this->uri->segment(4);
 
-		$data['sparepart'] = $this->model_sparepart->getproductfromIdandSlug($id,$slug)->result();
+		$data['sparepart'] = $this->model_sparepart->getproductfromIdandSlug($id,$slug);
 
 		$data['manufacturer'] = $this->get_manufacturer();
 
