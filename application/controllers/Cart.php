@@ -125,7 +125,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	{
 		$this->load->model("model_user");
 		$this->load->model("model_sparepart");
-		$this->load->library("M_pdf");
+		$this->load->library("M_Pdf");
 		
 		$cart = $this->cart->contents();
 		$date = date("d-m-Y"); 
