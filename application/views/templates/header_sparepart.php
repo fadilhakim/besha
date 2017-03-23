@@ -25,7 +25,7 @@
                             	<i class="fa fa-user"></i>
                             </a>
                          	<div class="i-hover dropdown-menu">
-                            	<span>beshaanalitika@sparepart.com</span>
+                            	<span>service@besha-analitika.co.id</span>
                          	</div>
                         </li>
                     </ul>

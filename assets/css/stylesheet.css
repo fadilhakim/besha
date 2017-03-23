@@ -851,6 +851,8 @@ border-color:#eae9e9;
 	letter-spacing: 1px; 
 	line-height:23px; 
 	margin-bottom:10px;
+	display: table-cell;
+	vertical-align: middle;
 }
 .product-thumb h4 a:hover { text-decoration:underline; }
 .product-thumb .button-group button { border: none; }
@@ -1160,7 +1162,8 @@ visibility:hidden;
 /*  9. Product Item for Left and Right Panel
 /*===================================================================================*/
 .caption h4 {
-	height: 55px;
+	height: 110px;
+	display: table;
 }
 #column-right .side-item .product-thumb, #column-left .side-item .product-thumb {
 	padding:0px 0px 7px 0px;

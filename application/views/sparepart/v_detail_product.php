@@ -50,10 +50,10 @@
                                                         <div class="swiper-button-prev s-nav fa fa-angle-left"></div>
                                                     </div>
                                                     <div class="product-thumbs clearfix"><!-- Thumb Images -->
-                                                        <div data-index="0" class="thumb-item active"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
-                                                        <div data-index="1" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
-                                                        <div data-index="2" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
-                                                        <div data-index="3" class="thumb-item"><img src="<?php echo base_url('assets/images/Lin-Tech-Vapour-Pressure.png ') ?>" alt="" /></div>
+                                                        <div data-index="0" class="thumb-item active"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
+                                                        <div data-index="1" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_2; ?>" alt="" /></div>
+                                                        <div data-index="2" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_3; ?>" alt="" /></div>
+                                                        <div data-index="3" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_4; ?>" alt="" /></div>
                                                     </div>
                                                 </div>
                                             </div><!-- End Product Images -->
