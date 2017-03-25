@@ -24,6 +24,10 @@
                                     <div class="col-sm-6 col-sm-offset-3 contact-form">
                                     <label><h4>Data Login</h4></label>
                                     <div class="col-sm-12">
+                                    	<label for="name"> Name / Contact Person <span>*</span> </label>
+                                        <input type="text" name="contact_person" required id="contact_person" class="form-control">
+                                    </div>
+                                    <div class="col-sm-12">
                                         <label for="email">Email Address (company)<span>*</span></label>
                                         <input type="email" name="email" required id="email" class="form-control"/>
                                     </div>
@@ -60,7 +64,7 @@
                                    
                                     <div class="col-sm-6">
                                         <label for="name">No. Telephone<span>*</span></label>
-                                        <input type="number" name="no_tlp" required="" id="name" class="form-control"/>
+                                        <input type="number" name="no_tlp" required id="name" class="form-control"/>
                                     </div>
                                     <div class="col-sm-6">
                                     	<label for="title">No. Fax</label>
@@ -90,7 +94,8 @@
                                         <label for="msg">Shipping Address<span>*</span></label>
                                         <textarea id="msg" name="shipping_address" class="form-control" rows="3"></textarea>
                                     </div>
-                                    <div class="col-sm-6"><?php echo $this->session->flashdata('msg'); ?>
+                                    <div class="col-sm-6">
+										<?php echo $this->session->flashdata('msg'); ?>
                                     	<input type="submit" class="submit" value="Submit">
                                     </div>
                                     <div class="col-sm-6">

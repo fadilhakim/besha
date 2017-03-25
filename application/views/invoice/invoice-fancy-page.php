@@ -9,6 +9,8 @@
   
   $user_sess = $this->session->all_userdata();
   
+ // print_r($user_sess);exit;
+  
   $detail_user = $this->model_user->get_user_detail($user_sess["user_id"]);
 ?>
 
@@ -42,7 +44,7 @@
           <div class="to">INVOICE TO:</div>
           <h2 class="name"><?= $detail_user["contact_person"]?></h2>
           <div class="address">796 Silver Harbour, TX 79273, US</div>
-          <div class="email"><a href="mailto:john@example.com"><?=$users_sess["email"]?></a></div>
+          <div class="email"><a href="mailto:john@example.com"><?=$user_sess["email"]?></a></div>
         </div>
         <div id="invoice">
           <h1>SURAT PENAWARAN SPAREPART</h1>

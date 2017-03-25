@@ -23,5 +23,22 @@ class sendemail extends CI_Controller {
       $this->phpmailer->Send();
  
   }
+  
+  function send_email2()
+  {
+	  $subject = 'Testing Email';
+      $name = 'iCoreThink Technologies';
+      $email = 'alhusna901@gmail.com';
+      $body = "This is body text for test email to combine CodeIgniter and PHPmailer";
+      $this->phpmailer->AddAddress($email);
+      $this->phpmailer->IsMail();
+      $this->phpmailer->From = 'info@icorethink.com';
+      $this->phpmailer->FromName = 'iCoreThink Technologies';
+      $this->phpmailer->IsHTML(true);
+      $this->phpmailer->Subject = $subject;
+      $this->phpmailer->Body = $body;
+      $this->phpmailer->Send();  
+	  
+  }
 }
 

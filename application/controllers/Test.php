@@ -71,37 +71,41 @@
 		
 		function send_email_bro()
 		{
-			error_reporting(E_ALL);
+			//error_reporting(E_ALL);
 
 			$this->load->library("MY_Email2");
 	
 			$content = array(
 
-				"subject" 		=> "Selamat Datang di Besha-analitika.co.id",
+				"subject" 		=> "welcome Besha-analitika.co.id",
 
 				"subject_title"  => "besha-analitika.co.id",
 
-				"to" 			 => "alhusna901@gmail.com", //ganti dengan email seatizen
+				"to" 			 => "alhusna901@gmail.com",
 
-				"data" 		    => array(),
-
-				"message" 		=> "hello bro",
+				"message" 		=> " untuk awal dia masuk spam, tp, kenapa usernya jadi fromnya Root User <root@localhost> ? harusnya dari test@besha-analitika.com",
 
 				"mv" 			=> FALSE
 
-			); 
+			);  
 
-			$user = "test_email";
+			$user = "fadil182_gmail";
 
 			// $this->load->view($content["message"],$dtt);
 
-			$this->my_email->send_email($user,$content);
+			$this->my_email2->send_email($user,$content);
 
-			echo $this->my_email->get_email_message();
+			echo $this->my_email2->get_email_message();
 		}
 		
-		function lala()
+		function send_email_lagi()
 		{
-			echo "iam here ";	
+			error_reporting(E_ALL);
+			$this->load->model("model_user");
+			
+			$aa = $this->model_user->sendEmail("dimas","test","alhusna901@gmail.com","Welcome Bro");	
+			//$aa = $this->model_user->sendEmail2("alhusna901@gmail.com","alhusna901");	
+			//$kk = $this->model_user->sendEmailAdmin("alhusna901@gmail.com","alhusna901");
+			var_dump($aa);
 		}
 	}

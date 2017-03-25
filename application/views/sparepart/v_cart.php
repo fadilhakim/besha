@@ -66,7 +66,7 @@ if(!$this->cart->contents()){ ?>
                                             <tr>
                                                 <td class="product-name-col">
                                                     <figure>
-                                                        <a href="#"><img src="<?php echo base_url('assets/sp/images/products/').$items['image']; ?>" alt=""></a>
+                                                        <a href="#"><img src="<?=check_image_sparepart($items['id'])?>" alt=""></a>
                                                     </figure>
                                                     <h2 class="product-name">
                                                         <a href="#"><?php echo $detail_sparepart->sparepart_name; ?></a>

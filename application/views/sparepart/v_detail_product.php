@@ -75,6 +75,9 @@
                                                 <div class="short-description">
                                                     <?php $row->sparepart_desc ?>
                                                 </div>
+                                                <p>
+                                                    Sparepart Code : <?php echo $row->sparepart_code; ?>
+                                                </p>
                                                 <div class="row">
                                                   <div class="col-lg-6">
                                                     <?php 
@@ -127,6 +130,7 @@
                                                     <?php echo $row->sparepart_desc; ?>
                                                 </div>
                                             </div>
+                                     
                                         </div>
                                     </div>
                                     <div class="spacer30"></div><!--spacer-->

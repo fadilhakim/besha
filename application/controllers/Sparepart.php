@@ -513,7 +513,7 @@ class sparepart extends CI_Controller {
 	public function signup_post()
 
 	{
-
+		//print_r($_POST); exit;
 		//set validation rules for login data
 
 		$this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[user_tbl.email]');
@@ -545,9 +545,28 @@ class sparepart extends CI_Controller {
         }
 
 		else
-
 		{
-
+			/*
+				Array
+				(
+					[contact_person] => Aries Dimas Yudhistira
+					[email] => alhusna901@gmail.com
+					[password] => 999999
+					[cpassword] => 999999
+					[company_name] => 
+					[no_tlp] => 32423432323
+					[no_fax] => 
+					[no_hp] => 3324234
+					[npwp_no] => 34234234
+					[npwp_address] => 32dfsdfdsfsdfsdfsdf
+					[billing_address] => dsfdsfsdfsdfsdf
+					[shipping_address] => sdfsdfdsfsdf
+				)
+			*/
+			
+			
+			$contact_person = $this->input->post("contact_person");
+			
 			$email = $this->input->post('email');
 
 			$password = $this->input->post('password');
@@ -573,7 +592,9 @@ class sparepart extends CI_Controller {
 			//insert the user registration details into database
 
 			$data = array( 
-
+				
+				'contact_person' => $contact_person,
+				
 				'email' => $email,
 
 				'password' => $password,
@@ -628,7 +649,7 @@ class sparepart extends CI_Controller {
 
 					$this->session->set_flashdata('msg','Oops! Error.  Please try again!');
 
-					redirect('success');
+					redirect('sparepart/signup');
 
 					
 
@@ -718,8 +739,8 @@ class sparepart extends CI_Controller {
 				else {
 
 					$sess_data['user_id'] = $data->user_id;
-
-					$sess_data['email'] = $data->email;
+					$sess_data["name"]	  = $data->contact_person;
+					$sess_data['email']   = $data->email;
 
 					$sess_data['discount_price'] = $data->discount_price;
 
@@ -1048,13 +1069,10 @@ class sparepart extends CI_Controller {
 	}
 
 	function user_registration_sucess(){
+		
 		$this->load->view('templates/meta_sparepart');
-
 		$this->load->view('templates/header_sparepart');
-
-
         $this->load->view('sparepart/v_success');
-
         $this->load->view('templates/footer_sparepart');
 	}
 

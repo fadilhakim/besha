@@ -12,18 +12,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 fa-block">
                         	<h4>About us</h4>
-                            <p><?=ABOUT_US?></p>
+                            <p>PT Besha Analitika is a privately held laboratory instrument company based in Jakarta, Indonesia. Since our inception in the year 1999, we are engaged in importing, trading and supplying of scientific laboratory equipment which are known for their high accuracy, precision, durability and high end technology from trusted manufacturer.</p>
                             <ul>
-                            	<li class="add"><i class="fa fa-home"></i> 
-                                	<p><?=ALAMAT?></p>
-                                </li>
-                                <li class="mail"><i class="fa fa-envelope"></i>
-                                	<p> <?=EMAIL_SPAREPART?> </p>
-                                </li>
-                                <li class="phone">
-                                <i class="fa fa-phone"></i>
-                                	<p><?=NO_TELP?></p>
-                                </li>
+                            	<li class="add"><i class="fa fa-home"></i> <p>Jl. Boulevard Barat Kompleks Perkantoran Gading Bukit Indah Blok N No.23 Kelapa Gading, Jakarta Utara, Indonesia, 14240</p></li>
+                                <li class="mail"><i class="fa fa-envelope"></i><p> info@besha-analitika.co.id</p></li>
+                                <li class="phone"><i class="fa fa-phone"></i><p>+62-21-4585-6666</p></li>
                             </ul>
                         </div>
 
@@ -49,7 +42,7 @@
                                 <div class="newsletter">
                                     <label>Newsletter</label>
                                     <?php echo form_open('contact/input_subs'); ?>
-                                    <input type="text" required placeholder="Your Email address" name="subs_email">
+                                    <input type="text" required="" placeholder="Your Email address" name="subs_email">
                                     <input type="submit" value="SUBSCRIBE">
                                     <?php echo form_close(); ?>
                                 </div>

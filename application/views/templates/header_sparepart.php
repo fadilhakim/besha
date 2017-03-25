@@ -47,10 +47,13 @@
                 <?php } else {?>
                 <div class="top-links clearfix fright">
                   <ul>
+                  	  <li class="dropdown">
+                      	<a href="#"> <?=$this->session->userdata("name")?> </a>
+                      </li>
                       <li class="dropdown">
                         <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
                       </li>
-                    </ul> 
+                  </ul> 
                 </div>
                 <?php } ?>
                 <!-- End top link -->

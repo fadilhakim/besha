@@ -11,7 +11,7 @@
 			$this->CI =& get_instance();
 			$CI = $this->CI;
 			$CI->load->library("email");
-			$CI->config->load("email2");
+			$CI->config->load("email");
 	
 		}
 		
