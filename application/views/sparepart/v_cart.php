@@ -16,10 +16,20 @@ if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
     <div class="container">
+    	<div class="clearfix">
+        	<?php
+				//echo "aaaaa";
+            	//echo $cookie_msg = !empty($this->session->flashdata("error")) ? $this->session->flashdata("error") : "";
+				//print_r($_SESSION);
+				echo $this->session->flashdata("error");
+				//print_r($this->session->all_flashdata());
+			?>
+        </div>
         <div class="breadcrumbs-main clearfix">
             <h2>Checkout</h2>
         </div>
-      </div>
+        
+    </div>
     <div class="spacer15"></div><!--spacer-->
 </div>
 
@@ -49,7 +59,7 @@ if(!$this->cart->contents()){ ?>
 										
 										foreach($this->cart->contents() as $items): 
 											
-											$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
+						$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
 											
 										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
@@ -106,7 +116,6 @@ if(!$this->cart->contents()){ ?>
                                                     <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
                                                 </ul>
                                                 <div class="tab-content">
-                                                
                                                     <div class="tab-pane fade in active" id="shipping">
                                                         <form action="#" class="clearfix">
                                                             <p class="ship-desc">Enter your destination to get a shipping estimate</p>
@@ -177,17 +186,28 @@ if(!$this->cart->contents()){ ?>
                                                     </tr>
                                                 </tfoot>
                                             </table>
+                                            <?php
+												$email_sess = $this->session->userdata("email");
+												$strbtnlogin = "data-toggle='modal' data-target='#login-modal' ";
+												 
+											?>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
+                                            	<?php if(!empty($email_sess)){ ?>
                                                 <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm">Print Checkout</button></a>
+                                                <?php }else{   ?>
+                                                	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
+                                                <?php } ?>
                                             </div>
-                                            <script>
-                                                function myFunction() {
-                                                    window.print();
-                                                }
-                                            </script>
+                                            
                                             <div class="text-right">
-                                                <a href="#" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                            <?php if(!empty($email_sess)) { ?>
+                                                <a href="<?=base_url("cart/send_email_invoice")?>" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                            <?php } else {  ?>
+                                            <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                            <?php
+											}
+											?>
                                             </div>
                                         </div><!-- End .col-md-4 -->
                                     </div><!-- End .row -->

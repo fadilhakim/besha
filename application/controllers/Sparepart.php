@@ -460,12 +460,6 @@ class sparepart extends CI_Controller {
 
 		$this->load->view('templates/footer_sparepart');
 
-
-
-	
-
-
-
 	}
 
 
@@ -485,7 +479,7 @@ class sparepart extends CI_Controller {
 		$data['sparepart'] = $this->model_sparepart->getproductfromIdandSlug($id,$slug);
 
 		$data['manufacturer'] = $this->get_manufacturer();
-
+		
 		$this->load->view('templates/meta_sparepart');
 
 		$this->load->view('templates/header_sparepart');
@@ -634,7 +628,7 @@ class sparepart extends CI_Controller {
 
 					$this->session->set_flashdata('msg','Oops! Error.  Please try again!');
 
-					redirect('sparepart/signup');
+					redirect('success');
 
 					
 
@@ -691,8 +685,13 @@ class sparepart extends CI_Controller {
 	function login_action(){
 
 		$email = $this->input->post('email');
-
 		$password = md5($this->input->post('password'));
+		$current_url = $this->input->post("redirect_success");
+		
+		if(empty($current_url))
+		{
+			$current_url = $this->agent->referrer();
+		}
 
 		$this->load->model('login_model_sparepart');
 
@@ -700,23 +699,17 @@ class sparepart extends CI_Controller {
 
 		if($cek->num_rows()==1){
 
-
-
 			foreach ($cek->result() as $data) { }
-
-				
 
 				if($data->act_status == '0') {
 
-
-
 					$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-
-                                                Silahkan Konfirmas email anda terlebih Dahulu.
-
-                                            </div>');
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  
+						Silahkan Konfirmas email anda terlebih Dahulu.
+  
+					</div>');
 
 					redirect(base_url("login"));
 
@@ -735,14 +728,6 @@ class sparepart extends CI_Controller {
 					redirect($this->agent->referrer());
 
 				}
-
-			
-
-
-
-			
-
-
 
 		}else{
 
@@ -838,8 +823,15 @@ class sparepart extends CI_Controller {
 	function logout(){
 
 
-
-		$this->session->sess_destroy();
+		//$arr_sess = $this->session->all_userdata();
+		//print_r($arr_sess); exit;
+		// $this->session->sess_destroy();
+		$array_items = array(
+			"user_id",
+			"email"
+		);
+		
+		$this->session->unset_userdata($array_items);
 
 		redirect(base_url('sparepart'));
 

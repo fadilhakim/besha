@@ -3,6 +3,7 @@
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
 				  <form method="post" action="<?php echo base_url('login-action'); ?>" >
+                  	<input type="hidden" name="redirect_success" value="<?=current_url()?>">
 					<input type="text" name="email" placeholder="email">
 					<input type="password" name="password" placeholder="password">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
