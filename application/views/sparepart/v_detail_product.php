@@ -1,4 +1,5 @@
  <?php foreach ($sparepart as $row)?>
+
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
     <div class="container">
@@ -170,7 +171,10 @@
                                 </div>
                             </div>
                         </div>
-                       <div class="col-md-3 col-sm-4">
+                        
+                        <?php $this->load->view("sparepart/sidebar_sparepart"); ?>
+                        
+                       <?php /* <div class="col-md-3 col-sm-4">
                           <div class="side-bar clearfix"><!--Side Bar-->
                                 <div class="aside categories"><!--Side Categories-->
                                    <h4 class="heading">Manufacturers</h4>
@@ -186,7 +190,7 @@
                                     </ul>
                                 </div><!--End Side Categories-->
                             </div><!--End Side Bar-->
-                        </div>
+                        </div> */ ?>
                     </div>
                 </div>
             </div>
