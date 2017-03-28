@@ -1,4 +1,7 @@
- <?php foreach ($sparepart as $row)?>
+ <?php foreach ($sparepart as $row)
+ 
+ 	$sparepart_id = $row->sparepart_id;
+ ?>
 
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
@@ -44,17 +47,17 @@
                                                     <!-- <span class="pro offer">30% off</span> -->
                                                     <div class="swiper-container top-img">
                                                         <div class="swiper-wrapper"><!-- Images Slider -->
-                                                            <div class="swiper-slide"><img data-zoom-image="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
+                                                            <div class="swiper-slide"><img data-zoom-image="<?php echo check_image_sparepart($sparepart_id) ?>" src="<?php echo check_image_sparepart($sparepart_id) ?>" alt="" /></div>
                                                         </div>
                                                         <!-- Add Arrows -->
                                                         <div class="swiper-button-next s-nav fa fa-angle-right"></div>
                                                         <div class="swiper-button-prev s-nav fa fa-angle-left"></div>
                                                     </div>
                                                     <div class="product-thumbs clearfix"><!-- Thumb Images -->
-                                                        <div data-index="0" class="thumb-item active"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image; ?>" alt="" /></div>
-                                                        <div data-index="1" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_2; ?>" alt="" /></div>
-                                                        <div data-index="2" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_3; ?>" alt="" /></div>
-                                                        <div data-index="3" class="thumb-item"><img src="<?php echo base_url('assets/sp/images/products/').$row->sparepart_image_4; ?>" alt="" /></div>
+                                                        <div data-index="0" class="thumb-item active"><img src="<?php echo check_img_spone($sparepart_id,1); ?>" alt="" /></div>
+                                                        <div data-index="1" class="thumb-item"><img src="<?php echo check_img_spone($sparepart_id,2) ?>" alt="" /></div>
+                                                        <div data-index="2" class="thumb-item"><img src="<?php echo check_img_spone($sparepart_id,3)?>" alt="" /></div>
+                                                        <div data-index="3" class="thumb-item"><img src="<?php echo check_img_spone($sparepart_id,4) ?>" alt="" /></div>
                                                     </div>
                                                 </div>
                                             </div><!-- End Product Images -->
@@ -154,7 +157,7 @@
                                             <div class="product-item">
                                                         <ul class="products-row">
                                                             <li class="image-block">
-                                                                <a href="#"><span><img src="<?php echo base_url('assets/sp/images/products/').$related['sparepart_image'] ?>" alt=""/></span></a>
+                                                                <a href="#"><span><img src="<?php echo check_image_sparepart($related["sparepart_id"]) ?>" alt=""/></span></a>
                                                                 <a class="add-to-cart" href="<?php echo base_url('spareparts/detail/').$related['sparepart_slug'].'/'.$related['sparepart_id']; ?>">See Product</a>
                                                             </li>
                                                             <li class="products-details">

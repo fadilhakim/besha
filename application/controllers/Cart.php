@@ -321,7 +321,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$data["name_pdf"] = $name_pdf;
 			
 			//$html = $this->load->view("invoice/invoice-fancy-page",$data,true);
-			$html =  $this->load->view("invoice/invoice-page",$data,true); 
+			$html =  $this->load->view("invoice/invoice-fancy-page-inline",$data,true); 
 			//print_r($user_session);
 			
 			//error_reporting(E_ALL);
