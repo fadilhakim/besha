@@ -13,7 +13,7 @@ class model_user extends CI_Model
 	//send verification email to user's email id
 	function sendEmail($name, $subject, $from_email, $message)
 	{
-		$to_email = 'fadil.hakim182@gmail.com';
+		$to_email = 'beshaanalitika99@gmail.com';
 		/*$subject = 'Verify Your Email Address'; */
 		$messages = 'Dear Admin Besha Analitika, You get message from :'.$name.'&nbsp;&nbsp;'.$from_email.'<br>'.$message;
 		
@@ -22,7 +22,7 @@ class model_user extends CI_Model
 		$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
 		$config['smtp_port'] = '465'; //smtp port number
 		$config['smtp_user'] = $to_email;
-		$config['smtp_pass'] = 'bismilah1'; //$from_email password
+		$config['smtp_pass'] = 'adminbesha'; //$from_email password
 		$config['mailtype'] = 'html';
 		$config['charset'] = 'iso-8859-1';
 		$config['wordwrap'] = TRUE;
@@ -48,7 +48,7 @@ class model_user extends CI_Model
 	function sendEmailAdmin($to_email,$username)
 	{
 		
-		$from_email = 'zuhaidisaleh99@gmail.com';
+		$from_email = 'beshaanalitika99@gmail.com';
 		$subject = 'Verify Your Email Address';
 		$message = 'Dear Admin Besha Analitika,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/login/verify/admin/'.$username.'<br /><br /><br />Thanks<br />';
 		
@@ -57,7 +57,7 @@ class model_user extends CI_Model
 		$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
 		$config['smtp_port'] = '465'; //smtp port number
 		$config['smtp_user'] = $from_email;
-		$config['smtp_pass'] = 'serena99'; //$from_email password
+		$config['smtp_pass'] = 'adminbesha'; //$from_email password
 		$config['mailtype'] = 'html';
 		$config['charset'] = 'iso-8859-1';
 		$config['wordwrap'] = TRUE;

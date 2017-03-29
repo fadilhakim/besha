@@ -22,13 +22,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 	function add_cart_item(){
 
-
-
-
-
 	   $getrow['getcart'] = $this->model_cart->validate_add_cart_item();
-
-	   
 
 	    if(count($getrow['getcart']) > 0){
 
@@ -325,7 +319,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			//print_r($user_session);
 			
 			//error_reporting(E_ALL);
-			$from_email = 'fadil.hakim182@gmail.com';
+			$from_email = 'beshaanalitika99@gmail.com';
 			$to_email = $user_session["email"];
 			$subject = "$name_pdf";
 			$message = $html;
@@ -337,7 +331,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
 			$config['smtp_port'] = '465'; //smtp port number
 			$config['smtp_user'] = $from_email;
-			$config['smtp_pass'] = 'bismilah1'; //$from_email password
+			$config['smtp_pass'] = 'beshaanalitika99'; //$from_email password
 			$config['mailtype'] = 'html';
 			$config['charset'] = 'iso-8859-1';
 			$config['wordwrap'] = TRUE;
