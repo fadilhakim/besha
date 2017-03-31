@@ -6,27 +6,23 @@
 
 
 
+
+
+
+
+
+
+
+
 class Model_sparepart extends CI_Model {
-
-
-
-
 
 
 
 		public function __construct() {
 
-
-
  		$this->load->database();
 
-
-
  		}
-
-
-
-
 
 
 
@@ -34,31 +30,19 @@ class Model_sparepart extends CI_Model {
 
 
 
-
-
-
-
 			$this->db->select('*');
-
 
 
 			$this->db->from('sparepart_tbl');
 
 
-
 			$query = $this->db->get();
-
 
 
 			return $query->result();
 
 
-
 		}
-
-
-
-
 
 
 
@@ -67,10 +51,11 @@ class Model_sparepart extends CI_Model {
 
 
 
-
-
-
 			$this->db->select('*');
+
+
+
+
 
 
 
@@ -78,7 +63,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			$this->db->limit(31);
+
+
+
+
 
 
 
@@ -86,11 +79,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			return $query->result();
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -106,7 +115,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$this->db->select('*');
+
+
+
+
 
 
 
@@ -114,7 +135,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			$query = $this->db->get();
+
+
+
+
 
 
 
@@ -122,7 +151,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -138,7 +179,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$stock = $this->db->get('product_stock_status');
+
+
+
+
 
 
 
@@ -146,7 +199,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -162,7 +227,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 		//$this->db->get_where('product_tbl',array('product_id' => $id));
+
+
+
+
 
 
 
@@ -170,7 +247,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		$this->db->from('product_tbl');
+
+
+
+
 
 
 
@@ -178,7 +263,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		$query = $this->db->get();
+
+
+
+
 
 
 
@@ -186,7 +279,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			{
+
+
+
+
 
 
 
@@ -194,7 +295,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			}
+
+
+
+
 
 
 
@@ -202,7 +311,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			{
+
+
+
+
 
 
 
@@ -210,11 +327,31 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			}
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -234,32 +371,73 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			/*return $this->db->get_where('sparepart_tbl',array('sparepart_slug' => $slug , 'sparepart_id' => $id ));
 
 
 
+
+
+
+
 			$query = $this->db->get();
+
+
+
+
 
 
 
 			return $query->result();*/
 
 
+
+
+
 			$this->db->select('*');
+
 			$this->db->from('sparepart_tbl');
 
+
+
 			$this->db->where('sparepart_id = '.$id.'');
+
 			$this->db->like('sparepart_code',''.$code.''); // Select where id matches the posted id
+
+
 
 			$query = $this->db->get();
 
 
+
+
+
 			return $query;
+
 			//return $query->result();
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -270,31 +448,62 @@ class Model_sparepart extends CI_Model {
 		public function getproductfromIdandSlug($id,$slug){
 
 
+
+
+
 			/*return $this->db->get_where('sparepart_tbl',array('sparepart_slug' => $slug , 'sparepart_id' => $id ));
 
+
+
 			$query = $this->db->get();
+
 			return $query->result();*/
 
 
+
+
+
 			$this->db->select('*');
+
 			$this->db->from('sparepart_tbl');
+
 			$this->db->where('sparepart_id = '.$id.'');
 
+
+
 			$this->db->like('sparepart_slug',''.$slug.''); // Select where id matches the posted id
+
 			
+
 			$query = $this->db->get();
+
 			
+
 			return $query->result();
 
 
+
+
+
 			
+
+
+
 
 
 			/* echo $str11 = "SELECT * FROM sparepart_tbl WHERE sparepart_id = '$id' AND sparepart_slug = '$slug' ";
+
 			$q = $this->db->query($str11);
+
 			return $f = $q->result_array();*/
+
 			
+
 			
+
+
+
+
 
 
 
@@ -302,7 +511,23 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -322,7 +547,23 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$getmanu = $this->db->get_where('sparepart_tbl',array('manu_id' => $id));
+
+
+
+
+
+
+
+
 
 
 
@@ -334,7 +575,23 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -354,7 +611,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$this->db->or_like('sparepart_slug',$keyword);
+
+
+
+
 
 
 
@@ -362,7 +631,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
         	$query  =   $this->db->get('sparepart_tbl');
+
+
+
+
 
 
 
@@ -374,7 +651,23 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -386,11 +679,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			return $this->db->count_all("sparepart_tbl");
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -406,7 +715,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$query = $this->db->where('manu_id', $id)->get('sparepart_tbl');
+
+
+
+
 
 
 
@@ -414,7 +735,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
+
+
+
+
+
+
+
+
 
 
 
@@ -430,7 +763,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 			$this->db->select('*');
+
+
+
+
 
 
 
@@ -438,7 +783,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
        		$this->db->where('sparepart_category',$slug);
+
+
+
+
 
 
 
@@ -446,7 +799,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			$query = $this->db->get();
+
+
+
+
 
 
 
@@ -454,7 +815,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 			/*die();*/
+
+
+
+
 
 
 
@@ -466,11 +835,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 		public function fetch_product($limit, $start = 0) {
 
 
 
+
+
+
+
         	$qry= $this->db->get("sparepart_tbl", $limit, $start);
+
+
+
+
 
 
 
@@ -490,7 +875,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	        if ($query->num_rows() > 0) {
+
+
+
+
 
 
 
@@ -498,7 +903,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	                $data[] = $row;
+
+
+
+
 
 
 
@@ -506,7 +919,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	            return $data;
+
+
+
+
 
 
 
@@ -514,11 +935,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	        return false;
 
 
 
+
+
+
+
   	 	}
+
+
+
+
+
+
+
+
 
 
 
@@ -530,11 +967,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
   	 		$this->db->select('*');
 
 
 
+
+
+
+
        		$this->db->from('sparepart_tbl');
+
+
+
+
+
+
+
+
 
 
 
@@ -546,7 +999,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	            $this->db->where('manu_id',$id);
+
+
+
+
 
 
 
@@ -554,7 +1015,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	        $this->db->limit($limit, $start);
+
+
+
+
 
 
 
@@ -562,11 +1031,27 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	        return $query->result();
 
 
 
+
+
+
+
   	 	}
+
+
+
+
+
+
+
+
 
 
 
@@ -578,7 +1063,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
   	 		$this->db->select('*');
+
+
+
+
 
 
 
@@ -590,7 +1083,19 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
+
+
+
+
 	        if($slug) {
+
+
+
+
 
 
 
@@ -598,7 +1103,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	            $this->db->where('sparepart_category',$slug);
+
+
+
+
 
 
 
@@ -606,7 +1119,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	        }
+
+
+
+
 
 
 
@@ -614,7 +1135,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	        $query = $this->db->get();
+
+
+
+
 
 
 
@@ -622,19 +1151,21 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
   	 	}
-
-
-
-
 
 
 
   	 	function insertUser($data)
 
-
-
 	    {
+
+
+
+
 
 
 
@@ -642,129 +1173,51 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		}
-
-
-
-
-
-
 
 		//send verification email to user's email id
 
-
-
 	function sendEmail($to_email)
-
-
-
 	{
 
-
-
-		$from_email = 'zuhaidisaleh99@gmail.com';
-
-
-
+		$from_email = 'info@besha-analitika.co.id';
 		$subject = 'Verify Your Email Address';
 
-
-
-		$message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://besha-analitika.co.id/verify' . md5($to_email) . '<br /><br /><br />Thanks<br />';
-
-
-
-		
-
-
+		$message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/verify/' . md5($to_email) . '<br /><br /><br />Thank You<br />';
 
 		//configure email settings
 
-
-
-		$config['protocol'] = 'smtp';
-
-
-
-		$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
-
-
-
-		$config['smtp_port'] = '465'; //smtp port number
-
-
-
-		$config['smtp_user'] = $from_email;
-
-
-
-		$config['smtp_pass'] = 'serena99'; //$from_email password
-
-
-
-		$config['mailtype'] = 'html';
-
-
-
-		$config['charset'] = 'iso-8859-1';
-
-
-
-		$config['wordwrap'] = TRUE;
-
-
-
-		$config['newline'] = "\r\n"; //use double quotes
-
-
+		$config['protocol']  = 'smtp';
+		$config['mailtype']  = 'html';
+		$config['priority']  = '1';
+		$config['charset']   = 'iso-8859-1';
+		$config['newline']   = "\r\n"; //use double quotes*/
+		$config['wordwrap']  = TRUE;
+		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
+		$config['smtp_port'] = 465;
+		$config['smtp_user'] = 'info@besha-analitika.co.id';
+		$config['smtp_pass'] = 'info-n23';
 
 		$this->email->initialize($config);
 
-
-
-		
-
-
-
 		//send mail
 
-
-
 		$this->email->from($from_email, 'Besha Analitika');
-
-
-
 		$this->email->to($to_email);
-
-
-
 		$this->email->subject($subject);
-
-
-
 		$this->email->message($message);
-
-
-
 		return $this->email->send();
-
 
 
 	}
 
-
-
-	
-
-
-
 	//activate user account
 
-
-
 	function verifyEmailID($key)
-
-
 
 	{
 
@@ -773,16 +1226,20 @@ class Model_sparepart extends CI_Model {
 		$data = array('act_status' => 1);
 
 
-
 		$this->db->where('md5(email)', $key);
-
 
 
 		return $this->db->update('user_tbl', $data);
 
-
-
 	}
+
+
+
+
+
+
+
+
 
 
 
@@ -794,75 +1251,48 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 	{
 
 
-
-		$from_email = 'indocart99@gmail.com'; // ini nanti diganti 
-
-
+		$from_email = 'info@besha-analitika.co.id'; // ini nanti diganti 
 
 		$subject = 'You Got Message From User Spareparts';
-
-
 
 		$message = 'Hai Besha Analitika,<br /><br />You Got Message From User Spareparts.<br /><br /> Nama : ' . $nama . ' <br /><br /> Email : '.$email.'<br /><br />
 
 
-
 		Nomor Telepon/HP : '.$hp.'<br><br> Subject : '.$subject.'<br><br>'.$message.'<br /><br />Thank you<br />';
 
-
-
-		
-
-
-
 		//configure email settings
-
-
-
-		$config['protocol'] = 'smtp';
-
-
-
-		$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
-
-
-
-		$config['smtp_port'] = '465'; //smtp port number
-
-
-
-		$config['smtp_user'] = $from_email;
-
-
-
-		$config['smtp_pass'] = 'indocart1234'; //$from_email password
-
-
-
-		$config['mailtype'] = 'html';
-
-
-
-		$config['charset'] = 'iso-8859-1';
-
-
-
-		$config['wordwrap'] = TRUE;
-
-
-
-		$config['newline'] = "\r\n"; //use double quotes
-
+		$config['protocol']  = 'smtp';
+		$config['mailtype']  = 'html';
+		$config['priority']  = '1';
+		$config['charset']   = 'iso-8859-1';
+		$config['newline']   = "\r\n"; //use double quotes*/
+		$config['wordwrap']  = TRUE;
+		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
+		$config['smtp_port'] = 465;
+		$config['smtp_user'] = 'info@besha-analitika.co.id';
+		$config['smtp_pass'] = 'info-n23';
 
 
 		$this->email->initialize($config);
 
 
 
+
+
+
+
 		
+
+
+
+
 
 
 
@@ -870,7 +1300,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		$this->email->from($from_email, 'User From Spareparts Website');
+
+
+
+
 
 
 
@@ -878,7 +1316,15 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		$this->email->subject($subject);
+
+
+
+
 
 
 
@@ -886,21 +1332,57 @@ class Model_sparepart extends CI_Model {
 
 
 
+
+
+
+
 		return $this->email->send();
 
 
 
+
+
+
+
 	}
 
+	
+
 	function get_sparepart_detail($sparepart_id)
+
 	{
+
 		$str = "SELECT * FROM sparepart_tbl WHERE sparepart_id = '$sparepart_id' ";
+
 		$q = $this->db->query($str);
+
 		$f = $q->row_array();
+
 		
+
 		return $f;	
+
 		
+
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
