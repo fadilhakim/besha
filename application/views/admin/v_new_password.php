@@ -3,7 +3,7 @@
 
         <div class="text-center logo-alt-box">
             <h5 class="text-muted m-t-0">Welcome Admin</h5>
-            <p>Please active your account email by creating your new password</p>
+            <p>Please activate your account email by creating your new password</p>
         </div>
 
         <div class="wrapper-page">

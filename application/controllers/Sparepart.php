@@ -1313,7 +1313,7 @@ class sparepart extends CI_Controller {
 
 
 
-			redirect('home');
+			redirect('sparepart');
 
 
 
@@ -1345,7 +1345,135 @@ class sparepart extends CI_Controller {
 
 
 
+	function verify_login() {
+		$this->load->view('templates/meta_sparepart');
+		$this->load->view('sparepart/v_verify_login');
 
+	}
+
+	function login_action_verify(){
+
+
+
+		$email = $this->input->post('email');
+
+		$password = md5($this->input->post('password'));
+
+		$current_url = $this->input->post("redirect_success");
+
+		
+
+		if(empty($current_url))
+
+		{
+
+			$current_url = $this->agent->referrer();
+
+		}
+
+
+
+		$this->load->model('login_model_sparepart');
+
+
+
+		$cek = $this->login_model_sparepart->cek_login($email, $password);
+
+
+
+		if($cek->num_rows()==1){
+
+
+
+			foreach ($cek->result() as $data) { }
+
+
+
+				if($data->act_status == '0') {
+
+
+
+					$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+
+
+
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+  
+
+						Silahkan Konfirmas email anda terlebih Dahulu.
+
+  
+
+					</div>');
+
+
+
+					redirect(base_url("verify/failed"));
+
+
+
+				}
+
+
+
+				else {
+
+
+
+					$sess_data['user_id'] = $data->user_id;
+
+					$sess_data["name"]	  = $data->contact_person;
+
+					$sess_data['email']   = $data->email;
+
+
+
+					$sess_data['discount_price'] = $data->discount_price;
+
+
+
+					$this->session->set_userdata($sess_data);
+
+
+
+					redirect('sparepart');
+
+
+
+				}
+
+
+
+		}else{
+
+
+
+			$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+
+
+
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+
+
+                                                Maaf username/password yang anda masukan salah.
+
+
+
+                                            </div>');
+
+
+
+			redirect(base_url("verify/failed"));
+
+
+
+		}
+
+
+
+	}
 
 
 
