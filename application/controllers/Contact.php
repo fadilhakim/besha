@@ -90,4 +90,56 @@ class contact extends CI_Controller {
 		$result = $this->model_insert->insert($data,'subscriber_tbl');
 		redirect($this->agent->referrer());
 	}
+	
+	function contact_process()
+	{
+		// Array ( [name] => [email] => [subject] => [message] => ) 
+		$name 		= $this->input->post("name",TRUE);
+		$email 		= $this->input->post("email",TRUE);
+		$subject 	= $this->input->post("subject",TRUE);
+		$message 	= $this->input->post("message",TRUE);
+		
+		$this->form_validation->set_rules("name","Name","required");
+		$this->form_validation->set_rules("email","Email","valid_email|required");
+		$this->form_validation->set_rules("subject","Subject","required");
+		$this->form_validation->set_rules("message","Message","required");
+		
+		if($this->form_validation->run() == TRUE)
+		{
+			$this->load->library("email");
+			
+			$config["smtp_user"] = "info@besha-analitika.co.id";
+			$config["smtp_pass"] = "info-n23";
+			$config['newline']   = "\r\n"; //use double quotes*/
+			$config['wordwrap']  = TRUE;
+			$config['smtp_host'] = 'ssl://besha-analitika.co.id';
+			$config['smtp_port'] = '465'; //smtp port number
+			$config['priority']  = '1';
+			$config['charset']   = 'iso-8859-1';
+			
+			$this->email->initialize($config);
+
+
+			//send mail
+			$this->email->from($email, $name);
+			$this->email->to($config["smtp_user"]);
+			$this->email->subject($subject);
+			$this->email->message($message);
+
+			$this->email->send();
+			
+			$this->session->set_flashdata("message","your email has already sent.");
+			
+		}
+		else
+		{
+			$err = error_reporting(E_ALL);
+			$this->session->set_flashdata("message",$err);
+			
+			
+		}
+			
+		redirect();
+		
+	}
 }
