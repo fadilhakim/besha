@@ -93,5 +93,5 @@ define("FAX","(+62 21) 4585 7600");
 define("ALAMAT","Jl. Boulevard Barat Kompleks Perkantoran Gading <br> Bukit Indah Blok N No.23 <br>  Kelapa Gading, Jakarta Utara, Indonesia, 14240");
 define("ADDRESS","Jl. Boulevard Barat Kompleks Perkantoran Gading <br> Bukit Indah Blok N No.23 <br> Kelapa Gading, Jakarta Utara, Indonesia, 14240");
 define("INFO_EMAIL","info@besha-analitika.co.id");
-define("EMAIL_SPAREPART","info@besha-analitika.co.id");
+define("EMAIL_SPAREPART","service@besha-analitika.co.id");
 define("ABOUT_US","PT Besha Analitika is a privately held laboratory instrument company based in Jakarta, Indonesia. Since our inception in the year 1999, we are engaged in importing, trading and supplying of scientific laboratory equipment which are known for their high accuracy, precision, durability and high end technology from trusted manufacturer.");

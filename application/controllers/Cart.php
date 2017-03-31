@@ -327,15 +327,15 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			//echo !extension_loaded('openssl')?"Not Available":"Available"; exit;
 			
 			//configure email settings
-			$config['protocol'] = 'smtp';
+			$config['protocol']  = 'smtp';
 			$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
 			$config['smtp_port'] = '465'; //smtp port number
 			$config['smtp_user'] = $from_email;
-			$config['smtp_pass'] = 'beshaanalitika99'; //$from_email password
-			$config['mailtype'] = 'html';
-			$config['charset'] = 'iso-8859-1';
-			$config['wordwrap'] = TRUE;
-			$config['newline'] = "\r\n"; //use double quotes
+			$config['smtp_pass'] = 'adminbesha'; //$from_email password
+			$config['mailtype']  = 'html';
+			$config['charset']   = 'iso-8859-1';
+			$config['wordwrap']  = TRUE;
+			$config['newline']   = "\r\n"; //use double quotes
 			
 			$this->email->initialize($config);
 			
