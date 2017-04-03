@@ -110,8 +110,14 @@
                                                                 <a class="add-to-cart" href="<?php echo base_url('spareparts/detail/').$sp->sparepart_slug.'/'.$sp->sparepart_id; ?>">See Product</a>
                                                             </li>
                                                             <li class="products-details">
-                                                                <a href="#">
-                                                                    <?php echo $sp->sparepart_name; ?>
+                                                                <a href="<?php echo base_url('spareparts/detail/').$sp->sparepart_slug.'/'.$sp->sparepart_id; ?>">
+                                                                  <?php 
+                                                                        if (strlen($sp->sparepart_name) <= 50 ) {
+                                                                          echo $sp->sparepart_name;
+                                                                        } else {
+                                                                          echo substr($sp->sparepart_name, 0, 60) . '...';
+                                                                        };  
+                                                                    ?>
                                                                 </a>
                                                                 <a class="catalog-code" href="#">Catalog code : <?php echo $sp->sparepart_code ?></a>
                                                                 <span>
