@@ -1891,7 +1891,7 @@ class sparepart extends CI_Controller {
 			$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 			$config['smtp_port'] = 465;
 			$config['smtp_user'] = 'service@besha-analitika.co.id';
-			$config['smtp_pass'] = 'r482722xuwm8';
+			$config['smtp_pass'] = 'Service*';
 			
 			$this->email->initialize($config);
 	
@@ -1901,7 +1901,7 @@ class sparepart extends CI_Controller {
 			$this->email->message($message);
 			$a = $this->email->send();
 			
-			var_dump($a);
+			//var_dump($a);
 			
 			$this->session->set_flashdata('msg','<p style="color:green;"> We will contact you soon, Thank you</p>');
 			
