@@ -231,26 +231,16 @@ class insert extends CI_Controller {
 
 		);
 
-
-
 		/* $this->load->library('upload', $config);
-
 		$this->upload->initialize($config);
-
 		$this->upload->do_upload('product_image_1');
-
 		$this->upload->do_upload('product_image_2');
-
 		$this->upload->do_upload('product_image_3');
-
 		$this->upload->do_upload('product_image_4');*/
-
-		
 
 		//upload baru
 
 		if(!empty($_FILES["product_image_1"]["name"]))
-
 		{
 
 			$arr1["new_path"] = "assets/image/product";
@@ -264,29 +254,20 @@ class insert extends CI_Controller {
 		
 
 		if(!empty($_FILES["product_image_2"]["name"]))
-
 		{
 
 			$arr2["new_path"] = "assets/image/product";
-
 			$arr2["element"]  = "product_image_2"; 
-
 			$b = $this->upload2->upload_process($arr2);
 
 		}
 
-		
-
+	
 		if(!empty($_FILES["product_image_3"]["name"]))
-
 		{
-
 			$arr3["new_path"] = "assets/image/product";
-
 			$arr3["element"]  = "product_image_3"; 
-
 			$c = $this->upload2->upload_process($arr3);
-
 		}
 
 		
@@ -306,30 +287,23 @@ class insert extends CI_Controller {
 		
 
 		$result = $this->model_insert->insert($data,'product_tbl');
+		$img_msg = "$a[msg] $b[msg] $c[msg] $d[msg]";
 
-
-
-		if($result!=false)
-
+		if($result!=false /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
 		{
 
-		$value='Insert Product Success';
-
+			$value='<div class="alert alert-success">Insert Product Success '.$img_msg.' </div>';
+			$this->session->set_flashdata('message',$value);
+			redirect('admin/product-list');		
 		}
-
 		else
-
 		{
-
-		$value='Insert Product Failed';
+			
+			$value='<div class="alert alert-danger"> Insert Product Failed '.$img_msg.'</div>';
+			$this->session->set_flashdata('message',$value);
+			redirect('admin/product');		
 
 		}
-
-		$this->session->set_flashdata('error_product',$value);	
-
-
-
-		redirect('admin/product-list');	
 
 	}
 

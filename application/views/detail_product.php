@@ -37,7 +37,8 @@ foreach ($manufacturer as $manu) {
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12">
           <div itemscope itemtype="http://schema.org/Product">
-            <h1 class="title" itemprop="name"><?php echo $product_title; ?></h1>
+           
+            <?=$this->session->flashdata('message');?>
             <div class="row product-info">
               <div class="col-sm-6">
                 <div class="image">

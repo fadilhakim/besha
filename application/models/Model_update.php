@@ -89,7 +89,7 @@ class Model_update extends CI_Model {
 	function update_product($product_id, $data){
 
 		$this->db->where('product_id', $product_id);
-		$this->db->update('product_tbl', $data);
+		return $this->db->update('product_tbl', $data);
 	}
 
 	function update_sparepart($sparepart_id, $data){

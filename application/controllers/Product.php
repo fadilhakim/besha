@@ -94,6 +94,7 @@ class product extends CI_Controller {
 		$cat=$this->uri->segment(3);
 		$slug=$this->uri->segment(4);
 		$page = 'detail_product';
+		
 		/*$product_id=trim($product_id);*/
 		$id_brand=trim($id_brand);
 		$cat=trim($cat);
