@@ -314,18 +314,18 @@ class update extends CI_Controller {
 
 	function update_product() {
 
-		$product_id = $this->input->post('product_id');
-		$product_title = $this->input->post('product_title');
-		$product_brand = $this->input->post('manu_id');
-		$product_category = $this->input->post('product_category');
-		$product_code = $this->input->post('product_code');
-		$product_availability = $this->input->post('product_availability');
-		$featured_product = $this->input->post('featured');
-		$product_spec = $this->input->post('product_specification');
-		$product_text = $this->input->post('product_text');
-		$product_description = $this->input->post('product_desc');
-		$product_category_url = url_title($product_category);
-		$product_slug = url_title($product_title);
+		$product_id 			= $this->input->post('product_id');
+		$product_title 			= $this->input->post('product_title');
+		$product_brand 			= $this->input->post('manu_id');
+		$product_category 		= $this->input->post('product_category');
+		$product_code 			= $this->input->post('product_code');
+		$product_availability 	= $this->input->post('product_availability');
+		$featured_product 		= $this->input->post('featured');
+		$product_spec 			= $this->input->post('product_specification');
+		$product_text 			= $this->input->post('product_text');
+		$product_description 	= $this->input->post('product_desc');
+		$product_category_url 	= url_title($product_category);
+		$product_slug 			= url_title($product_title);
 		
 		/*$product_image_old_1 = $this->input->post('product_image_old_1');
 		$product_image_new_1 = $_FILES['product_image_new_1']['name'];
@@ -452,7 +452,25 @@ class update extends CI_Controller {
 				$d = $this->upload2->upload_process($arr4);
 			}
 			
-			$this->model_update->update_product($product_id,$data);
+			$result = $this->model_update->update_product($product_id,$data);
+			$img_msg = "$a[msg] $b[msg] $c[msg] $d[msg]";
+			if($result!=false /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
+			{
+	
+				$value='<div class="alert alert-success">Insert Product Success </div>';
+				$this->session->set_flashdata('message',$value);
+				redirect('admin/product-list');		
+			}
+			else
+			{
+				
+				$value='<div class="alert alert-danger"> Insert Product Failed '.$img_msg.'</div>';
+				$this->session->set_flashdata('message',$value);
+				redirect("admin/edit_product/$product_id/$product_category_url/$product_slug");		
+	
+			}
+			
+			
 		
 
 		redirect('admin/product-list');	

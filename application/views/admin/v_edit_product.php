@@ -35,6 +35,7 @@
                             
                             <div class="card-box">
                                 <h4 class="header-title m-t-0 m-b-30">Product Name : <?php echo $product_title; ?></h4>
+                                <?=$this->session->flashdata("message")?>
                                 <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/edit/product_f'); ?>"  method="post">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Name</label>

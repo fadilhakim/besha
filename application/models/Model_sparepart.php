@@ -99,11 +99,9 @@ class Model_sparepart extends CI_Model {
 
         $this -> db -> from('sparepart_tbl');
 
-        $this -> db -> where('sparepart_id = '.$id.
-            '');
+        $this -> db -> where('sparepart_id = '.$id.'');
 
-        $this -> db -> like('sparepart_code', ''.$code.
-            ''); // Select where id matches the posted id
+        $this -> db -> like('sparepart_code', ''.$code.''); // Select where id matches the posted id
 
         $query = $this -> db -> get();
 

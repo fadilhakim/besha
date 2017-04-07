@@ -22,7 +22,8 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Name</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" name="product_title" required="" placeholder="Type something" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="text">
+                                                    <input class="form-control" name="product_title" required placeholder="Type something" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="text">
+                                                    
                                                 </div>
                                             </div>
 
@@ -53,7 +54,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Code</label>
                                                 <div class="col-sm-7">
-                                                    <input name="product_code" class="form-control" required="" placeholder="Type something" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="text">
+                                                    <input name="product_code" class="form-control" required placeholder="Type something" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="text">
                                                 </div>
                                             </div>
 
@@ -109,9 +110,11 @@
                                                     <input name="product_image_4" size="20" class="" placeholder="Type something" type="file">
                                                 </div>
                                             </div>
-                                            <div class="alert alert-info">
+                                            <!-- <div class="alert alert-info">
                                               <strong>Warning!</strong> image size should be H : 250 W : 300 
-                                            </div>
+                                            </div> -->
+                                            <?=$this->session->flashdata('message');?>
+                                            
                                         </div>
                                         <hr>
                                     </div>
@@ -150,13 +153,13 @@
                                             </script>
                                         
                                         <div class="form-group text-right m-b-0">
-                                            <button type="submit" id="sa-success-product" class="btn btn-success waves-effect waves-light btn-sm m-b-5">
+                                            <button type="submit" id="" class="btn btn-success waves-effect waves-light btn-sm m-b-5">
                                             <i class="zmdi zmdi-plus-circle m-r-5"></i>
                                             <span>Add Product</span>
                                             </button>
                                         </div>
 
-                                        <?php echo $this->session->flashdata('error_product'); ?>
+                                        <?php //echo $this->session->flashdata('message'); ?>
                                         </div>
                                     </div>
                                 </form>
