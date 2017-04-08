@@ -19,17 +19,17 @@ class Model_news extends CI_Model {
 			return $query->result();
 		}
 
-		function getnewsById($id){
+		function getnewsById($id_news){
 
 			//$this->db->get_where('product_tbl',array('product_id' => $id));
 			$this->db->select('*');
 			$this->db->from('news_tbl');
-			$this->db->where('news_id = '.$id.'');
+			$this->db->where('news_id = '.$id_news.'');
 			$query = $this->db->get();
 			if($query)
 			{
 				//return $query->result();	
-				return $query->row();
+				return $query->result();
 			}
 			else
 			{

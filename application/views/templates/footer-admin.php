@@ -100,7 +100,7 @@
 
         </script>
 
-        <?php if (isset($page_section) == 'discount') { ?>
+        <?php if (isset($page_section) == 'discount' || isset($page_section) == 'event') { ?>
             <!-- date picker js -->
             <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.simple-dtpicker.js') ?>"></script>
             <script> $(function(){$('*[name=start_date]').appendDtpicker();});</script>

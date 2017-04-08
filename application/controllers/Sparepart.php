@@ -201,7 +201,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 
@@ -392,7 +392,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 
@@ -600,7 +600,7 @@ class sparepart extends CI_Controller {
 
 
 
-	        $limit = $config["per_page"] = 32;
+	       $limit = $config["per_page"] = 50;
 
 
 
@@ -804,7 +804,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 

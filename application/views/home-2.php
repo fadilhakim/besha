@@ -93,7 +93,7 @@
               <?php foreach ($eventhigh as $eh) { ?>
                 <article class="col-md-12">
                   <figure class="col-lg-12">
-                    <span class="month"><?php echo date ("M",strtotime($nl->createdate)); ?></span>
+                    <span class="month"><?php echo date ("M",strtotime($eh->createdate)); ?></span>
                     <span class="date"><?php echo date ("d",strtotime($eh->createdate)); ?></span>
                   </figure>
                       <div class="article-intro col-lg-12" style="padding-top: 10px;">

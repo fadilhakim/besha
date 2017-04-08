@@ -753,9 +753,9 @@ class insert extends CI_Controller {
 	{
 
 		$event_name = $this->input->post('event_name');
-
 		$event_desc = $this->input->post('event_desc');
-
+		$event_date = $this->input->post('start_date');
+		$event_status = $this->input->post('event_status');
 		$event_image = $_FILES['event_image']['name'];
 
 
@@ -781,10 +781,10 @@ class insert extends CI_Controller {
 		$data = array(
 
 			'news_title' => $event_name,
-
 			'news_desc' => $event_desc,
-
-			'news_image' => $event_image
+			'news_image' => $event_image,
+			'createdate' => $event_date,
+			'event_status' => $event_status,
 
 		);
 

@@ -26,6 +26,25 @@
                                             <input class="" name="event_image" required="" type="file">
                                         </div>
                                     </div>
+                                         
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Event Date</label>
+                                        <div class="col-sm-9">
+                                             <input class="form-control" name="start_date" required placeholder="Event Date" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Featured Event ?</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="event_status">
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Event Description</label>
                                         <div class="col-sm-9">
@@ -55,6 +74,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Event Title</th>
+                                            <th width="15%">Event Date</th>
                                             <th>Event Image</th>
                                             <th>Event Desc</th>
                                             <th>Action</th>
@@ -65,6 +85,7 @@
                                         <tr>
                                             <th scope="row"><?php echo $i; $i++;?></th>
                                             <td><?php echo $e->news_title; ?></td>
+                                            <td><?php echo $e->createdate; ?></td>
                                             <td><img src="<?php echo base_url('assets/image/events').'/'.$e->news_image;; ?>" class="img-responsive"></td>
                                             <td><?php echo $e->news_desc; ?></td>
                                             <td>

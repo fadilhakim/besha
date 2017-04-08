@@ -9,6 +9,17 @@ class Model_event extends CI_Model {
 			return $event;
 		}
 
+		function list_event_limit() {
+
+			$this->db->select('*');
+			$this->db->from('event_tbl');			
+			$this->db->order_by('createdate','desc');
+			$this->db->limit(3);
+
+			$query = $this->db->get();
+			return $query->result();
+		}
+
 		function geteventHighLight(){
 
 			//$this->db->get_where('product_tbl',array('product_id' => $id));

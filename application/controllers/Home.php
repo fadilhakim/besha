@@ -36,7 +36,7 @@ class home extends CI_Controller {
 		$data['featured'] = $this->model_product->getfeatured()->result();
 		$data['slider'] = $this->model_home->list_slider()->result();
 
-		$data['event'] = $this->model_event->list_event()->result();
+		$data['event'] = $this->model_event->list_event_limit();
 		$data['eventhigh'] = $this->model_event->geteventHighLight();
 
 		$data['news'] = $this->model_news->getnewsHighLight();
