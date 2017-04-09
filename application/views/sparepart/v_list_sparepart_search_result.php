@@ -27,11 +27,13 @@
                                         <div class="pull-left">
                                             <!-- VIEW -->
                                              <?php
-                                                if(empty($keyword=$this->uri->segment(3))) {
-                                                    $keyword    =   $this->input->post('keyword');
+                                                $keyword = $this->uri->segment(3);
+                                                $keyword_post = $this->input->post('keyword');
+                                                if(empty($keyword)) {
+                                                    $keyword  = $keyword_post;   
                                                 }
                                                 else {
-                                                    $keyword=$this->uri->segment(3);
+                                                    $keyword;
                                                 }
                                             ?>
                                             <div class="view  pull-left">
