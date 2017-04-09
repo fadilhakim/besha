@@ -760,14 +760,10 @@ class admin extends CI_Controller {
 
 
 	public function edit_sparepart($id, $code)
-
 	{
-
 		$id=$this->uri->segment(3);
-
 		$code=$this->uri->segment(4);
-
-
+		
 		$this->load->model('model_manufacturer');
 		$this->load->model('model_sparepart');
 

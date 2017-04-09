@@ -95,7 +95,7 @@ class Model_update extends CI_Model {
 	function update_sparepart($sparepart_id, $data){
 
 		$this->db->where('sparepart_id', $sparepart_id);
-		$this->db->update('sparepart_tbl', $data);
+		return $this->db->update('sparepart_tbl', $data);
 	}
 
 

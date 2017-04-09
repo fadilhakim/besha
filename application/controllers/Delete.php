@@ -66,71 +66,24 @@ class delete extends CI_Controller {
 
 	 */
 
-
-
 	function __construct(){
-
-
 
 		parent::__construct();
 
-
-
-
-
-
-
 		$this->load->model('model_delete');
-
-
-
-
-
-
-
-
-
-
 
 	}
 
-
-
-
-
-
-
 	public function delete_slider() {
 
-
-
-
-
-
-
 		/*$id = $this->input->post('slider_id');
-
-
-
         $image = $this->input->post('slider_image');*/
-
-
-
 		$id = $this->uri->segment(4);
-
-
 
 		$image = $this->uri->segment(5);
 
-
-
 		/*$where = array('slider_id' => $id);*/
-
-
-
 		$this->model_delete->delete_slider($id, $image);
-
-
 
 		redirect('admin/slider');
 
@@ -139,168 +92,59 @@ class delete extends CI_Controller {
 	}
 
 
-
-
-
-
-
 	public function delete_client() {
 
-
-
 		$id = $this->uri->segment(4);
-
-
-
 		$image = $this->uri->segment(5);
 
-
-
 		$this->model_delete->delete_client($id, $image);
-
-
-
 		redirect('admin/client');
 
-
-
 	}
-
-
-
-
-
-
 
 	public function delete_manufacturer() {
 
-
-
-
-
-
-
 		$id = $this->uri->segment(4);
-
-		
-
 		$image = $this->uri->segment(5);
-
-
-
 		$this->model_delete->delete_manufacturer($id, $image);
-
-
-
 		redirect('admin/manufacturer');
 
-
-
 	}
-
-
-
-
-
-
 
 	public function delete_event() {
 
-
-
-
-
-
-
 		$id = $this->uri->segment(4);
-
-
-
 		$image = $this->uri->segment(5);
-
-
-
 		$this->model_delete->delete_event($id, $image);
-
-
-
 		redirect('admin/event');
 
-
-
 	}
-
-
-
-
-
-
-
+	
 	public function delete_news() {
 
-
-
-
-
-
-
 		$id = $this->uri->segment(4);
-
-
-
-
-
-
-
 		$this->load->model('model_news');
 
-
-
 		$getdata['getimage'] = $this->model_news->getnewsById($id);
-
-
-
-		//foreach ($getdata['getimage'] as $row);
-
 		
-
-		$row = $getdata["getimage"];
-
-		
+		foreach ($getdata['getimage'] as $row);
 
 		if(!empty($row))
-
 		{
 
-		
-
 		  $image1 = $row->news_image;
-
 		  $image2 = $row->news_thumbnail;
 
-		  
-
-		  if(!empty($image1))
-
+		  if(!empty($image1) && file_exists(FCPATH . "assets/image/news/".$image1))
 		  {
-
 			  unlink(FCPATH . "assets/image/news/".$image1);
-
 		  }
 
-		  
-
-		  if(!empty($image2))
-
+		  if(!empty($image2) && file_exists(FCPATH . "assets/image/news/".$image2))
 		  {
-
 			  unlink(FCPATH . "assets/image/news/".$image2);
 
 		  }
-
-  
-
-  
 
 		  $this->model_delete->delete_news($id);
 
@@ -353,52 +197,34 @@ class delete extends CI_Controller {
 		 // foreach ($getdata['getimage'] as $row);
 
 		  $row = $getdata['getimage'];
-
-  
-
+		  
 			  $image1 = $row->product_image_1;
-
 			  $image2 = $row->product_image_2;
-
 			  $image3 = $row->product_image_3;
-
 			  $image4 = $row->product_image_4;
 
-	  		  
-
-			  if(!empty($image1))
-
+			  if(!empty($image1) && file_exists(FCPATH . "assets/image/product/".$image1))
 			  {
 
 			  	unlink(FCPATH . "assets/image/product/".$image1);
 
 			  }
 
-			  
-
-			  if(!empty($image2))
-
+			  if(!empty($image2) && file_exists(FCPATH . "assets/image/product/".$image2))
 			  {
 
 			 	 unlink(FCPATH . "assets/image/product/".$image2);
 
 			  }
 
-	  		  
-
-			  if(!empty($image3))
-
+			  if(!empty($image3) && file_exists(FCPATH . "assets/image/product/".$image3))
 			  {
-
+				
 			  	unlink(FCPATH . "assets/image/product/".$image3);
 
 			  }
 
-	  		  
-
-			  
-
-			  if(!empty($image4))
+			  if(!empty($image4) && file_exists(FCPATH . "assets/image/product/".$image4))
 
 			  {
 
@@ -406,18 +232,11 @@ class delete extends CI_Controller {
 
 			  }
 
-
-
 		  	  $this->model_delete->delete_product($id);
 
 		}
 
-
-
 		redirect('admin/product-list');
-
-
-
 	}
 
 
@@ -453,30 +272,28 @@ class delete extends CI_Controller {
 		  $image3 = $row->sparepart_image_3;
 		  $image4 = $row->sparepart_image_4;
 
-		  if(!empty($image1))
-
+		  if(!empty($image1) && file_exists(FCPATH . "assets/sp/images/products/".$image1))
 		  {
 
 			  unlink(FCPATH . "assets/sp/images/products/".$image1);
 
 		  }
 
-		  if(!empty($image2))
+		  if(!empty($image2) && file_exists(FCPATH . "assets/sp/images/products/".$image2))
 		  {
 
 			  unlink(FCPATH . "assets/sp/images/products/".$image2);
 
 		  }
 		  
-		  if(!empty($image3))
-
+		  if(!empty($image3) && file_exists(FCPATH . "assets/sp/images/products/".$image3))
 		  {
 
 			  unlink(FCPATH . "assets/sp/images/products/".$image3);
 
 		  }
 
-		  if(!empty($image4))
+		  if(!empty($image4) && file_exists(FCPATH . "assets/sp/images/products/".$image4))
 		  {
 			  unlink(FCPATH . "assets/sp/images/products/".$image4);
 

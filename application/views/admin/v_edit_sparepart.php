@@ -33,7 +33,7 @@ foreach ($sparepart as $row) ?>
                             <div class="card-box">
 
                                 <h4 class="header-title m-t-0 m-b-30">Product Name : <?php echo $row->sparepart_name; ?></h4>
-
+								<?=$this->session->flashdata("message");?>
                                 <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/edit/sparepart_f'); ?>"  method="post">
 
                                     <div class="form-group">
@@ -43,6 +43,8 @@ foreach ($sparepart as $row) ?>
                                         <div class="col-sm-9">
 
                                             <input class="form-control" value="<?php echo $row->sparepart_id; ?>" name="sparepart_id" type="hidden">
+                                            
+                                             <input class="form-control" value="<?php echo $row->sparepart_code; ?>" name="sparepart_code" type="hidden">
 
                                             <input class="form-control" value="<?php echo $row->sparepart_name; ?>" name="sparepart_name" required placeholder="Change Title " type="text">
 
