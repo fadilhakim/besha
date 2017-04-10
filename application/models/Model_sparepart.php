@@ -2,17 +2,13 @@
 
 class Model_sparepart extends CI_Model {
 
-    public
-
-    function __construct() {
+    public function __construct() {
 
         $this -> load -> database();
 
     }
 
-    public
-
-    function list_sparepart() {
+    public function list_sparepart() {
 
         $this -> db -> select('*');
 
@@ -24,9 +20,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function list_kota() {
+    public function list_kota() {
 
         $this -> db -> select('*');
 
@@ -36,9 +30,7 @@ class Model_sparepart extends CI_Model {
         return $query -> result();
     }
 
-    public
-
-    function list_sparepart_category() {
+    public function list_sparepart_category() {
 
         $this -> db -> select('*');
 
@@ -50,9 +42,32 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
+    function list_manufacturer() {
 
-    function get_stock_status() {
+        $this -> db -> select('*');
+
+        $this -> db -> from('manufacturer_tbl');
+
+        $query = $this -> db -> get();
+
+        return $query -> result();
+
+    }
+
+
+    function list_detail_sparepart_category() {
+
+        $this -> db -> select('*');
+
+        $this -> db -> from('detail_sparepart_category_tbl');
+
+        $query = $this -> db -> get();
+
+        return $query -> result();
+
+    }
+
+    public function get_stock_status() {
 
         $stock = $this -> db -> get('product_stock_status');
 
@@ -60,9 +75,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function getsparepartfromID($id) {
+    public function getsparepartfromID($id) {
 
         //$this->db->get_where('product_tbl',array('product_id' => $id));
 
@@ -91,9 +104,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function getproductfromIdandCode($id, $code) {
+    public function getproductfromIdandCode($id, $code) {
 
         $this -> db -> select('*');
 
@@ -109,9 +120,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function getproductfromIdandSlug($id, $slug) {
+    public function getproductfromIdandSlug($id, $slug) {
 
         $this -> db -> select('*');
 
@@ -128,9 +137,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function getsparepartbyManufacturer($id) {
+    public function getsparepartbyManufacturer($id) {
 
         $getmanu = $this -> db -> get_where('sparepart_tbl', array('manu_id' => $id));
 
@@ -138,9 +145,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function searchProduct($keyword) {
+    public function searchProduct($keyword) {
 
         $this -> db -> or_like('sparepart_slug', $keyword);
 
@@ -152,17 +157,13 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function count_product() {
+    public function count_product() {
 
         return $this -> db -> count_all("sparepart_tbl");
 
     }
 
-    public
-
-    function count_product_by_id($id) {
+    public function count_product_by_id($id) {
 
         $query = $this -> db -> where('manu_id', $id) -> get('sparepart_tbl');
 
@@ -170,9 +171,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function count_product_category_id($slug, $manu_id) {
+    public function count_product_category_id($slug, $manu_id) {
 
         $this -> db -> select('*');
 
@@ -188,9 +187,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function fetch_product($limit, $start = 0) {
+    public function fetch_product($limit, $start = 0) {
 
         $qry = $this -> db -> get("sparepart_tbl", $limit, $start);
 
@@ -212,9 +209,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function fetch_product_by_id($id, $limit, $start = 0) {
+    public function fetch_product_by_id($id, $limit, $start = 0) {
 
         $this -> db -> select('*');
 
@@ -234,9 +229,7 @@ class Model_sparepart extends CI_Model {
 
     }
 
-    public
-
-    function fetch_product_by_slug($slug, $manu_id, $limit, $start = 0) {
+    public function fetch_product_by_slug($slug, $manu_id, $limit, $start = 0) {
 
         $this -> db -> select('*');
 

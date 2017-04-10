@@ -9,9 +9,9 @@
                 <div class="col-lg-12">
                     <h4 class="page-title">Spareparts Category</h4>
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-4">
                             <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">Add Category Product</h4>
+                                <h4 class="header-title m-t-0 m-b-30">Add Category Sparepart</h4>
                                 <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/category_sparepart'); ?>"  method="post">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Category Name</label>
@@ -28,17 +28,54 @@
                                 </form>
                             </div>
                         </div>
+
+                        <div class="col-lg-8">
+                            <div class="card-box">
+                                <h4 class="header-title m-t-0 m-b-30">Add Category Sparepart in Manufacturer</h4>
+                                <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/category_sparepart'); ?>"  method="post">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Category Sparepart</label>
+                                        <div class="col-sm-9">
+                                            <select required class="form-control" name="manu_id">
+                                                <option value="">---</option>
+                                                <?php foreach ($category as $c) { ?>
+                                                    <option value="<?php echo $c->category_id; ?>"><?php echo $c->category_title; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Insert Into Manufacturers</label>
+                                        <div class="col-sm-9">
+                                            <select required class="form-control" name="manu_id">
+                                                <option value="">---</option>
+                                                <?php foreach ($manufacturer as $m) { ?>
+                                                    <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-right m-b-0">
+                                        <button id="sa-success-slider" class="btn btn-primary waves-effect waves-light" type="submit";>
+                                            Insert
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
-                    <div class="col-lg-10">
-                    <?php if ($message != '') {?>
-                    <div class="alert alert-danger fade in alert-dismissable">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                        <strong>Danger!</strong> <?php echo $message; ?>
-                    </div>
-                    <?php } else {}  ?>
+                        <div class="col-lg-4">
+                            <?php if ($message != '') {?>
+                            <div class="alert alert-danger fade in alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                                <strong>Danger!</strong> <?php echo $message; ?>
+                            </div>
+                            <?php } else {}  ?>
                             <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">List Category</h4>
+                                <h4 class="header-title m-t-0 m-b-30">List Category Sparepart</h4>
 
                                 <table class="table m-0">
                                     <thead>
@@ -63,6 +100,29 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="col-lg-8">
+                             <div class="card-box">
+                                <h4 class="header-title m-t-0 m-b-30">List Category In Manufacturer</h4>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <?php foreach ($listcat_manu as $lc) { ?>
+                                    <div class="panel panel-default bx-shadow-none">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                                    Collapsible Group Item #1
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
