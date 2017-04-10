@@ -34,5 +34,12 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;pre';
 
 	// Simplify the dialog windows.
+	// config.allowedContent = true;
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+	config.extraPlugins = 'youtube';
+	// config.toolbar = [{ name: 'insert', items: ['Image', 'Youtube']}];
+	config.youtube_responsive = true;
+	config.youtube_older = false;
+	config.youtube_controls = true;
 };

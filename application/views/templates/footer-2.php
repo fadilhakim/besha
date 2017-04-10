@@ -116,7 +116,23 @@
           <div class="powered_text pull-left flip">
             <p>Besha-Analitika © 2016 </a></p>
           </div>
-          <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
+          <div class="social pull-right flip"> 
+            <a href="#" target="_blank"> 
+              <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/facebook.png') ?>" alt="Facebook" title="Facebook">
+            </a> 
+            <a href="#" target="_blank"> 
+              <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/twitter.png') ?>" alt="Twitter" title="Twitter"> 
+            </a> 
+            <a href="#" target="_blank"> 
+              <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/google_plus.png') ?>" alt="Google+" title="Google+"> 
+            </a>
+            <a href="#" target="_blank"> 
+              <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/pinterest.png') ?>" alt="Pinterest" title="Pinterest"> 
+            </a> 
+            <a href="#" target="_blank"> 
+              <img data-toggle="tooltip" src="<?php echo base_url('assets/image/socialicons/rss.png') ?>" alt="RSS" title="RSS"> 
+            </a> 
+          </div>
         </div>
         <div class="bottom-row">
         </div>

@@ -9,14 +9,7 @@
       <div class="row">
         <!--Left Part Start -->
         <aside id="column-left" class="col-sm-3 hidden-xs">
-          <h3 class="subtitle">Categories</h3>
-          <div class="box-category">
-            <ul id="cat_accordion">
-               <?php foreach ($category as $c) { ?>
-                <li><a href="<?php  echo base_url('product/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
-               <?php } ?>
-            </ul>
-          </div>
+          
 
           <h3 class="subtitle">Manufacturer</h3>
           <div class="box-category">
@@ -30,6 +23,16 @@
          <!--  <div class="banner owl-carousel">
             <div class="item"> <a href="#"><img src="image/banner/small-banner-265x350.jpg" alt="small banner1" class="img-responsive" /></a> </div>
           </div> -->
+
+          <h3 class="subtitle">Categories</h3>
+          <div class="box-category">
+            <ul id="cat_accordion">
+               <?php foreach ($category as $c) { ?>
+                <li><a href="<?php  echo base_url('product/'.$c->category_url); ?>"><?php echo $c->category_title ?></a></li>
+               <?php } ?>
+            </ul>
+          </div>
+          
         </aside>
         <!--Left Part End -->
         <!--Middle Part Start-->

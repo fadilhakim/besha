@@ -1,4 +1,4 @@
-<?php foreach($news as $row);?>
+<?php foreach($news as $row)?>
 
  <!-- Page Content -->
 <div id="container">

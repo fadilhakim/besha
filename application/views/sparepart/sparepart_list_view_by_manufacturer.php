@@ -51,7 +51,7 @@
                             <div class="main-contant clearfix">
                                 <div class="contant-wrapper">
                                     <div class="image-category">
-                                        <img src="images/banner/img-1.png" alt=""/>
+                                       
                                     </div>
                                     <div class="view-options clearfix"><!-- Start Grid Bar -->
                                         <div class="pull-left">

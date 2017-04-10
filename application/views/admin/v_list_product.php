@@ -12,7 +12,7 @@
                         <div class="col-lg-12" style="overflow:scroll;">
                             <div class="card-box">
                                 <h4 class="header-title m-t-0 m-b-30">Product List</h4>
-
+								<?=$this->session->flashdata("message")?>
                                 <table id="datatable-keytable" class="table table-striped">
                                     <thead>
                                         <tr>

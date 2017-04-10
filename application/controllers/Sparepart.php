@@ -201,7 +201,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 
@@ -392,7 +392,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 
@@ -600,7 +600,7 @@ class sparepart extends CI_Controller {
 
 
 
-	        $limit = $config["per_page"] = 32;
+	       $limit = $config["per_page"] = 50;
 
 
 
@@ -804,7 +804,7 @@ class sparepart extends CI_Controller {
 
 
 
-        $limit = $config["per_page"] = 32;
+       $limit = $config["per_page"] = 50;
 
 
 
@@ -2017,78 +2017,25 @@ class sparepart extends CI_Controller {
 	public function search(){
 
 
-
-
-
-
-
 		$this->load->view('templates/meta_sparepart');
-
-
-
 		$this->load->view('templates/header_sparepart');
-
-
-
-
-
-
-
 		$data['manufacturer'] = $this->get_manufacturer();
-
-
-
-
-
 		$keyword = $this->uri->segment(3); 
 
 		if(empty($keyword)) {
 
-
-
             $keyword    =   $this->input->post('keyword');
-
-
-
         }
-
-
 
         else {
 
-
-
             $keyword=$this->uri->segment(3);
-
-
 
         }
 
-
-
-
-
-
-
         $data['results']    =   $this->model_sparepart->searchProduct($keyword);
-
-
-
-
-
-
-
         $this->load->view('sparepart/v_list_sparepart_search_result',$data);
-
-
-
         $this->load->view('templates/footer_sparepart');
-
-
-
-
-
-
 
 	}
 

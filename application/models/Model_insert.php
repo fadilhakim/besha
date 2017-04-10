@@ -17,7 +17,7 @@ class Model_insert extends CI_Model {
 
 	function insert($data,$table){
 
-		$this->db->insert($table,$data);
+		return $this->db->insert($table,$data);
 
 		/*echo $this->db->last_query();
 		die();*/
