@@ -119,7 +119,6 @@ class insert extends CI_Controller {
 	}
 
 	function insert_product()
-
 	{
 
 
@@ -239,7 +238,7 @@ class insert extends CI_Controller {
 		$this->upload->do_upload('product_image_4');*/
 
 		//upload baru
-
+		$img_msg = "";
 		if(!empty($_FILES["product_image_1"]["name"]))
 		{
 
@@ -248,6 +247,7 @@ class insert extends CI_Controller {
 			$arr1["element"]  = "product_image_1"; 
 
 			$a = $this->upload2->upload_process($arr1);
+			$img_msg .= $a["msg"];
 
 		}
 
@@ -259,6 +259,7 @@ class insert extends CI_Controller {
 			$arr2["new_path"] = "assets/image/product";
 			$arr2["element"]  = "product_image_2"; 
 			$b = $this->upload2->upload_process($arr2);
+			$img_msg .= $b["msg"];
 
 		}
 
@@ -268,28 +269,22 @@ class insert extends CI_Controller {
 			$arr3["new_path"] = "assets/image/product";
 			$arr3["element"]  = "product_image_3"; 
 			$c = $this->upload2->upload_process($arr3);
+			$img_msg .= $c["msg"];
 		}
 
 		
 
 		if(!empty($_FILES["product_image_4"]["name"]))
-
 		{
-
 			$arr4["new_path"] = "assets/image/product";
-
 			$arr4["element"]  = "product_image_4"; 
-
 			$d = $this->upload2->upload_process($arr4);
-
+			$img_msg .= $d["msg"];
 		}
-
 		
-
 		$result = $this->model_insert->insert($data,'product_tbl');
-		$img_msg = "$a[msg] $b[msg] $c[msg] $d[msg]";
 
-		if($result!=false /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
+		if($result == TRUE /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
 		{
 
 			$value='<div class="alert alert-success">Insert Product Success '.$img_msg.' </div>';
@@ -311,112 +306,59 @@ class insert extends CI_Controller {
 	{
 
 		$sparepart_name = $this->input->post('sparepart_name');
-
 		$manu_id = $this->input->post('manu_id');
-
 		$sparepart_category = $this->input->post('sparepart_category');
-
 		$catalog_code = $this->input->post('catalog_code');
-
 		$sparepart_price = $this->input->post('sparepart_price');
-
 		$sparepart_stock = $this->input->post('sparepart_stock');
-
 		$berat = $this->input->post('berat');
-
 		$dimensi = $this->input->post('dimensi');
-
 		$sparepart_desc = $this->input->post('sparepart_desc');
-
 		$sparepart_text_preview = $this->input->post('sparepart_text_preview');
-
 		$sparepart_slug = url_title($sparepart_name);
 
-
-
 		$product_image_1 = $_FILES['sparepart_image']['name'];
-
 		$product_image_1 = str_replace(' ' , '_' , $product_image_1);
 
-
-
 		$product_image_2 = $_FILES['sparepart_image_2']['name'];
-
 		$product_image_2 = str_replace(' ' , '_' , $product_image_2);
 
-
-
 		$product_image_3 = $_FILES['sparepart_image_3']['name'];
-
 		$product_image_3 = str_replace(' ' , '_' , $product_image_3);
 
-
-
 		$product_image_4 = $_FILES['sparepart_image_4']['name'];
-
 		$product_image_4 = str_replace(' ' , '_' , $product_image_4);
 
-
-
 		/* $config['upload_path']	=	'./assets/sp/images/products/' ;
-
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
-
 		$config['remove_spaces'] = FALSE;
-
 		$config['overwrite'] 	=	TRUE;
-
 		$config['max_size'] 	=	'2048000';
-
 		$config['max_height']	=  '1250';
-
 		$config['max_width'] 	=	'1300'; */
-
 
 
 		$data = array(
 
 			'sparepart_name' => $sparepart_name,
-
 			'manu_id' => $manu_id,
-
 			'sparepart_category' => $sparepart_category,
 
-
-
 			'sparepart_code' => $catalog_code,
-
 			'sparepart_price' => $sparepart_price,
 
-
-
 			'stock' => 	$sparepart_stock,
-
 			'sparepart_text_preview' => $sparepart_text_preview,
-
 			'sparepart_desc' => $sparepart_desc,
 
-
-
 			'sparepart_slug' => $sparepart_slug,
-
-
-
 			'berat' => $berat,
-
 			'dimensi' => $dimensi,
-
-
-
+			
 			'sparepart_image' => $product_image_1,
-
 			'sparepart_image_2' => $product_image_2,
-
 			'sparepart_image_3' => $product_image_3,
-
 			'sparepart_image_4' => $product_image_4
-
-
 
 		);
 
@@ -428,65 +370,55 @@ class insert extends CI_Controller {
 		$this->upload->do_upload('sparepart_image_2');
 		$this->upload->do_upload('sparepart_image_3');
 		$this->upload->do_upload('sparepart_image_4'); */
-		
+		$img_msg = "";
 		$new_path = "assets/sp/images/products/";
 		if(!empty($_FILES["sparepart_image"]["name"]))
-
 		{
-
 			$arr1["new_path"] = $new_path;
-
 			$arr1["element"]  = "sparepart_image"; 
-
 			$a = $this->upload2->upload_process($arr1);
+			$img_msg .= $a["msg"];
 
 		}
 
 		
 
 		if(!empty($_FILES["sparepart_image_2"]["name"]))
-
 		{
 
 			$arr2["new_path"] = $new_path;
-
 			$arr2["element"]  = "sparepart_image_2"; 
-
 			$b = $this->upload2->upload_process($arr2);
+			$img_msg .= $b["msg"];
 
 		}
-
-		
 
 		if(!empty($_FILES["sparepart_image_3"]["name"]))
 		{
 
 			$arr3["new_path"] = $new_path;
-
 			$arr3["element"]  = "sparepart_image_3"; 
-
 			$c = $this->upload2->upload_process($arr3);
+			$img_msg .= $c["msg"];
 
 		}
-
-		
 
 		if(!empty($_FILES["sparepart_image_4"]["name"]))
 		{
 			$arr4["new_path"] = $new_path;
 			$arr4["element"]  = "sparepart_image_4"; 
 			$d = $this->upload2->upload_process($arr4);
+			$img_msg .= $d["msg"];
 		}
 
 		$result = $this->model_insert->insert($data,'sparepart_tbl');
 
-
-
-		if($result!=false)
-
+		if($result == TRUE)
 		{
 
-		$value='Insert Product Success';
+			$value='<div class="alert alert-success"> Insert Sparepart Success '.$img_msg.'</div>';
+			$this->session->set_flashdata("message",$value);
+			redirect('admin/list_sparepart');
 
 		}
 
@@ -494,13 +426,15 @@ class insert extends CI_Controller {
 
 		{
 
-		$value='Insert Product Failed';
+			$value='<div class="alert alert-danger"> Insert Sparepart Failed '.$img_msg.' </div>';
+			$this->session->set_flashdata('message',$value);
+			redirect('admin/sparepart');
 
 		}
 
-		$this->session->set_flashdata('error_product',$value);	
+			
 
-		redirect('admin/list_sparepart');	
+		
 
 	}
 

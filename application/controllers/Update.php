@@ -424,11 +424,13 @@ class update extends CI_Controller {
 			$this->upload->do_upload('product_image_new_4');*/
 			
 			//upload baru
+			$img_msg = "";
 			if(!empty($_FILES["product_image_new_1"]["name"]))
 			{
 				$arr1["new_path"] = "assets/image/product";
 				$arr1["element"]  = "product_image_new_1"; 
 				$a = $this->upload2->upload_process($arr1);
+				$img_msg .= $a["msg"];
 			}
 			
 			if(!empty($_FILES["product_image_new_2"]["name"]))
@@ -436,6 +438,7 @@ class update extends CI_Controller {
 				$arr2["new_path"] = "assets/image/product";
 				$arr2["element"]  = "product_image_new_2"; 
 				$b = $this->upload2->upload_process($arr2);
+				$img_msg .= $b["msg"];
 			}
 			
 			if(!empty($_FILES["product_image_new_3"]["name"]))
@@ -443,6 +446,7 @@ class update extends CI_Controller {
 				$arr3["new_path"] = "assets/image/product";
 				$arr3["element"]  = "product_image_new_3"; 
 				$c = $this->upload2->upload_process($arr3);
+				$img_msg .= $c["msg"];
 			}
 			
 			if(!empty($_FILES["product_image__new_4"]["name"]))
@@ -450,21 +454,23 @@ class update extends CI_Controller {
 				$arr4["new_path"] = "assets/image/product";
 				$arr4["element"]  = "product_image_new_4"; 
 				$d = $this->upload2->upload_process($arr4);
+				$img_msg .= $c["msg"];
 			}
 			
 			$result = $this->model_update->update_product($product_id,$data);
-			$img_msg = "$a[msg] $b[msg] $c[msg] $d[msg]";
-			if($result!=false /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
+			
+			if($result == TRUE /* && (!$a["err"] || !$b["err"] || !$c["err"] || !$d["err"]) */)
 			{
 	
-				$value='<div class="alert alert-success">Insert Product Success </div>';
+				$value='<div class="alert alert-success">Update Product Success '.$img_msg.'</div>';
 				$this->session->set_flashdata('message',$value);
-				redirect('admin/product-list');		
+				//redirect('admin/product-list');	
+				redirect("admin/edit_product/$product_id/$product_category_url/$product_slug");		
 			}
 			else
 			{
 				
-				$value='<div class="alert alert-danger"> Insert Product Failed '.$img_msg.'</div>';
+				$value='<div class="alert alert-danger"> Update Product Failed '.$img_msg.'</div>';
 				$this->session->set_flashdata('message',$value);
 				redirect("admin/edit_product/$product_id/$product_category_url/$product_slug");		
 	
@@ -482,6 +488,7 @@ class update extends CI_Controller {
 		$sparepart_name = $this->input->post('sparepart_name');
 		$manu_id = $this->input->post('manu_id');
 		$sparepart_category = $this->input->post('sparepart_category');
+		$sparepart_code = $this->input->post("sparepart_code");
 		$catalog_code = $this->input->post('catalog_code');
 		$sparepart_price = $this->input->post('sparepart_price');
 		$sparepart_stock = $this->input->post('stock');
@@ -568,31 +575,27 @@ class update extends CI_Controller {
 			$this->upload->do_upload('sparepart_image_new_2');
 			$this->upload->do_upload('sparepart_image_new_3');
 			$this->upload->do_upload('sparepart_image_new_4');*/
-			
+			$img_msg = "";
 			$new_path = "assets/sp/images/products/";
 			if(!empty($_FILES["sparepart_image_new_1"]["name"]))
-	
 			{
 	
 				$arr1["new_path"] = $new_path;
-	
 				$arr1["element"]  = "sparepart_image_new_1"; 
-	
 				$a = $this->upload2->upload_process($arr1);
+				$img_msg .= $a["msg"];
 	
 			}
 	
 			
 	
 			if(!empty($_FILES["sparepart_image_new_2"]["name"]))
-	
 			{
 	
 				$arr2["new_path"] = $new_path;
-	
 				$arr2["element"]  = "sparepart_image_new_2"; 
-	
 				$b = $this->upload2->upload_process($arr2);
+				$img_msg .= $b["msg"];
 	
 			}
 	
@@ -600,31 +603,43 @@ class update extends CI_Controller {
 	
 			if(!empty($_FILES["sparepart_image_new_3"]["name"]))
 			{
-	
 				$arr3["new_path"] = $new_path;
-	
 				$arr3["element"]  = "sparepart_image_new_3"; 
-	
 				$c = $this->upload2->upload_process($arr3);
-	
+				$img_msg .= $c["msg"];
 			}
-	
-			
-	
 			if(!empty($_FILES["sparepart_image_new_4"]["name"]))
 			{
 				$arr4["new_path"] = $new_path;
 				$arr4["element"]  = "sparepart_image_new_4"; 
 				$d = $this->upload2->upload_process($arr4);
+				$img_msg .= $d["msg"];
 			}
 			
 			//print_r($_FILES);
 			
 			//var_dump($a);
 				
-			$this->model_update->update_sparepart($sparepart_id,$data);
+			$result = $this->model_update->update_sparepart($sparepart_id,$data);
 
-		redirect('admin/list_sparepart');	
+			if($result == TRUE)
+			{
+	
+				$value='<div class="alert alert-success"> Update Sparepart Success '.$img_msg.'</div>';
+				$this->session->set_flashdata("message",$value);
+				redirect('admin/list_sparepart');
+	
+			}
+	
+			else
+	
+			{
+	
+				$value='<div class="alert alert-danger"> Update Sparepart Failed '.$img_msg.' </div>';
+				$this->session->set_flashdata('message',$value);
+				redirect("admin/edit_sparepart/$sparepart_id/$sparepart_code");
+	
+			}	
 	}
 
 }
