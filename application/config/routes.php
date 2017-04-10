@@ -146,7 +146,7 @@ $route['admin/add/users'] = 'insert/insert_admin';
 $route['admin/add/sparepart'] = 'insert/insert_sparepart';
 $route['admin/add/category_product'] = 'insert/insert_category_product';
 $route['admin/add/category_sparepart'] = 'insert/insert_category_sparepart';
-
+$route['admin/add/category_to_manu'] = 'insert/category_to_manu';
 $route['contact/input_subs'] = 'contact/input_subs';
 
 //delete
@@ -161,6 +161,7 @@ $route['admin/delete/product/(:num)'] = 'delete/delete_product';
 $route['admin/delete/discount/(:num)'] = 'delete/delete_voucher';
 $route['admin/delete/sparepart/(:num)/(:any)'] = 'delete/delete_sparepart';
 $route['admin/delete/users/(:num)'] = 'delete/delete_admin';
+$route['admin/delete/category_to_manu/(:num)/(:num)'] = 'delete/category_to_manu/$1/$2';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
 $route['admin/edit/manufacturer/(:num)'] = 'admin/edit_manu/$1';

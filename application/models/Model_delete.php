@@ -82,6 +82,15 @@ class Model_delete extends CI_Model {
         $this->db->delete('admin_tbl', array('admin_id' => $id));
 
 	}
+
+	function delete_catwithmanu($get_category_id, $manu_id ){
+
+		$this->db->get('detail_sparepart_category_tbl');
+		$this->db->where('category_id', $manu_id);
+		$this->db->where('sparepart_category_id', $get_category_id);
+        $this->db->delete('detail_sparepart_category_tbl', array('category_id' => $manu_id , 'sparepart_category_id' => $get_category_id));
+
+	}
 	
 
 	function check_product($get_category_id) {
