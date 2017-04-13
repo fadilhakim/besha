@@ -303,7 +303,7 @@ class admin extends CI_Controller {
 
 			$data1['category'] = $this->model_sparepart->list_sparepart_category();
 			$data1['manufacturer'] = $this->get_manufacturer();
-			$data1['listcat_manu'] = $this->model_sparepart->list_detail_sparepart_category();
+			// $data1['listcat_manu'] = $this->model_sparepart->list_detail_sparepart_category();
 
 			$data = array(
 
@@ -311,7 +311,7 @@ class admin extends CI_Controller {
 
 				'category' => $data1['category'],
 				'manufacturer' => $data1['manufacturer'],
-				'listcat_manu' => $data1['listcat_manu']
+				// 'listcat_manu' => $data1['listcat_manu']
 
 		);
 
