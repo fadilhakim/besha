@@ -1,7 +1,5 @@
 <?php
 
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
@@ -10,9 +8,9 @@ class sparepart extends CI_Controller {
 
 	public function __construct(){
 
+	
 
       parent::__construct();
-
 
 
       $this->load->helper("url");
@@ -37,20 +35,16 @@ class sparepart extends CI_Controller {
 
       $this->agent->referrer();
 
-
+   
 
   	}
-
-
-
-
-
 
 
 	public function index()
 
 	{
 
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$data['manufacturer'] = $this->get_manufacturer();
 
@@ -69,9 +63,9 @@ class sparepart extends CI_Controller {
 
 
 
-		
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
-
+		  if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$id=$this->uri->segment(3);
 
@@ -275,6 +269,8 @@ class sparepart extends CI_Controller {
 
 	public function list_grid_manufacturer($id) {
 
+		if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
+
 		$id=$this->uri->segment(3);
 
 
@@ -471,7 +467,7 @@ class sparepart extends CI_Controller {
 	public function list_view() {
 
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 
 
@@ -655,7 +651,7 @@ class sparepart extends CI_Controller {
 	public function grid_view() {
 
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 
 
@@ -886,7 +882,7 @@ class sparepart extends CI_Controller {
 
 	public function detail($id,$slug) {
 
-		
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->load->helper("check_data_helper");
 
@@ -944,12 +940,12 @@ class sparepart extends CI_Controller {
 
 
 
-	public function signup()
+	public function signup(){
 
 
+		$section = $this->uri->segment(2);
 
-	{
-
+		$data =  array('page_section' => $section);
 
 
 		$this->load->view('templates/meta_sparepart');
@@ -960,7 +956,7 @@ class sparepart extends CI_Controller {
 
 
 
-		$this->load->view('sparepart/v_signup');
+		$this->load->view('sparepart/v_signup', $data);
 
 
 
@@ -984,7 +980,7 @@ class sparepart extends CI_Controller {
 
 		//set validation rules for login data
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[user_tbl.email]');
 
@@ -1625,19 +1621,7 @@ class sparepart extends CI_Controller {
 
 		if($cek->num_rows()==1){
 
-
-
-
-
-
-
 			foreach ($cek->result() as $data) { }
-
-
-
-				
-
-
 
 				if($data->act_status == '0') {
 
@@ -1795,13 +1779,10 @@ class sparepart extends CI_Controller {
 
 
 
-	public function contact()
+	public function contact(){
 
 
-
-	{
-
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->load->view('templates/meta_sparepart');
 
@@ -1833,7 +1814,7 @@ class sparepart extends CI_Controller {
 
 	{
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$data['manufacturer'] = $this->get_manufacturer();
 
@@ -1936,7 +1917,7 @@ class sparepart extends CI_Controller {
 
 
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		 $query = $this->db->get('manufacturer_tbl');
 
@@ -1992,7 +1973,7 @@ class sparepart extends CI_Controller {
 
 	{
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 	    $this->db->where('category_id', $manufacturer_id);
 
@@ -2016,6 +1997,7 @@ class sparepart extends CI_Controller {
 
 	public function search(){
 
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->load->view('templates/meta_sparepart');
 		$this->load->view('templates/header_sparepart');
@@ -2051,7 +2033,7 @@ class sparepart extends CI_Controller {
 
 
 
-
+		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->load->view('templates/meta_sparepart');
 

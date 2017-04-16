@@ -33,7 +33,7 @@
                 <!--End social icon-->
                 
                 <!-- Top link -->
-                <?php if(!$this->session->userdata('email')){ ?>
+                <?php if(!$this->session->userdata('contact_person')){ ?>
                 <div class="top-links clearfix fright">
                 	<ul>
                         <li class="dropdown">
@@ -48,10 +48,10 @@
                 <div class="top-links clearfix fright">
                   <ul>
                   	  <li class="dropdown">
-                      	<a href="#"> <?=$this->session->userdata("name")?> </a>
+                      	<a href="#"> <?=$this->session->userdata("contact_person")?> </a>
                       </li>
                       <li class="dropdown">
-                        <a href="<?php echo base_url('sparepart/logout');  ?>">Logout</a>
+                        <a href="<?php echo base_url('login/logout_2');  ?>">Logout</a>
                       </li>
                   </ul> 
                 </div>
