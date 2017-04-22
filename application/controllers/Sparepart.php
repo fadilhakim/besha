@@ -980,7 +980,6 @@ class sparepart extends CI_Controller {
 
 		//set validation rules for login data
 
-		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 
 		$this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[user_tbl.email]');
 
@@ -1180,7 +1179,7 @@ class sparepart extends CI_Controller {
 
 
 
-				'act_status' => 1
+				'act_status' => 0
 
 
 
@@ -1289,15 +1288,11 @@ class sparepart extends CI_Controller {
 
 
 
-	function verify($hash=NULL)
+	function verify() {
 
+		$key = $this->uri->segment(2); 
 
-
-	{
-
-
-
-		if ($this->model_sparepart->verifyEmailID($hash))
+		if ($this->model_sparepart->verifyEmailID($key))
 
 
 
