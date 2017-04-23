@@ -148,7 +148,17 @@ foreach ($sparepart as $row) ?>
 
                                         <div class="col-sm-9">
 
-                                            <input class="form-control" value="<?php echo $row->sparepart_price; ?>" name="sparepart_price" required placeholder="Change Product Code " type="text">
+                                             <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                     if($cek_rol == 2 ){ ?>
+                                                       <input class="form-control" name="sparepart_price" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Price" type="number">
+                                                      <?php } else {?>
+                                                        <input class="form-control" name="sparepart_price"  value="<?php echo $row->sparepart_price; ?>" required="" placeholder="Sparepart Price" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                  <?php } ?>
+
+
+
+                                           <!--  <input class="form-control" value="<?php echo $row->sparepart_price; ?>" name="sparepart_price" required placeholder="Change Product Code " type="text"> -->
 
                                         </div>
 
@@ -162,7 +172,16 @@ foreach ($sparepart as $row) ?>
 
                                         <div class="col-sm-9">
 
-                                            <input class="form-control" value="<?php echo $row->stock; ?>" name="stock" required type="number">
+                                            <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                    if($cek_rol == 3 ){ ?>
+                                                             <input class="form-control" name="sparepart_stock" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Stock" type="number">
+                                                    <?php } else {?>
+                                                             <input class="form-control" name="sparepart_stock" value="<?php echo $row->stock; ?>" required="" placeholder="Sparepart Stock" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                           
+                                                    <?php } ?>
+
+                                            <!-- <input class="form-control" value="<?php echo $row->stock; ?>" name="stock" required type="number"> -->
 
                                         </div>
 

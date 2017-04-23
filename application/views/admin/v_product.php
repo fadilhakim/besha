@@ -61,12 +61,20 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Availability</label>
                                                 <div class="col-sm-7">
-                                                    <select class="form-control" name="product_availability" required>
-                                                        <option value="">---</option>
-                                                        <?php foreach ($stock as $st) { ?>
-                                                            <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
-                                                        <?php } ?>
+                                                     <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                    if($cek_rol == 3 ){ ?>
+                                                      <input class="form-control" value="-" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                    <?php } else {?>
+                                                          <select class="form-control" name="product_availability" required>
+                                                            <option value="">---</option>
+                                                            <?php foreach ($stock as $st) { ?>
+                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
+                                                            <?php } ?>
                                                     </select>
+                                                           
+                                                    <?php } ?>
+                                                   
                                                 </div>
                                             </div>
 

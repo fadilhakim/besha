@@ -85,12 +85,20 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Availability</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="product_availability">
-                                                <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
-                                                <?php foreach ($stock as $s) { ?> 
-                                                    <option value="<?php echo $s->status_title; ?>"><?php echo $s->status_title; ?></option>
+
+                                              <?php
+                                                $cek_rol = $this->session->userdata('role_id');
+                                                if($cek_rol == 3 ){ ?>
+                                                  <input class="form-control" value="-" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                <?php } else {?>
+                                                          <select class="form-control" name="product_availability" required>
+                                                             <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
+                                                            <?php foreach ($stock as $s) { ?>
+                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $s->status_title; ?></option>
+                                                            <?php } ?>
+                                                </select>
+                                                       
                                                 <?php } ?>
-                                            </select>
                                         </div>
                                     </div>
 
