@@ -467,7 +467,7 @@ class update extends CI_Controller {
 				$value='<div class="alert alert-success">Update Product Success '.$img_msg.'</div>';
 				$this->session->set_flashdata('message',$value);
 				//redirect('admin/product-list');
-				redirect("admin/edit_product/$product_id/$product_category_url/$product_slug");
+				redirect('admin/product-list');
 			}
 			else
 			{
@@ -490,10 +490,12 @@ class update extends CI_Controller {
 		$sparepart_name = $this->input->post('sparepart_name');
 		$manu_id = $this->input->post('manu_id');
 		$sparepart_category = $this->input->post('sparepart_category');
-		$sparepart_code = $this->input->post("sparepart_code");
-		$catalog_code = $this->input->post('catalog_code');
+		// $sparepart_code = str_replace('/\s+/', '',$this->input->post("sparepart_code"));
+		$catalog_code =  str_replace(' ', '',$this->input->post('catalog_code'));
 		$sparepart_price = $this->input->post('sparepart_price');
-		$sparepart_stock = $this->input->post('stock');
+		$stock = $this->input->post('stock');
+		$berat = $this->input->post('berat');
+		$dimensi = $this->input->post('dimensi');
 		$sparepart_desc = $this->input->post('sparepart_desc');
 		$sparepart_text_preview = $this->input->post('sparepart_text_preview');
 		$sparepart_slug = url_title($sparepart_name);
@@ -557,7 +559,9 @@ class update extends CI_Controller {
 			'sparepart_code' => $catalog_code,
 			'sparepart_price' => $sparepart_price,
 
-			'stock' => 	$sparepart_stock,
+			'stock' => 	$stock,
+			'berat' => 	$berat,
+			'dimensi' => 	$dimensi,
 			'sparepart_text_preview' => $sparepart_text_preview,
 			'sparepart_desc' => $sparepart_desc,
 

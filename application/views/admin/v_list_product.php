@@ -22,8 +22,7 @@
                                             <th>Product Category</th>
                                             <th>Featured Product</th>
                                             <th>Product Brand</th>
-                                            <th>Product Detail</th>
-                                            <th>Action</th>
+                                            <th>Action / Product Detail</th>
                                         </tr>
                                     </thead>
 
@@ -60,11 +59,13 @@
 
                                             </td>
                                             <td>
-                                                <a href="" class="btn btn-info waves-effect w-xs waves-light m-b-5"> <i class="fa fa-newspaper-o m-r-5"></i> <span></span> </a>
-                                            </td>
-                                            <td>
                                                 <a href="<?php  echo base_url('admin/edit_product/'.$p->manu_id.'/'.$p->category_url.'/'.$p->product_slug); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit</a>
-                                                <a href="<?php echo base_url('admin/delete/product/'.$p->product_id); ?>" id="" class="delete-manu btn btn-danger btn-bordred waves-effect w-md waves-light m-b-5">Delete</a>
+                                                <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+
+                                                    if($cek_rol == 1 ){ ?>
+                                                    <a href="<?php echo base_url('admin/delete/product/'.$p->product_id); ?>" id="" class="delete-manu btn btn-danger btn-bordred waves-effect w-md waves-light m-b-5">Delete</a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
 

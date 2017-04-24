@@ -69,7 +69,13 @@
                                             </td>
                                             <td>
                                                 <a href="<?php  echo base_url('admin/edit_sparepart/'.$p->sparepart_id.'/'.$p->sparepart_code); ?>" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit / Detail</a>
+                                                 <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+
+                                                    if($cek_rol == 1 ){ ?>
                                                 <a href="<?php echo base_url('admin/delete/sparepart/'.$p->sparepart_id.'/'.$p->sparepart_code); ?>" id="" class="delete-manu btn btn-danger btn-bordred waves-effect w-md waves-light m-b-5">Delete</a>
+
+                                                <?php } ?>
                                             </td>
                                         </tr>
 
