@@ -94,8 +94,9 @@ foreach ($sparepart as $row) ?>
 
                                                     if($cek_rol != 1 ){ ?>
 
-                                                 <input class="form-control" readonly="" style="background-color: #ccc !important;" value="<?php echo $manuma['manu_title']; ?>" name="manu_id" required placeholder="Change Product Brand " type="text">
-                                            
+                                                 <input class="form-control" readonly="" style="background-color: #ccc !important;" value="<?php echo $manuma['manu_id']; ?>" name="manu_id" required placeholder="Change Product Brand " type="hidden">
+                                                    
+                                                   <input class="form-control" readonly="" style="background-color: #ccc !important;" value="<?php echo $manuma['manu_title']; ?>" name="" required placeholder="Change Product Brand " type="text">
                                                 <?php } else { ?>
                                                 <select class="form-control" name="manu_id">
                                                     <option selected="selected" value="<?php echo $manuma['manu_id']; ?>"><?php echo $manuma['manu_title']; ?></option>
@@ -184,7 +185,7 @@ foreach ($sparepart as $row) ?>
                                              <?php
                                                     $cek_rol = $this->session->userdata('role_id');
                                                      if($cek_rol == 2 ){ ?>
-                                                       <input class="form-control" name="sparepart_price" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Price" type="number">
+                                                       <input class="form-control" name="sparepart_price" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Price" type="number"  value="<?php echo $row->sparepart_price; ?>">
                                                       <?php } else {?>
                                                         <input class="form-control" name="sparepart_price"  value="<?php echo $row->sparepart_price; ?>" required="" placeholder="Sparepart Price" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
                                                   <?php } ?>
@@ -208,7 +209,7 @@ foreach ($sparepart as $row) ?>
                                             <?php
                                                     $cek_rol = $this->session->userdata('role_id');
                                                     if($cek_rol == 3 ){ ?>
-                                                             <input class="form-control" name="stock" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Stock" type="number">
+                                                             <input class="form-control" name="stock" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Stock" value="<?php echo $row->stock; ?>"  type="number">
                                                     <?php } else {?>
                                                              <input class="form-control" name="stock" value="<?php echo $row->stock; ?>" required="" placeholder="Sparepart Stock" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
                                                            
