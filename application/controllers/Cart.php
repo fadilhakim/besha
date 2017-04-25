@@ -329,7 +329,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			//send mail
 
 			$this->email->from($from_email, 'Besha Analitika');
-			$this->email->to($to_email);
+			$this->email->to($to_email,"service@besha-analitika.co.id");
 			$this->email->subject($subject);
 			$this->email->message($message);
 			$this->email->send();
