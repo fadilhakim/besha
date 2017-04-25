@@ -335,10 +335,8 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$this->email->send();
 
 			//echo $this->email->print_debugger();
-
-			
-
-			redirect("cart/show_cart");
+			redirect("sparepart/invoice_success_page");
+			//redirect("cart/show_cart");
 
 		}
 
@@ -346,7 +344,31 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	
 	function test()
 	{
+		$subject = "test aja";
+		$message = "test message";
+		$from_email = "info@besha-analitika.co.id";
 		
+		$config['protocol']  = 'smtp';
+		$config['mailtype']  = 'html';
+		$config['priority']  = '1';
+		$config['charset']   = 'iso-8859-1';
+		$config['newline']   = "\r\n"; //use double quotes*/
+		$config['wordwrap']  = TRUE;
+		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
+		$config['smtp_port'] = 465;
+		$config['smtp_user'] = 'info@besha-analitika.co.id';
+		$config['smtp_pass'] = 'info-n23';
+  
+		$this->email->initialize($config);
+  
+		//send mail
+  
+		$this->email->from($from_email, 'Besha Analitika');
+		$this->email->to(array("service@besha-analitika.co.id","alhusna901@gmail.com"));
+		$this->email->subject($subject);
+		$this->email->message($message);
+		$this->email->send();
+		
+		$this->email->print_debugger();
 	}
-		
 }
