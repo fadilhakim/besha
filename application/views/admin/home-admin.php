@@ -34,7 +34,7 @@
                             </div>
                             </a>
                         </div>
-                        <?php } ?>
+                        
 
                         <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/slider'); ?>">
@@ -61,19 +61,7 @@
                             </a>
                         </div>
 
-                        <div class="col-lg-4">
-                            <a href="<?php echo base_url('admin/sparepart'); ?>">
-                            <div class="card-box widget-user">
-                                <div class="text-center">
-                                    <h5>
-                                        Spareparts
-                                    </h5>
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                    
-                    
+                
                         <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/event'); ?>">
                             <div class="card-box widget-user">
@@ -142,7 +130,12 @@
                             </a>
                         </div>
 
-                        <div class="col-lg-4">
+                       
+                        <?php } ?>
+
+                        <?php
+                            if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){ ?>
+                         <div class="col-lg-4">
                             <a href="<?php echo base_url('admin/discount'); ?>">
                             <div class="card-box widget-user">
                                 <div class="text-center">
@@ -153,6 +146,22 @@
                             </div>
                             </a>
                         </div>
+
+                        <?php } ?>
+
+                        <div class="col-lg-4">
+                            <a href="<?php echo base_url('admin/sparepart'); ?>">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h5>
+                                        Spareparts
+                                    </h5>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+
 
                     </div>
                 </div>

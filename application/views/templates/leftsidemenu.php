@@ -18,7 +18,7 @@
                 <li class="has_sub">
                     <a href="<?php echo base_url('admin/members'); ?>" class="waves-effect"><i class="fa fa-users"></i> <span>Members</span> </a>
                 </li>
-                <?php } ?>
+               
                 <li class="has_sub">
                     <a href="<?php echo base_url('admin/slider'); ?>" class="waves-effect"><i class="zmdi zmdi-wallpaper"></i> <span>Slider</span> </a>
                 </li>
@@ -34,18 +34,6 @@
                     </ul>
                 </li>
 
-                <li class="has_sub">
-                    <a href="#" class="waves-effect"><i class="fa fa-gears"></i> <span>Spareparts</span> </a>
-                    <ul>
-                        <li><a href="<?php echo base_url('admin/sparepart'); ?>" class="waves-effect"><i class="fa fa-plus"></i> <span>Add New</span> </a></li>
-                        <li><a href="<?php echo base_url('admin/list_sparepart'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart List</span> </a></li>
-                        <li><a href="<?php echo base_url('admin/sparepart_category'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart Category</span> </a></li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="<?php echo base_url('admin/discount'); ?>" class="waves-effect"><i class="fa fa-ticket"></i> <span>Voucher</span> </a>
-                </li>
                 <li class="">
                     <a href="<?php echo base_url('admin/event'); ?>" class="waves-effect"><i class="zmdi zmdi-calendar-check"></i> <span>Event</span> </a>
                 </li>
@@ -61,6 +49,25 @@
                 <li class="has_sub">
                     <a href="<?php echo base_url('admin/manufacturer'); ?>" class="waves-effect"><i class="zmdi zmdi-truck"></i> <span>Manufacturer</span> </a>
                 </li>
+
+                 <?php } ?>
+
+
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="fa fa-gears"></i> <span>Spareparts</span> </a>
+                    <ul>
+                        <li><a href="<?php echo base_url('admin/sparepart'); ?>" class="waves-effect"><i class="fa fa-plus"></i> <span>Add New</span> </a></li>
+                        <li><a href="<?php echo base_url('admin/list_sparepart'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart List</span> </a></li>
+                        <li><a href="<?php echo base_url('admin/sparepart_category'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart Category</span> </a></li>
+                    </ul>
+                </li>
+                <?php
+                if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){ ?>
+                <li class="">
+                    <a href="<?php echo base_url('admin/discount'); ?>" class="waves-effect"><i class="fa fa-ticket"></i> <span>Voucher</span> </a>
+                </li>
+                <?php } ?>
+
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect subdrop"><i class="zmdi zmdi-power"></i><span>Log Out </span></a>
                     <ul style="display: block;">

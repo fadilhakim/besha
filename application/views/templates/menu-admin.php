@@ -54,6 +54,16 @@
 
                                 <li class="dropdown user-box">
                                     <a href="#" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                                        Hi <?php echo $this->session->userdata('username'); ?> , you login as  <?php 
+                                        $rold_id = $this->session->userdata('role_id');
+                                        if ($rold_id == 1 ) {
+                                            echo "<strong>Super Admin</strong>  ";
+                                        }else if ($rold_id == 2){
+                                            echo "<strong>Admin</strong>";
+                                        }
+                                        else {
+                                            echo "<strong>Service</strong>";
+                                        } ?>
                                         <img src="<?php echo base_url('admin-assets/images/users/avatar-1.png') ?>" alt="user-img" class="img-circle user-img">
                                     </a>
 

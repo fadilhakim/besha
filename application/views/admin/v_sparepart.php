@@ -10,6 +10,17 @@
                         <a href="<?php echo base_url('admin/sparepart_category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category Sparepart</a>
                     </h4>
                     <div class="row">
+
+                      <?php
+                        $cek_rol = $this->session->userdata('role_id');
+
+                        if($cek_rol != 1 ){ ?>
+                        <div class="col-lg-12">
+                            <div class="card-box">
+                                <h4 class="header-title m-t-0 m-b-30">You don't have access to add new Sparepart</h4>
+                            </div>
+                        </div>
+                        <?php } else { ?>
                         <div class="col-lg-12">
                             <div class="card-box">
                                 <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/sparepart'); ?>" method="post">
@@ -65,14 +76,27 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Sparepart Price</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" name="sparepart_price" required="" placeholder="Sparepart Price" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                 <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                     if($cek_rol == 2 ){ ?>
+                                                       <input class="form-control" name="sparepart_price" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Price" type="number">
+                                                      <?php } else {?>
+                                                        <input class="form-control" name="sparepart_price" required="" placeholder="Sparepart Price" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                  <?php } ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Stock</label>
                                                  <div class="col-sm-7">
-                                                    <input class="form-control" name="sparepart_stock" required="" placeholder="Sparepart Stock" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                    <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                    if($cek_rol == 3 ){ ?>
+                                                             <input class="form-control" name="sparepart_stock" readonly="" style="background-color: #ccc !important;" placeholder="Sparepart Stock" type="number">
+                                                    <?php } else {?>
+                                                             <input class="form-control" name="sparepart_stock" required="" placeholder="Sparepart Stock" data-parsley-id="34" kl_virtual_keyboard_secure_input="on" type="number">
+                                                           
+                                                    <?php } ?>
                                                 </div>
                                             </div>
 
@@ -173,6 +197,7 @@
                                 </form>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

@@ -41,24 +41,42 @@
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Name</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" value="<?php echo $product_id; ?>" name="product_id" type="hidden">
-                                            <input class="form-control" value="<?php echo $product_title; ?>" name="product_title" required placeholder="Change Title " type="text">
+                                            <?php
+                                                $cek_rol = $this->session->userdata('role_id');
+
+                                                if($cek_rol != 1 ){ ?>
+                                                <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_title; ?>" name="product_title" readonly="" placeholder="Change Product Title " type="text">
+                                                <?php } else { ?>
+                                                <input class="form-control" value="<?php echo $product_title; ?>" name="product_title" required placeholder="Change Title " type="text">
+
+                                                <?php } ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Brand</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="manu_id">
+                                            
+                                                <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
 
-                                                <?php foreach ($manufacturer as $ma) { ?> 
-                                                    <option selected="selected" value="<?php echo $ma->manu_id; ?>"><?php echo $ma->manu_title; ?></option>
+                                                    if($cek_rol != 1 ){ ?>
+                                                        <?php foreach ($manufacturer as $ma) { ?>
+                                                         <input class="form-control" style="background-color: #ccc !important" value="<?php echo $ma->manu_title; ?>" name="manu_id" readonly="" placeholder="Change Product Brand " type="text">
+                                                        <?php } ?> 
+                                                    <?php } else { ?>
+                                                        <select class="form-control" name="manu_id">
+                                                        <?php foreach ($manufacturer as $ma) { ?> 
+                                                            <option selected="selected"   value="<?php echo $ma->manu_id; ?>"><?php echo $ma->manu_title; ?></option>
+                                                        <?php } ?>
+
+                                                        <?php foreach ($manu as $m) { ?>
+                                                            <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>
+                                                        <?php } ?> 
+                                                         </select>
                                                 <?php } ?>
 
-                                                <?php foreach ($manu as $m) { ?>
-                                                    <option value="<?php echo $m->manu_id; ?>"><?php echo $m->manu_title; ?></option>
-                                                <?php } ?> 
-
-                                            </select>
+                                           
                                         </div>
                                     </div>
 
@@ -66,31 +84,55 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Category</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="product_category">
-                                                <option selected="selected" value="<?php echo $product_category; ?>"><?php echo $product_category; ?></option>
-                                                <?php foreach ($category as $c) { ?> 
-                                                    <option value="<?php echo $c->category_title; ?>"><?php echo $c->category_title; ?></option>
-                                                <?php } ?>
-                                            </select>
+                                              <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+
+                                                    if($cek_rol != 1 ){ ?>
+                                                        
+                                                        <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_category; ?>" name="product_category" readonly="" placeholder="Change Product Category" type="text">
+                                                    <?php } else { ?>
+                                                    <select class="form-control" name="product_category">
+                                                        <option selected="selected" value="<?php echo $product_category; ?>"><?php echo $product_category; ?></option>
+                                                        <?php foreach ($category as $c) { ?> 
+                                                            <option value="<?php echo $c->category_title; ?>"><?php echo $c->category_title; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+
+                                            <?php } ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Code</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" value="<?php echo $product_code; ?>" name="product_code" required placeholder="Change Product Code " type="text">
+                                            <?php
+                                                $cek_rol = $this->session->userdata('role_id');
+
+                                                if($cek_rol != 1 ){ ?>
+                                                 <input class="form-control" style="background-color: #ccc !important" value="<?php echo $product_code; ?>" name="product_code" readonly="" placeholder="Change Product Code " type="text">
+                                                <?php } else { ?>
+                                                <input class="form-control" value="<?php echo $product_code; ?>" name="product_code" required placeholder="Change Product Code " type="text">
+                                                <?php } ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Availability</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="product_availability">
-                                                <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
-                                                <?php foreach ($stock as $s) { ?> 
-                                                    <option value="<?php echo $s->status_title; ?>"><?php echo $s->status_title; ?></option>
+
+                                              <?php
+                                                $cek_rol = $this->session->userdata('role_id');
+                                                if($cek_rol == 3 ){ ?>
+                                                  <input class="form-control" value="<?php echo $product_availability; ?>" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                <?php } else {?>
+                                                          <select class="form-control" name="product_availability" required>
+                                                             <option selected="selected" value="<?php echo $product_availability; ?>"><?php echo $product_availability; ?></option>
+                                                            <?php foreach ($stock as $s) { ?>
+                                                                <option value="<?php echo $s->status_title; ?>"><?php echo $s->status_title; ?></option>
+                                                            <?php } ?>
+                                                </select>
+                                                       
                                                 <?php } ?>
-                                            </select>
                                         </div>
                                     </div>
 
@@ -186,14 +228,27 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Text Preview</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" name="product_text"><?php echo $product_text; ?></textarea>
+                                                <?php
+                                                $cek_rol = $this->session->userdata('role_id');
+                                                if($cek_rol == 2 ){ ?>
+                                                    <textarea class="form-control" readonly="" style="background-color: #ccc !important" name="product_text"><?php echo $product_text; ?></textarea>
+                                                <?php } else {?>
+                                                    <textarea class="form-control" name="product_text"><?php echo $product_text; ?></textarea>
+                                                <?php } ?>
+                                            
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" style="text-align:left;">Product Description</label>
                                         <div class="col-sm-9">
+                                         <?php
+                                            $cek_rol = $this->session->userdata('role_id');
+                                            if($cek_rol == 2 ){ ?>
+                                            <textarea id="editor2" class="form-control" readonly=""  style="background-color: #ccc !important" name="product_desc"><?php echo $product_desc; ?></textarea>
+                                            <?php } else { ?>
                                             <textarea id="editor2" class="form-control" name="product_desc"><?php echo $product_desc; ?></textarea>
+                                            <?php } ?>
                                         </div>
                                     </div>
 

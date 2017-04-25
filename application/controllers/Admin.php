@@ -302,8 +302,8 @@ class admin extends CI_Controller {
 			$this->load->model('model_sparepart');
 
 			$data1['category'] = $this->model_sparepart->list_sparepart_category();
-			$data1['manufacturer'] = $this->model_sparepart->list_manufacturer();
-			$data1['listcat_manu'] = $this->model_sparepart->list_detail_sparepart_category();
+			$data1['manufacturer'] = $this->get_manufacturer();
+			// $data1['listcat_manu'] = $this->model_sparepart->list_detail_sparepart_category();
 
 			$data = array(
 
@@ -311,7 +311,7 @@ class admin extends CI_Controller {
 
 				'category' => $data1['category'],
 				'manufacturer' => $data1['manufacturer'],
-				'listcat_manu' => $data1['listcat_manu']
+				// 'listcat_manu' => $data1['listcat_manu']
 
 		);
 
@@ -321,6 +321,28 @@ class admin extends CI_Controller {
 		$this->load->view('admin/v_sparepart_category', $data);
 		$this->load->view('templates/footer-admin');
 
+	}
+
+	public function get_manufacturer() {
+	 	$query = $this->db->get('manufacturer_tbl');
+	    $return = array();
+	    foreach ($query->result() as $manufacturer)
+	    {
+
+	        $return[$manufacturer->manu_id] = $manufacturer;
+	        $return[$manufacturer->manu_id]->subs = $this->get_sparepart_categories($manufacturer->manu_id); // Get the categories sub categories
+	    }
+	    return $return;
+	}
+
+
+	public function get_sparepart_categories($manufacturer_id)
+
+	{
+
+	    $this->db->where('category_id', $manufacturer_id);
+	    $query = $this->db->get('detail_sparepart_category_tbl');
+	    return $query->result();
 	}
 
 

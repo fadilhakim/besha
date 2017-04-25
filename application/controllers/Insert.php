@@ -1078,19 +1078,9 @@ class insert extends CI_Controller {
 
 	{
 
-
-
-
-
 		$sparepart_category_name = $this->input->post('sparepart_category_name');
 
 		$sparepart_category_url = url_title($sparepart_category_name);
-
-
-
-		
-
-
 
 		$data = array(
 
@@ -1098,19 +1088,32 @@ class insert extends CI_Controller {
 
 			'category_slug' => $sparepart_category_url
 
-
-
 		);
-
-		
-
 
 
 		$result = $this->model_insert->insert($data,'sparepart_category');
 
 		redirect('admin/sparepart_category');	
 
-	}		
+	}
+
+	function category_to_manu()
+
+	{
+
+		$manu_id = $this->input->post('manu_id');
+		$cat_id = $this->input->post('cat_id');
+		$data = array(
+
+			'category_id' => $manu_id,
+			'sparepart_category_id' => $cat_id
+		);
+
+		$result = $this->model_insert->insert($data,'detail_sparepart_category_tbl');
+
+		redirect('admin/sparepart_category');	
+
+	}			
 
 
 

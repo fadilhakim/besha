@@ -70,5 +70,65 @@ class login extends CI_Controller {
 		redirect(base_url('login'));
 	}
 
+	function logout_2(){
+		$this->session->sess_destroy();
+		redirect(base_url('sparepart'));
+	}
+
+	function login_costumer(){
+
+		$this->load->view('templates/meta_sparepart');
+
+		$this->load->view('templates/header_sparepart');
+
+		$this->load->view('login');
+
+		$this->load->view('templates/footer_sparepart');
+	}
+
+	function aksi_login_costumer(){
+
+		$email = $this->input->post('email');
+		$password = md5($this->input->post('password'));
+
+		$cek = $this->model_login->cek_login_costumer($email, $password);
+		
+			if($cek->num_rows()==1){
+
+					
+				foreach ($cek->result() as $data) {
+
+						if($data->act_status != 1) {
+
+							$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+							Silahkan Konfirmas email anda terlebih Dahulu.
+							</div>');
+
+							redirect(base_url("login/login_costumer"));
+						}
+
+						else {
+
+							// $sess_data['admin_id'] = $data->admin_id;
+							$sess_data['contact_person'] = $data->contact_person;
+							$this->session->set_userdata($sess_data);
+							redirect(base_url("sparepart"));
+						
+						}	
+				}		
+					
+			} else{
+				$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
+	                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	                                                Maaf email/password yang anda masukan salah.
+	                                            </div>');
+
+				redirect(base_url("login/login_costumer"));
+			}
+
+
+	}
+
 
 }

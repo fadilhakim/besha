@@ -83,6 +83,7 @@ $route['sparepart/contact'] = 'sparepart/contact';
 $route['sparepart/contact_post'] = 'sparepart/contact_post';
 
 $route['sparepart/signup'] = 'sparepart/signup';
+$route['sparepart/login'] = 'sparepart/login';
 $route['login-action'] = 'sparepart/login_action';
 $route['login-action-2'] = 'sparepart/login_action_2';
 $route['verify'] = 'sparepart/verify';
@@ -146,7 +147,7 @@ $route['admin/add/users'] = 'insert/insert_admin';
 $route['admin/add/sparepart'] = 'insert/insert_sparepart';
 $route['admin/add/category_product'] = 'insert/insert_category_product';
 $route['admin/add/category_sparepart'] = 'insert/insert_category_sparepart';
-
+$route['admin/add/category_to_manu'] = 'insert/category_to_manu';
 $route['contact/input_subs'] = 'contact/input_subs';
 
 //delete
@@ -161,6 +162,7 @@ $route['admin/delete/product/(:num)'] = 'delete/delete_product';
 $route['admin/delete/discount/(:num)'] = 'delete/delete_voucher';
 $route['admin/delete/sparepart/(:num)/(:any)'] = 'delete/delete_sparepart';
 $route['admin/delete/users/(:num)'] = 'delete/delete_admin';
+$route['admin/delete/category_to_manu/(:num)/(:num)'] = 'delete/category_to_manu/$1/$2';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
 $route['admin/edit/manufacturer/(:num)'] = 'admin/edit_manu/$1';
@@ -193,3 +195,6 @@ $route['login/verify/submit'] = 'admin_users/verify_submit';
 //users confirm email
 $route['registration/success'] = 'sparepart/user_registration_sucess';
 $route['verify/users/(:any)'] = 'sparepart/user_registration_after_confirm';
+
+$route['verify_email/(:any)'] = 'sparepart/verify/$1';
+

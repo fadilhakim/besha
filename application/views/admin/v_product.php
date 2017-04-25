@@ -10,6 +10,17 @@
                         <a href="<?php echo base_url('admin/product-category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category Product</a>
                     </h4>
                     <div class="row">
+
+                      <?php
+                        $cek_rol = $this->session->userdata('role_id');
+
+                        if($cek_rol != 1 ){ ?>
+                        <div class="col-lg-12">
+                            <div class="card-box">
+                                <h4 class="header-title m-t-0 m-b-30">You don't have access to add new product</h4>
+                            </div>
+                        </div>
+                        <?php } else {?>
                         <div class="col-lg-12">
                             <div class="card-box">
                                 <form class="form-horizontal group-border-dashed" enctype="multipart/form-data" action="<?php echo base_url('admin/add/product'); ?>" method="post">
@@ -61,12 +72,20 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Product Availability</label>
                                                 <div class="col-sm-7">
-                                                    <select class="form-control" name="product_availability" required>
-                                                        <option value="">---</option>
-                                                        <?php foreach ($stock as $st) { ?>
-                                                            <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
-                                                        <?php } ?>
+                                                     <?php
+                                                    $cek_rol = $this->session->userdata('role_id');
+                                                    if($cek_rol == 3 ){ ?>
+                                                      <input class="form-control" value="-" name="product_availability" readonly="" style="background-color: #ccc !important;" placeholder="Product Stock">
+                                                    <?php } else {?>
+                                                          <select class="form-control" name="product_availability" required>
+                                                            <option value="">---</option>
+                                                            <?php foreach ($stock as $st) { ?>
+                                                                <option value="<?php echo $st->status_title; ?>"><?php echo $st->status_title; ?></option>
+                                                            <?php } ?>
                                                     </select>
+                                                           
+                                                    <?php } ?>
+                                                   
                                                 </div>
                                             </div>
 
@@ -165,6 +184,7 @@
                                 </form>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
