@@ -2,7 +2,7 @@
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form method="post" action="<?php echo base_url('login-action'); ?>" >
+				  <form method="post" action="<?php echo base_url('login/aksi_login_costumer'); ?>" >
                   	<input type="hidden" name="redirect_success" value="<?=current_url()?>">
 					<input type="text" name="email" placeholder="email">
 					<input type="password" name="password" placeholder="password">

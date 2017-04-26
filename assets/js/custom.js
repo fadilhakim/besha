@@ -6,7 +6,7 @@
 ------------------------------ */
 $('.slideshow').owlCarousel({
 	items: 6,
-	autoPlay: 3000,
+	autoPlay: 6000,
 	singleItem: true,
 	navigation: true,
 	navigationText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
