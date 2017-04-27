@@ -59,7 +59,7 @@
 			  
 			
 			  
-			  if($image_width <= 300 && $image_height >= 250)
+			  if($image_width <= 3000 && $image_height <= 250)
 			  {
 				  $res = TRUE;	
 			  }
@@ -67,6 +67,7 @@
 			  
 			
 			}
+
 			else
 			{
 				$res = TRUE;
@@ -134,7 +135,7 @@
 				//semua pesan error
 				if($check_dimension["res"] == FALSE)
 				{
-					$msg .= "<div> <strong>Warning!</strong> image $element dimension should be H : 250 W : 300. and your image is W : $check_dimension[width] H : $check_dimension[height]  </div>";	
+					$msg .= "<div> <strong>But can't upload the image</strong>  <br> image $element dimension should be H : 250 <br> and your image is H : $check_dimension[height]  </div>";	
 				}
 				
 			}
