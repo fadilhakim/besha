@@ -261,12 +261,12 @@ class Model_sparepart extends CI_Model {
 
     //send verification email to user's email id
 
-    function sendEmail($to_email,$contact_person,$company_name) {
+    function sendEmail($to_email,$contact_person,$company_name,$no_tlp,$no_hp) {
 
         $from_email = 'info@besha-analitika.co.id';
         $subject = 'Verify Registration From New User';
 
-        $message = 'Dear Admin,<br /><br /> there is one new user need your confirmation to complete his registration<br> Contact Person : '.$contact_person.'<br> Company Name : '.$company_name.'<br> Email : '.$to_email.' <br><br> Please click on the below activation link to verify New User email address.<br /><br /> http://www.besha-analitika.co.id/verify_email/'.md5($to_email).
+        $message = 'Dear Admin,<br /><br /> there is one new user need your confirmation to complete his registration<br> Contact Person : '.$contact_person.'<br> Company Name : '.$company_name.'<br> Email : '.$to_email.' <br> No Telephone :'.$no_tlp.'<br> No Handpone'.$no_hp.' <br> Please click on the below activation link to verify New User email address.<br /><br /> http://www.besha-analitika.co.id/verify_email/'.md5($to_email).
         '<br /><br /><br /> Thank You<br />';
 
         //configure email settings

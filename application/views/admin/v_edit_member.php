@@ -127,7 +127,7 @@
 
                                     <div class="form-group text-right m-b-0">
                                         <button class="btn btn-primary waves-effect waves-light" type="submit";>
-                                            Edit news
+                                            Save
                                         </button>
                                     </div>
                                 </form>

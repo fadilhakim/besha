@@ -361,7 +361,7 @@ class sparepart extends CI_Controller {
 
 				// send email
 
-				if ($this->model_sparepart->sendEmail($email,$contact_person,$company_name))
+				if ($this->model_sparepart->sendEmail($email,$contact_person,$company_name,$no_tlp,$no_hp))
 				{
 
 					// successfully sent mail
@@ -450,7 +450,7 @@ class sparepart extends CI_Controller {
 				if($data->act_status == '0') {
 					$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						Silahkan Konfirmas email anda terlebih Dahulu.
+						Cannot login, your account not yet confirmed by administrator.
 					</div>');
 					redirect(base_url("verify/failed"));
 				}

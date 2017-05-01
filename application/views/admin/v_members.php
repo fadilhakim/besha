@@ -19,6 +19,7 @@
                                                 <th>Contact Person</th>
                                                 <th>Phone Number</th>
                                                 <th>Email</th>
+                                                <th>Membership Status</th>
                                                 <th>Discount</th>
                                             </tr>
                                         </thead>
@@ -31,6 +32,16 @@
                                                 <td><?php echo $sb->contact_person; ?></td>
                                                 <td><?php echo $sb->no_tlp; ?></td>
                                                 <td><?php echo $sb->email; ?></td>
+                                                <td>
+                                                    <?php $act = $sb->act_status;
+                                                        if($act == 1){
+                                                            echo "Active";
+                                                        }
+                                                        else{
+                                                            echo "Unactive";
+                                                        }
+                                                    ?>
+                                                </td>
                                                 <td>
                                                 Member Discount : <strong><?php echo $sb->discount_price; ?> %</strong> <br>
                                                 <a href="<?php echo base_url('admin/edit/member/').$sb->user_id; ?>" id="" class="btn btn-warning btn-bordred waves-effect w-md waves-light m-b-5">Edit Member / Discount</a>

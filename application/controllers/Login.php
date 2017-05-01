@@ -102,7 +102,7 @@ class login extends CI_Controller {
 
 							$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-							Silahkan Konfirmas email anda terlebih Dahulu.
+							Cannot login, your account not yet confirmed by administrator.
 							</div>');
 
 							redirect(base_url("login/login_costumer"));
