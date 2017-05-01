@@ -200,3 +200,5 @@ $route['verify/users/(:any)'] = 'sparepart/user_registration_after_confirm';
 
 $route['verify_email/(:any)'] = 'sparepart/verify/$1';
 
+$route['verify_email/(:any)'] = 'sparepart/thankyou_for_confirm';
+

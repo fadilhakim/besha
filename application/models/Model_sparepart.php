@@ -261,13 +261,13 @@ class Model_sparepart extends CI_Model {
 
     //send verification email to user's email id
 
-    function sendEmail($to_email) {
+    function sendEmail($to_email,$contact_person,$company_name) {
 
         $from_email = 'info@besha-analitika.co.id';
-        $subject = 'Verify Your Email Address';
+        $subject = 'Verify Registration From New User';
 
-        $message = 'Dear User,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/verify_email/'.md5($to_email).
-        '<br /><br /><br />Thank You<br />';
+        $message = 'Dear Admin,<br /><br /> there is one new user need your confirmation to complete his registration<br> Contact Person : '.$contact_person.'<br> Company Name : '.$company_name.'<br> Email : '.$to_email.' <br><br> Please click on the below activation link to verify New User email address.<br /><br /> http://www.besha-analitika.co.id/verify_email/'.md5($to_email).
+        '<br /><br /><br /> Thank You<br />';
 
         //configure email settings
 
@@ -286,8 +286,8 @@ class Model_sparepart extends CI_Model {
 
         //send mail
 
-        $this -> email -> from($from_email, 'Besha Analitika');
-        $this -> email -> to($to_email);
+        $this -> email -> from($from_email, 'Web System Besha Analitika');
+        $this -> email -> to('service@besha-analitika.co.id');
         $this -> email -> subject($subject);
         $this -> email -> message($message);
         return $this -> email -> send();
@@ -305,6 +305,8 @@ class Model_sparepart extends CI_Model {
         $this -> db -> where('md5(email)', $key);
 
         return $this -> db -> update('user_tbl', $data);
+
+        redirect('sparepart/thankyou_for_confirm');
 
     }
 
