@@ -688,13 +688,13 @@ class admin extends CI_Controller {
 
 
 
-	public function edit_discount_member($id)
+	public function edit_member($id)
 
 	{
 
 		$id = $this->uri->segment(4);
-
-		$data['members'] = $this->model_update-> list_members_byId($id);
+		$this->load->model('model_update');
+		$data['members'] = $this->model_update->list_members_byId($id);
 
 		$this->load->view('templates/meta-admin');
 
@@ -702,7 +702,7 @@ class admin extends CI_Controller {
 
 		$this->load->view('templates/leftsidemenu');
 
-		$this->load->view('admin/v_edit_discount_member',$data);
+		$this->load->view('admin/v_edit_member',$data);
 
 		$this->load->view('templates/footer-admin');
 

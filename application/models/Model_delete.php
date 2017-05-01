@@ -50,6 +50,13 @@ class Model_delete extends CI_Model {
         $this->db->delete('news_tbl', array('news_id' => $id));
 	}
 
+	function delete_member($user_id){
+
+		$this->db->get('user_tbl');
+		$this->db->where('user_id', $user_id);
+        $this->db->delete('user_tbl', array('user_id' => $user_id));
+	}
+
 	function delete_product($id){
 
 		$this->db->get('product_tbl');
