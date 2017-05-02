@@ -38,7 +38,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Discount Price</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Discount %</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" name="discount_price" required placeholder="Discount Price" type="number">
                                         </div>
@@ -75,7 +75,7 @@
                                             <th>#</th>
                                             <th>Voucher Name</th>
                                             <th>Voucher Code</th>
-                                            <th>Discount Price</th>
+                                            <th>Discount %</th>
                                             <th>Voucher Description</th>
                                             <th>Start Date</th>
                                             <th>Expired Date</th>

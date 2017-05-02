@@ -56,7 +56,7 @@
                                     </div>
 
                                      <div class="form-group">
-                                        <label class="col-sm-3 control-label" style="text-align:left;">Discount Price :</label>
+                                        <label class="col-sm-3 control-label" style="text-align:left;">Discount % :</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" value="<?php echo $discount_price; ?>" name="discount_price" required placeholder="Discount Price" type="number">
                                         </div>
