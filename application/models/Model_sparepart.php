@@ -299,9 +299,8 @@ class Model_sparepart extends CI_Model {
     function verifyEmailID($key)
 
     {
-
         $data = array('act_status' => 1);
-
+    
         $this -> db -> where('md5(email)', $key);
 
         return $this -> db -> update('user_tbl', $data);

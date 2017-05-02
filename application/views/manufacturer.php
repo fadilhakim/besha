@@ -12,7 +12,7 @@
                 <div class="row">
                     <?php foreach ($manu as $m) { ?>
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                            <a class="thumbnail" href="#">
+                            <a class="thumbnail" href="<?php echo $m->manu_link; ?>">
                                 <img class="img-responsive" src="<?php echo sprintf("assets/image/manufacturer/%s", $m->manu_image) ?> " alt="<?php echo $m->manu_title ?>">
                             </a>
                         </div>
