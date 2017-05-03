@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed.');
 
+
+
 $config['useragent']        = 'PHPMailer';              // Mail engine switcher: 'CodeIgniter' or 'PHPMailer'
 $config['protocol']         = 'smtp';                   // 'mail', 'sendmail', or 'smtp'
 $config['mailpath']         = '/usr/sbin/sendmail';
@@ -34,4 +36,3 @@ $config['dkim_private_string'] = '';                    // DKIM private key, set
 $config['dkim_selector']    = '';                       // DKIM selector.
 $config['dkim_passphrase']  = '';                       // DKIM passphrase, used if your key is encrypted.
 $config['dkim_identity']    = '';                       // DKIM Identity, usually the email address used as the source of the email.
-
