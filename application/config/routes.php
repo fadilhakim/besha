@@ -163,6 +163,7 @@ $route['admin/delete/discount/(:num)'] = 'delete/delete_voucher';
 $route['admin/delete/sparepart/(:num)/(:any)'] = 'delete/delete_sparepart';
 $route['admin/delete/users/(:num)'] = 'delete/delete_admin';
 $route['admin/delete/category_to_manu/(:num)/(:num)'] = 'delete/category_to_manu/$1/$2';
+$route['admin/delete/member/(:num)'] = 'delete/delete_member';
 //edit view
 $route['admin/edit/slider/(:num)'] = 'admin/edit_slider/$1';
 $route['admin/edit/manufacturer/(:num)'] = 'admin/edit_manu/$1';
@@ -173,7 +174,7 @@ $route['admin/edit/(:num)/(:any)/(:any)']['get'] = 'admin/edit_product/$1/$2/$3'
 $route['admin/edit/discount/(:num)'] = 'admin/edit_voucher/$1';
 $route['admin/edit/sparepart/(:num)'] = 'admin/edit_sparepart/$1';
 $route['admin/edit/admin/(:num)'] = 'admin/edit_admin/$1';
-$route['admin/edit/discount_member/(:num)'] = 'admin/edit_discount_member/$1';
+$route['admin/edit/member/(:num)'] = 'admin/edit_member/$1';
 
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';
@@ -184,6 +185,7 @@ $route['admin/edit/news_f'] = 'update/update_news';
 $route['admin/edit/discount_f'] = 'update/update_discount';
 $route['admin/edit/sparepart_f'] = 'update/update_sparepart';
 $route['admin/edit/admin_f'] = 'update/update_admin';
+$route['admin/edit/member_f'] = 'update/update_member';
 
 
 
@@ -197,4 +199,6 @@ $route['registration/success'] = 'sparepart/user_registration_sucess';
 $route['verify/users/(:any)'] = 'sparepart/user_registration_after_confirm';
 
 $route['verify_email/(:any)'] = 'sparepart/verify/$1';
+
+$route['sparepart/thankyou_for_confirm'] = 'sparepart/thankyou_for_confirm';
 

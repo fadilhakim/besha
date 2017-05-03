@@ -116,6 +116,15 @@ class delete extends CI_Controller {
 
 	}
 	
+	public function delete_member() {
+
+		$user_id = $this->uri->segment(4);
+		$this->model_delete->delete_member($user_id);
+		redirect('admin/members');
+
+	}
+	
+
 	public function delete_news() {
 
 		$id = $this->uri->segment(4);

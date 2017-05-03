@@ -47,7 +47,7 @@ class model_user extends CI_Model
 		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 		$config['smtp_port'] = 465;
 		$config['smtp_user'] = 'info@besha-analitika.co.id';
-		$config['smtp_pass'] = 'info-n23';
+		$config['smtp_pass'] = 'be=$.P!TQ6X*';
 
 		$this->email->initialize($config);
 
@@ -93,7 +93,7 @@ class model_user extends CI_Model
 
 		$from_email = 'info@besha-analitika.co.id';
 
-		$subject = 'Verify Your Email Address';
+		$subject = 'Verify New User Email Address';
 
 		$message = 'Dear Admin Besha Analitika,<br /><br />Please click on the below activation link to verify your email address.<br /><br /> http://www.besha-analitika.co.id/login/verify/admin/'.$username.'<br /><br /><br />Thanks<br />';
 
@@ -110,7 +110,7 @@ class model_user extends CI_Model
 		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 		$config['smtp_port'] = 465;
 		$config['smtp_user'] = 'info@besha-analitika.co.id';
-		$config['smtp_pass'] = 'info-n23';
+		$config['smtp_pass'] = 'be=$.P!TQ6X*';
 
 		$this->email->initialize($config);
 

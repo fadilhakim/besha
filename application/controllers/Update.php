@@ -314,6 +314,50 @@ class update extends CI_Controller {
 		redirect('admin/users_admin');
 	}
 
+	function update_member() {
+
+
+		  $user_id= $this->input->post('user_id');
+	      $company_name= $this->input->post('company_name');
+	      $npwp_no= $this->input->post('npwp_no'); 
+	      $npwp_address= $this->input->post('npwp_address'); 
+
+	      $contact_person= $this->input->post('contact_person'); 
+	      $no_tlp= $this->input->post('no_tlp');  
+	      $no_fax= $this->input->post('no_fax'); 
+	      $no_hp= $this->input->post('no_hp');
+
+	      $email= $this->input->post('email'); 
+	      $billing_address= $this->input->post('billing_address'); 
+	      $shipping_address= $this->input->post('shipping_address');
+	      $act_status= $this->input->post('act_status'); 
+	      $discount_price=$this->input->post('discount_price'); 
+
+
+		$data = array(
+
+			'user_id' => $user_id,
+			'company_name' => $company_name,
+			'npwp_no' => $npwp_no,
+			'npwp_address' => $npwp_address,
+
+			'contact_person' => $contact_person,
+			'no_tlp' => $no_tlp,
+			'no_fax' => $no_fax,
+			'no_hp' => $no_hp,
+
+			'email' => $email,
+			'billing_address' => $billing_address,
+			'shipping_address' => $shipping_address,
+			'act_status' => $act_status,
+			'discount_price' => $discount_price,
+		);
+
+		$this->model_update->update_member($user_id,$data);
+
+		redirect('admin/members');
+	}
+
 	function update_product() {
 
 		$product_id 			= $this->input->post('product_id');

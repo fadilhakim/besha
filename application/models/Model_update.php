@@ -112,6 +112,12 @@ class Model_update extends CI_Model {
 		$this->db->update('admin_tbl', $data);
 	}
 
+	function update_member($user_id, $data){
+
+		$this->db->where('user_id', $user_id);
+		$this->db->update('user_tbl', $data);
+	}
+
 	public function list_role() {
 
 			$product = $this->db->get('roles_tbl');

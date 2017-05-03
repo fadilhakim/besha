@@ -361,11 +361,11 @@ class sparepart extends CI_Controller {
 
 				// send email
 
-				if ($this->model_sparepart->sendEmail($this->input->post('email')))
+				if ($this->model_sparepart->sendEmail($email,$contact_person,$company_name,$no_tlp,$no_hp))
 				{
 
 					// successfully sent mail
-					$this->session->set_flashdata('msg','You are Successfully Registered! Please confirm the mail sent to your Email-ID!!!');
+					$this->session->set_flashdata('msg','You are Successfully Registered!');
 					redirect('registration/success');
 
 				}
@@ -450,7 +450,7 @@ class sparepart extends CI_Controller {
 				if($data->act_status == '0') {
 					$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-						Silahkan Konfirmas email anda terlebih Dahulu.
+						Cannot login, your account not yet confirmed by administrator.
 					</div>');
 					redirect(base_url("verify/failed"));
 				}
@@ -881,6 +881,15 @@ class sparepart extends CI_Controller {
 		$this->load->view('templates/meta_sparepart');
 		$this->load->view('templates/header_sparepart');
         $this->load->view('sparepart/v_success');
+        $this->load->view('templates/footer_sparepart');
+
+	}
+
+	function thankyou_for_confirm(){
+
+		$this->load->view('templates/meta_sparepart');
+		$this->load->view('templates/header_sparepart');
+        $this->load->view('sparepart/v_success_confirm');
         $this->load->view('templates/footer_sparepart');
 
 	}
