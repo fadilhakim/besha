@@ -3,7 +3,7 @@
        		<div class="container">
              	<div class="breadcrumbs-main clearfix">
                 	<h2>
-                        <?php if($this->uri->segment(2) != 'category') { echo "All Manufacturers"; } 
+                        <?php if($this->uri->segment(2) != 'category') { echo "All Manufacturers"; }
                              else if(empty($spareparts)) {
                                 $manu_name = $this->uri->segment(3);
                                 $this->db->where('manu_id',$manu_name );
@@ -15,11 +15,11 @@
                                     }
                                 }
                                 foreach($data1 as $topik)
-                                echo $topik['manu_title']; 
-                            } 
+                                echo $topik['manu_title'];
+                            }
 
                             else if(!empty($spareparts)){
-                            foreach ($spareparts as $key) 
+                            foreach ($spareparts as $key)
                                 $manu_name = $key->manu_id;
                                 $this->db->where('manu_id',$manu_name );
                                 $r = $this->db->get('manufacturer_tbl');
@@ -30,14 +30,14 @@
                                     }
                                 }
                                 foreach($data1 as $topik)
-                                echo $topik['manu_title']; 
-                      
+                                echo $topik['manu_title'];
+
                             }
-                        else { 
-                            echo $this->uri->segment(4); 
+                        else {
+                            echo $this->uri->segment(4);
                         } ?>
-                             
-    
+
+
                      </h2>
                   	<ul>
                   		<li><a href="#">Spareparts</a><span class="separator"> : </span></li>
@@ -63,7 +63,7 @@
                         	<div class="main-contant clearfix">
                             	<div class="contant-wrapper">
                                     <div class="image-category">
-                                        
+
                                     </div>
                                     <div class="view-options clearfix"><!-- Start Grid Bar -->
                                         <div class="pull-left">
@@ -78,7 +78,7 @@
                                                 <a href="<?php echo base_url('spareparts/category/').$this->uri->segment(3).'/'.$this->uri->segment(4).'/'.'1' ?>" class="view-list active"><i class="fa fa-list"></i><span>List</span></a>
                                                 <?php } ?>
                                             </div>
-                                            <!-- END VIEW -->	
+                                            <!-- END VIEW -->
                                         </div>
                                         <div class="pull-right">
                                             <!-- SHOW PAGE -->
@@ -125,24 +125,24 @@
                                                                 <img src="<?php echo base_url('assets/sp/images/products/').$sp->sparepart_image_4 ?>" alt=""/>
                                                             <?php }else {?>
                                                                 <img src="<?php echo base_url('assets/sp/images/no-image.png'); ?>" class="img-responsive">
-                                                            <?php } ?>    
+                                                            <?php } ?>
                                                         </a>
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 p-contant">
 
                                                         <h4 class="p-title"><?php echo $sp->sparepart_name; ?></h4>
                                                         <div class="price">
-                                                            <?php 
+                                                            <?php
                                                                 $price =  $sp->sparepart_price;
                                                                 $discount = $this->session->userdata('discount_price');
-                                                                $total_discount = $price * $discount / 100;
+                                                                $total_discount = $price * ($discount / 100);
                                                                 $total_price = $price - $total_discount;
-                                         $user_id = $this->session->userdata('user_id');
-										 if(!empty($user_id)) { 
-                                                                
+                                         												$user_id = $this->session->userdata('user_id');
+										 									 													if(!empty($user_id)) {
+
                                                                 ?>
                                                                     Rp. <?php echo $total_price; ?>
-                                                                    
+
                                                                 <?php  }else{?>
                                                                     Rp.<?php echo $sp->sparepart_price; ?>
                                                                 <?php }
@@ -153,13 +153,13 @@
                                                         <div class="pro-action">
                                                             <div class="a-to-c">
                                                                 <a href="<?php echo base_url('spareparts/detail/').$sp->sparepart_slug.'/'.$sp->sparepart_id; ?>">See Detail</a>
-                                                                <span style="float:right; color:#999;">Stock : 
+                                                                <span style="float:right; color:#999;">Stock :
                                                                 <?php
                                                                     if ($sp->stock == 0) {
                                                                         echo "Indent";
                                                                     } else {
                                                                         echo $sp->stock;
-                                                                    } 
+                                                                    }
                                                                 ?>
                                                                 </span>
                                                             </div>
@@ -167,7 +167,7 @@
                                                     </div>
                                                 </div><!-- End Item -->
                                             <?php } } ?>
-                                            
+
                                         </div>
                                         <div class="spacer30"></div><!--spacer-->
                                         <div class="row">

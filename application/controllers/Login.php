@@ -19,7 +19,7 @@ class login extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();
 		$this->load->model('model_login');
 	}
 
@@ -32,28 +32,32 @@ class login extends CI_Controller {
 		$password = md5($this->input->post('password'));
 
 		$cek = $this->model_login->cek_login($username, $password);
-		
+
 			if($cek->num_rows()==1){
 				foreach ($cek->result() as $data) {
 					if($data->status == 1) {
-						$sess_data['admin_id'] = $data->admin_id;
-						$sess_data['username'] = $data->username;
-						$sess_data['role_id'] = $data->role_id;
+
+						$sess_data['admin_id'] 			 = $data->admin_id;
+						$sess_data['username'] 			 = $data->username;
+						$sess_data['role_id'] 		   = $data->role_id;
+						//$sess_data["discount_price"] = $data->discount_price;
+
 						$this->session->set_userdata($sess_data);
-						redirect(base_url("admin"));		
+						redirect(base_url("admin"));
 					}
 					else{
-						
+
 						$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 	                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 	                                                Maaf Account anda belum aktif
 	                                            </div>');
+
 						redirect(base_url("login"));
 					}
-					
+
 				}
 
-				
+
 
 			}else{
 				$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
@@ -62,7 +66,7 @@ class login extends CI_Controller {
 	                                            </div>');
 				redirect(base_url("login"));
 			}
-		
+
 	}
 
 	function logout(){
@@ -92,10 +96,10 @@ class login extends CI_Controller {
 		$password = md5($this->input->post('password'));
 
 		$cek = $this->model_login->cek_login_costumer($email, $password);
-		
+
 			if($cek->num_rows()==1){
 
-					
+
 				foreach ($cek->result() as $data) {
 
 						if($data->act_status != 1) {
@@ -112,12 +116,15 @@ class login extends CI_Controller {
 
 							// $sess_data['admin_id'] = $data->admin_id;
 							$sess_data['contact_person'] = $data->contact_person;
+							$sess_data["discount_price"] = $data->discount_price;
+							$sess_data["email"]					 = $data->email;
+							$sess_data["user_id"]				 = $data->user_id;
 							$this->session->set_userdata($sess_data);
 							redirect(base_url("sparepart"));
-						
-						}	
-				}		
-					
+
+						}
+				}
+
 			} else{
 				$this->session->set_flashdata('error','<div class="alert alert-danger alert-dismissable">
 	                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

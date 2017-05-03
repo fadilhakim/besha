@@ -1,5 +1,5 @@
  <?php foreach ($sparepart as $row)
- 
+
  	$sparepart_id = $row->sparepart_id;
  ?>
 
@@ -11,7 +11,7 @@
             <ul>
                 <li><a href="#">Spareparts</a><span class="separator">/ </span></li>
                 <li>
-                     <?php 
+                     <?php
                         $spc = $row->sparepart_category;
                         $this->db->where('category_id',$spc);
                         $r = $this->db->get('sparepart_category');
@@ -64,16 +64,22 @@
                                             <div class="product-info">
                                                <!--  <h4><?php echo $row->sparepart_name; ?></h4> -->
                                                 <div class="price-box">
-                                                    <p class="new-price"><span style="font-size:26px;">Rp. <?php echo  number_format($row->sparepart_price); ?></span></p>
-                                                   <!--  <p class="old-price"><span>Rp. 340.00</span></p> -->
+                                                  <?php
+                                                      $discount_price2 = $this->session->userdata("discount_price");
+                                                      $new_price = $row->sparepart_price - ($row->sparepart_price * ($discount_price2 / 100 ));
+                                                   ?>
+                                                    <p class="new-price"><span style="font-size:26px;">Rp. <?php echo  number_format($new_price) ?></span></p>
+                                                    <?php if(!empty($discount_price2)){ ?>
+                                                      <p class="old-price"><span>Rp. <?php echo  number_format($row->sparepart_price); ?></span></p>
+                                                    <?php } ?>
                                                 </div>
-                                                <span class="product_stock">Stock :  
+                                                <span class="product_stock">Stock :
                                                 <?php
                                                     if ($row->stock == 0) {
                                                         echo "Indent";
                                                     } else {
                                                         echo $row->stock;
-                                                    } 
+                                                    }
                                                 ?>
                                                 </span>
                                                 <div class="short-description">
@@ -84,7 +90,7 @@
                                                 </p>
                                                 <div class="row">
                                                   <div class="col-lg-6">
-                                                    <?php 
+                                                    <?php
                                                         $manu_id = $row->manu_id;
                                                         $this->db->where('manu_id',$manu_id);
                                                         $r = $this->db->get('manufacturer_tbl');
@@ -107,7 +113,7 @@
                                                     </div>
                                                     <div class="cart-btn col-sm-4 col-xs-6">
                                                             <input type="hidden" name="sparepart_id" value="<?php echo $row->sparepart_id ?>">
-                                                            <input type="hidden" name="sparepart_price" value="<?php echo $row->sparepart_price ?>">
+                                                            <input type="hidden" name="sparepart_price" value="<?php echo $new_price ?>">
                                                             <input type="hidden" name="sparepart_code" value="<?php echo $row->sparepart_code ?>">
                                                             <input type="hidden" name="sparepart_name" value="<?php echo $row->sparepart_slug ?>">
                                                             <input type="hidden" name="sparepart_image" value="<?php echo $row->sparepart_image ?>">
@@ -134,14 +140,14 @@
                                                     <?php echo $row->sparepart_desc; ?>
                                                 </div>
                                             </div>
-                                     
+
                                         </div>
                                     </div>
                                     <div class="spacer30"></div><!--spacer-->
                                     <div class="upsell clearfix">
                                         <h4 class="heading">Related Products</h4>
                                         <div class="owl-carousel upsell-products">
-                                            <?php 
+                                            <?php
                                                 $sparepart_category = $row->sparepart_category;
                                                 $this->db->where('sparepart_category',$sparepart_category);
                                                 $this->db->order_by('rand()');
@@ -174,9 +180,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <?php $this->load->view("sparepart/sidebar_sparepart"); ?>
-                        
+
                        <?php /* <div class="col-md-3 col-sm-4">
                           <div class="side-bar clearfix"><!--Side Bar-->
                                 <div class="aside categories"><!--Side Categories-->

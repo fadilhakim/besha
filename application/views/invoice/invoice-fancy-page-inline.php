@@ -1,16 +1,16 @@
 <?php
   $due_intr = "24 hours";
-  
+
   $create_date= date("d M, Y");
-  
+
   $effectiveDate = strtotime("+".$due_intr, strtotime($create_date));
-  
+
   $due_date = date("d M, Y",$effectiveDate);
-  
+
   $user_sess = $this->session->all_userdata();
-  
+
  // print_r($user_sess);exit;
-  
+
   $detail_user = $this->model_user->get_user_detail($user_sess["user_id"]);
 ?>
 
@@ -19,14 +19,14 @@
   <head>
     <meta charset="utf-8">
     <title><?=$name_pdf?></title>
-   
-    
+
+
   </head>
   <body style="position:relative;width:21cm;height:29.7cm;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;color:#555555;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-family:SourceSansPro;font-size:10px;" >
     <header class="clearfix" style="padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;margin-bottom:20px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#AAAAAA;font-size:14px;" >
       <div id="logo" style="float:left;width:45%;margin-top:8px;" >
         <img src="<?=base_url("assets/image/logo-besha.jpg")?>" style="height:70px;" >
-        
+
       </div>
       <div id="company" style="float:right;width:55%;text-align:right;" >
         <!-- <h2 class="name" style="font-size:1.4em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?=TITLE?></h2> -->
@@ -67,7 +67,7 @@
 				$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
 		  ?>
           <tr>
-            <td class="" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;background-color:#EEEEEE;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#FFFFFF;text-align:right;" ><img 
+            <td class="" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;background-color:#EEEEEE;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#FFFFFF;text-align:right;" ><img
                     src="<?=check_image_sparepart($items['id'])?>" width="100" height="100" /></td>
             <td class="desc" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;background-color:#EEEEEE;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#FFFFFF;text-align:left;" ><?=$items["code"]?> / <?=$detail_sparepart->sparepart_name?></td>
             <td class="unit" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#FFFFFF;text-align:right;background-color:#DDDDDD;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-size:1.2em;" >Rp. <?=number_format($items["price"])?></td>
@@ -79,25 +79,27 @@
 		  ?>
         </tbody>
         <tfoot>
+          <?php
+              $cart_total = $this->cart->total();
+              $sub_total = $cart_total * 0.1;
+              $grand_total = $cart_total + $sub_total;
+
+            ?>
           <tr>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" ></td>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >SUBTOTAL</td>
-            <td style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" ><h3 style="color:#57B223;font-size:1.2em;font-weight:normal;margin-top:0;margin-bottom:0.2em;margin-right:0;margin-left:0;" > Rp. <?=number_format($this->cart->total())?> </h3></td>
+            <td style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" ><h3 style="color:#57B223;font-size:1.2em;font-weight:normal;margin-top:0;margin-bottom:0.2em;margin-right:0;margin-left:0;" >
+              Rp. <?=number_format($cart_total, 2, '.', ',');?> </h3></td>
           </tr>
           <tr>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" ></td>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >SHIPPING </td>
-            <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >TAX 25%</td>
+            <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >TAX 10%</td>
             <td style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >
-            	
-                <?php
-					$cart_total = $this->cart->total();
-					$sub_total = $cart_total * 0.25;
-					$grand_total = $cart_total - ($cart_total * 0.25);
-					
-				?>
-            	Rp. <?=number_format($sub_total)?>
-                
+
+
+            	Rp. <?=number_format($sub_total, 2, '.', ',');?>
+
             </td>
           </tr>
           <tr>
@@ -109,9 +111,9 @@
             </td>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >GRAND TOTAL</td>
             <td style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >
-            	Rp. <?=number_format($grand_total)?>
-            	
-            
+            	Rp. <?=number_format($grand_total, 2, '.', ',');?>
+
+
             </td>
           </tr>
         </tfoot>

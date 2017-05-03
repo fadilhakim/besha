@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
@@ -28,7 +28,7 @@ if(!$this->cart->contents()){ ?>
         <div class="breadcrumbs-main clearfix">
             <h2>Checkout</h2>
         </div>
-        
+
     </div>
     <div class="spacer15"></div><!--spacer-->
 </div>
@@ -55,12 +55,12 @@ if(!$this->cart->contents()){ ?>
                                         </thead>
                                         <tbody>
                                         <?php $i = 1; ?>
-                                        <?php 
-										
-										foreach($this->cart->contents() as $items): 
-											
+                                        <?php
+
+										foreach($this->cart->contents() as $items):
+
 						$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
-											
+
 										?>
                                         <?php echo form_hidden('rowid[]', $items['rowid']); ?>
                                             <tr>
@@ -104,9 +104,9 @@ if(!$this->cart->contents()){ ?>
                                         <input style="float:right;background-color: #FE8301; color: #fff;" type="submit" class="submit" value="update cart">
                                         </div>
                                     </div>
-                    
-                                    <?php echo form_close(); ?> 
-                                    <div class="spacer15"></div> 
+
+                                    <?php echo form_close(); ?>
+                                    <div class="spacer15"></div>
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="tab-container left clearfix">
@@ -128,7 +128,7 @@ if(!$this->cart->contents()){ ?>
                                                                         <option value="Germany">Germany</option>
                                                                         <option value="Korea">Korea</option>
                                                                     </select>
-                                                                </div><!-- End .normal-selectbox-->    
+                                                                </div><!-- End .normal-selectbox-->
                                                             </div>
                                                             <div class="ship-row clearfix">
                                                                 <span class="ship-label col-3">Region/State<i>*</i></span>
@@ -138,7 +138,7 @@ if(!$this->cart->contents()){ ?>
                                                                         <option value="Texas">Texas</option>
                                                                         <option value="California">California</option>
                                                                     </select>
-                                                                </div><!-- End .normal-selectbox-->    
+                                                                </div><!-- End .normal-selectbox-->
                                                             </div>
                                                             <div class="ship-row clearfix">
                                                                 <span class="ship-label col-3">Post Codes<i>*</i></span>
@@ -166,30 +166,36 @@ if(!$this->cart->contents()){ ?>
                                         <div class="col-md-4">
                                             <table class="table total-table">
                                                 <tbody>
+                                                  <?php
+                                  					$cart_total = $this->cart->total();
+                                  					$sub_total = $cart_total * 0.1;
+                                  					$grand_total = $cart_total + $sub_total;
+
+                                  				?>
                                                     <tr>
                                                         <td class="total-table-title">Subtotal:</td>
-                                                        <td>Rp.000.00</td>
+                                                        <td>Rp. <?=number_format((float)$cart_total, 2, '.', ',');?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="total-table-title">Shipping:</td>
-                                                        <td>Rp. 000.000</td>
+                                                        <td>Rp. 0</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="total-table-title">TAX (0%):</td>
-                                                        <td></td>
+                                                        <td class="total-table-title">TAX (10%):</td>
+                                                        <td>Rp. <?=number_format((float)$sub_total, 2, '.', ',');?></td>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
                                                         <td>Total:</td>
-                                                        <td><?php echo $this->cart->total(); ?></td>
+                                                        <td>Rp. <?=number_format((float)$grand_total, 2, '.', ',');?></td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <?php
 												$email_sess = $this->session->userdata("email");
 												$strbtnlogin = "data-toggle='modal' data-target='#login-modal' ";
-												 
+
 											?>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
@@ -199,7 +205,7 @@ if(!$this->cart->contents()){ ?>
                                                 	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
                                                 <?php } ?>
                                             </div>
-                                            
+
                                             <div class="text-right">
                                             <?php if(!empty($email_sess)) { ?>
                                                 <a href="<?=base_url("cart/send_email_invoice")?>" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
@@ -220,5 +226,3 @@ if(!$this->cart->contents()){ ?>
             <div class="spacer30"></div><!--spacer-->
 </div>
 <?php  } ?>
-
-

@@ -1,17 +1,20 @@
 <?php
+
+
   $due_intr = "24 hours";
-  
+
   $create_date= date("d M, Y");
-  
+
   $effectiveDate = strtotime("+".$due_intr, strtotime($create_date));
-  
+
   $due_date = date("d M, Y",$effectiveDate);
-  
+
   $user_sess = $this->session->all_userdata();
-  
+
  // print_r($user_sess);exit;
-  
+
   $detail_user = $this->model_user->get_user_detail($user_sess["user_id"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +24,7 @@
     <title><?=$name_pdf?></title>
     <link rel="stylesheet" href="<?=base_url("assets/plugins/invoice/fancy2/style.css")?>" media="all" />
     <style>
-		
+
 	</style>
   </head>
   <body>
@@ -69,7 +72,7 @@
 				$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
 		  ?>
           <tr>
-            <td class=""><img 
+            <td class=""><img
                     src="<?=check_image_sparepart($items['id'])?>" width="100" height="100" /></td>
             <td class="desc"><?=$items["code"]?> / <?=$detail_sparepart->sparepart_name?></td>
             <td class="unit">Rp. <?=number_format($items["price"])?></td>
@@ -81,20 +84,26 @@
 		  ?>
         </tbody>
         <tfoot>
+          <?php
+            $cart_total = $this->cart->total();
+            $sub_total = $cart_total * 0.1;
+            $grand_total = $cart_total + $sub_total;
+
+          ?>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">SUBTOTAL</td>
-            <td><h3> Rp. <?=number_format($this->cart->total())?> </h3></td>
+            <td><h3> Rp. <?=number_format($cart_total, 2, ',', '.');?> </h3></td>
           </tr>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">TAX 25%</td>
-            <td>$1,300.00</td>
+            <td colspan="2">TAX 10%</td>
+            <td>Rp. <?=number_format($sub_total, 2, ',', '.');?></td>
           </tr>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">GRAND TOTAL</td>
-            <td>$6,500.00</td>
+            <td>Rp. <?=number_format($grand_total, 2, ',', '.');?></td>
           </tr>
         </tfoot>
       </table>
