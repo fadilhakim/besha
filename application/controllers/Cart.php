@@ -322,7 +322,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 			$config['smtp_port'] = 465;
 			$config['smtp_user'] = 'info@besha-analitika.co.id';
-			$config['smtp_pass'] = 'info-n23';
+			$config['smtp_pass'] = 'be=$.P!TQ6X*';
 
 			$this->email->initialize($config);
 
@@ -357,7 +357,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 		$config['smtp_port'] = 465;
 		$config['smtp_user'] = 'info@besha-analitika.co.id';
-		$config['smtp_pass'] = 'info-n23';
+		$config['smtp_pass'] = 'be=$.P!TQ6X*';
   
 		$this->email->initialize($config);
   
