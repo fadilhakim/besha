@@ -280,7 +280,7 @@ class Model_sparepart extends CI_Model {
         $config['smtp_host'] = 'ssl://besha-analitika.co.id';
         $config['smtp_port'] = 465;
         $config['smtp_user'] = 'info@besha-analitika.co.id';
-        $config['smtp_pass'] = 'be=$.P!TQ6X*';
+        $config['smtp_pass'] = '20170510Moa^';
 
         $this -> email -> initialize($config);
 
@@ -333,7 +333,7 @@ class Model_sparepart extends CI_Model {
         $config['smtp_host'] = 'ssl://besha-analitika.co.id';
         $config['smtp_port'] = 465;
         $config['smtp_user'] = 'info@besha-analitika.co.id';
-        $config['smtp_pass'] = 'be=$.P!TQ6X*';
+        $config['smtp_pass'] = '20170510Moa^';
 
         $this -> email -> initialize($config);
 

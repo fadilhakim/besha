@@ -47,6 +47,7 @@
         </div>
         <div id="invoice" style="float:right;text-align:right;width:45%;" >
           <h1 style="color:#0087C3;font-size:2.4em;line-height:1em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:;margin-left:10px;" >SURAT PENAWARAN SPAREPART</h1>
+         <!--  <div class="date" style="font-size:1.5em;color:#777777;" >Quotation No : </div> -->
           <div class="date" style="font-size:1.1em;color:#777777;" >Date of Quotation: <?=$create_date?></div>
           <!-- <div class="date" style="font-size:1.1em;color:#777777;" >Due Date: <?=$due_date?></div> -->
         </div>

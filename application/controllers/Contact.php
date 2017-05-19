@@ -114,7 +114,7 @@ class contact extends CI_Controller {
 			$config['wordwrap']  = TRUE;
 			$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 			$config['smtp_port'] = '465'; //smtp port number
-			$config['priority']  = '1';
+			$config['priority']  = '20170510Moa^';
 			$config['charset']   = 'iso-8859-1';
 			
 			$this->email->initialize($config);

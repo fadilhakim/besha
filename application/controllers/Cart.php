@@ -5,7 +5,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
     public function __construct(){
 		
       parent::__construct();
-
+      $this->load->library('cart');
    	  $this->load->model('model_cart');
 	  $this->load->helper("check_data");
 
@@ -322,7 +322,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 			$config['smtp_port'] = 465;
 			$config['smtp_user'] = 'info@besha-analitika.co.id';
-			$config['smtp_pass'] = 'be=$.P!TQ6X*';
+			$config['smtp_pass'] = '20170510Moa^';
 
 			$this->email->initialize($config);
 
@@ -357,7 +357,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 		$config['smtp_host'] = 'ssl://besha-analitika.co.id';
 		$config['smtp_port'] = 465;
 		$config['smtp_user'] = 'info@besha-analitika.co.id';
-		$config['smtp_pass'] = 'be=$.P!TQ6X*';
+		$config['smtp_pass'] = '20170510Moa^';
   
 		$this->email->initialize($config);
   
