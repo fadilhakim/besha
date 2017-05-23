@@ -108,9 +108,11 @@
         </tfoot>
       </table>
       <div id="thanks">Thank you!</div>
-      <div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+      <div id="notices" style="padding-left:6px;border-left-width:6px;border-left-style:solid;border-left-color:#0087C3;" >
+        <div>KETERANGAN :</div>
+        <div class="notice" style="font-size:1.2em;" >1. Harga Nett</div>
+        <div class="notice" style="font-size:1.2em;" >2. Penawaran Berlaku 15 Hari dari  tanggal penawaran</div>
+        <div class="notice" style="font-size:1.2em;" >3. Pembayaran 7 hari setelah barang diterima</div>
       </div>
     </main>
     <footer>
