@@ -267,8 +267,6 @@ class admin extends CI_Controller {
 
 		$data['sparepart'] = $this->model_sparepart->list_sparepart();
 
-
-
 		$this->load->view('templates/meta-admin');
 
 		$this->load->view('templates/menu-admin');
@@ -278,7 +276,25 @@ class admin extends CI_Controller {
 		$this->load->view('admin/v_list_sparepart', $data);
 
 		$this->load->view('templates/footer-admin');
+	}
 
+	public function order_history()
+
+	{
+
+		$this->load->model('model_sparepart');
+
+		$data['order'] = $this->model_sparepart->list_order();
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_order_history', $data);
+
+		$this->load->view('templates/footer-admin');
 	}
 
 
@@ -569,6 +585,30 @@ class admin extends CI_Controller {
 		$this->load->view('templates/leftsidemenu');
 
 		$this->load->view('admin/v_edit_manu',$data);
+
+		$this->load->view('templates/footer-admin');
+
+	}
+
+	public function edit_order($id)
+
+	{
+
+		$id = $this->uri->segment(4);
+
+		$id=trim($id);
+
+		$this->load->model('model_sparepart');
+
+		$data['order'] = $this->model_sparepart->getorderfromID($id);
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_edit_order',$data);
 
 		$this->load->view('templates/footer-admin');
 

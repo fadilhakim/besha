@@ -8,6 +8,7 @@
                         <a href="<?php echo base_url('admin/sparepart'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Add New Sparepart</a>
                         <a href="<?php echo base_url('admin/list_sparepart'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">List Sparepart</a>
                         <a href="<?php echo base_url('admin/sparepart_category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category Sparepart</a>
+                        <a href="<?php echo base_url('admin/order_history'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Order History</a>
                     </h4>
                     <div class="row">
                         <div class="col-lg-12" style="overflow:scroll;">

@@ -48,8 +48,6 @@ class insert extends CI_Controller {
 
 		$this->load->model('model_user');
 
-		
-
 		$this->load->library("Upload2");
 
 

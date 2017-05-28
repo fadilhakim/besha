@@ -134,6 +134,7 @@ $route['admin/susbscriber'] = 'admin/subscriber';
 $route['admin/discount'] = 'admin/discount';
 $route['admin/users_admin'] = 'admin/users_admin';
 $route['admin/members'] = 'admin/members';
+$route['admin/order_history'] = 'admin/order_history';
 
 //insert
 $route['admin/add/product'] = 'insert/insert_product';
@@ -175,6 +176,7 @@ $route['admin/edit/discount/(:num)'] = 'admin/edit_voucher/$1';
 $route['admin/edit/sparepart/(:num)'] = 'admin/edit_sparepart/$1';
 $route['admin/edit/admin/(:num)'] = 'admin/edit_admin/$1';
 $route['admin/edit/member/(:num)'] = 'admin/edit_member/$1';
+$route['admin/edit/order/(:num)'] = 'admin/edit_order/$1';
 
 //edit function
 $route['admin/edit/slider_f'] = 'update/update_slider';

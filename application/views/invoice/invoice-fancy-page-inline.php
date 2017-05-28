@@ -23,12 +23,12 @@
 
   </head>
   <body style="position:relative;width:21cm;height:29.7cm;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;color:#555555;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-family:SourceSansPro;font-size:10px;" >
-    <header class="clearfix" style="padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;margin-bottom:20px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#AAAAAA;font-size:14px;" >
-      <div id="logo" style="float:left;width:45%;margin-top:8px;" >
+    <header class="clearfix" style="padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;margin-bottom:20px;font-size:14px;" >
+      <div id="logo" style="margin-top:8px;" >
         <img src="<?=base_url("assets/image/logo-besha.jpg")?>" style="height:70px;" >
 
       </div>
-      <div id="company" style="float:right;width:55%;text-align:right;" >
+      <div id="company" style="text-align:left; margin-top: 15px; margin-top: 30px;" >
         <!-- <h2 class="name" style="font-size:1.4em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?=TITLE?></h2> -->
         <div><?=ADDRESS?></div>
         <div><?=PHONE?></div>
@@ -42,8 +42,8 @@
           <div class="to" style="color:#777777;" >INVOICE TO:</div>
           <h2 class="name" style="font-size:1.4em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?= $detail_user["contact_person"]?></h2>
           <h2 class="name" style="font-size:1.2em;font-weight:bold;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?= $detail_user["company_name"]?></h2>
-          <div class="address"><?= $detail_user["address"]?></div>
-          <div class="email"><a href="mailto:john@example.com" style="color:#0087C3;text-decoration:none;" ><?=$user_sess["email"]?></a></div>
+          <div class="address"><?= $detail_user["billing_address"]?></div>
+          <div class="email"><a href="<?=$user_sess["email"]?>" style="color:#0087C3;text-decoration:none;" ><?=$user_sess["email"]?></a></div>
         </div>
         <div id="invoice" style="float:right;text-align:right;width:45%;" >
           <h1 style="color:#0087C3;font-size:2.4em;line-height:1em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:;margin-left:10px;" >SURAT PENAWARAN SPAREPART</h1>
@@ -52,7 +52,9 @@
           <!-- <div class="date" style="font-size:1.1em;color:#777777;" >Due Date: <?=$due_date?></div> -->
         </div>
       </div>
-      <table border="0" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;border-spacing:0;margin-bottom:20px;" >
+      <span style="clear:both;" ></span>
+      <br><br><br>
+      <table border="0" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;border-spacing:0;margin-bottom:20px; margin-top: 30px;" >
         <thead>
           <tr>
           <th class="" style="padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;background-color:#EEEEEE;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;text-align:center;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#FFFFFF;white-space:nowrap;font-weight:normal;" >NO</th>
@@ -109,9 +111,6 @@
           <tr>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >
             	<!-- SHIPPING -->
-            </td>
-             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >
-            	<!-- TAX -->
             </td>
             <td colspan="2" style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >GRAND TOTAL</td>
             <td style="border-bottom-width:1px;border-bottom-color:#FFFFFF;text-align:right;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;border-bottom-style:none;font-size:1.2em;white-space:nowrap;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;" >

@@ -34,8 +34,7 @@ class sparepart extends CI_Controller {
 
 	public function list_view_manufacturer($id) {
 
-		 if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
-		  if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
+		if(!$this->session->userdata('contact_person')){ redirect(base_url("login/login_costumer")); };
 		$id=$this->uri->segment(3);
 		$config = array();
 
