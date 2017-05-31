@@ -39,7 +39,7 @@
     <main>
       <div id="details" class="clearfix" style="margin-bottom:50px;" >
         <div id="client" style="padding-left:6px;border-left-width:6px;border-left-style:solid;border-left-color:#0087C3;float:left;width:45%;" >
-          <div class="to" style="color:#777777;" >INVOICE TO:</div>
+          <div class="to" style="color:#777777;" >QUOTATION TO:</div>
           <h2 class="name" style="font-size:1.4em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?= $detail_user["contact_person"]?></h2>
           <h2 class="name" style="font-size:1.2em;font-weight:bold;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" ><?= $detail_user["company_name"]?></h2>
           <div class="address"><?= $detail_user["billing_address"]?></div>
@@ -130,7 +130,7 @@
       </div>
     </main>
     <footer style="color:#777777;width:100%;height:30px;position:absolute;bottom:0;border-top-width:1px;border-top-style:solid;border-top-color:#AAAAAA;padding-top:8px;padding-bottom:8px;padding-right:0;padding-left:0;text-align:center;" >
-      Invoice was created on a computer and is valid without the signature and seal.
+      Quotation was created on a computer and is valid without the signature and stamp.
     </footer>
   </body>
 </html>

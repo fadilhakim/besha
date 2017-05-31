@@ -44,7 +44,7 @@
     <main>
       <div id="details" class="clearfix">
         <div id="client">
-          <div class="to">INVOICE TO:</div>
+          <div class="to">QUOTATION TO:</div>
           <h2 class="name"><?= $detail_user["contact_person"]?></h2>
           <div class="address">796 Silver Harbour, TX 79273, US</div>
           <div class="email"><a href="mailto:john@example.com"><?=$user_sess["email"]?></a></div>
@@ -116,7 +116,7 @@
       </div>
     </main>
     <footer>
-      Invoice was created on a computer and is valid without the signature and seal.
+      Quotation was created on a computer and is valid without the signature and stamp.
     </footer>
   </body>
 </html>
