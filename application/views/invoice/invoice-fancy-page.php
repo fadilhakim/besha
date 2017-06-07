@@ -46,13 +46,13 @@
         <div id="client">
           <div class="to">QUOTATION TO:</div>
           <h2 class="name"><?= $detail_user["contact_person"]?></h2>
-          <div class="address">796 Silver Harbour, TX 79273, US</div>
-          <div class="email"><a href="mailto:john@example.com"><?=$user_sess["email"]?></a></div>
+          <div class="address"><?= $detail_user["billing_address"]?></div>
+          <div class="email"><a href="mailto:<?=$user_sess["email"]?>"><?=$user_sess["email"]?></a></div>
         </div>
         <div id="invoice">
           <h1>SURAT PENAWARAN SPAREPART</h1>
-          <div class="date">Date of Invoice: <?=$create_date?></div>
-          <div class="date">Due Date: <?=$due_date?></div>
+          <div class="date">Tanggal Penawaran: <?=$create_date?></div>
+          <div class="date">Ahkir Penawaran: <?=$due_date?></div>
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
