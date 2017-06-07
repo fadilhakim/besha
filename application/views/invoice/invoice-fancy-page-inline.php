@@ -48,7 +48,7 @@
         <div id="invoice" style="float:right;text-align:right;width:45%;" >
           <h1 style="color:#0087C3;font-size:2.4em;line-height:1em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:;margin-left:10px;" >SURAT PENAWARAN SPAREPART</h1>
          <!--  <div class="date" style="font-size:1.5em;color:#777777;" >Quotation No : </div> -->
-          <div class="date" style="font-size:1.1em;color:#777777;" >Date of Quotation: <?=$create_date?></div>
+          <div class="date" style="font-size:1.1em;color:#777777;" >Tanggal Penawaran: <?=$create_date?></div>
           <!-- <div class="date" style="font-size:1.1em;color:#777777;" >Due Date: <?=$due_date?></div> -->
         </div>
       </div>
@@ -121,7 +121,7 @@
           </tr>
         </tfoot>
       </table>
-      <div id="thanks" style="font-size:2em;margin-bottom:50px;" >Thank you!</div>
+      <div id="thanks" style="font-size:2em;margin-bottom:50px;" >Thank you.</div>
       <div id="notices" style="padding-left:6px;border-left-width:6px;border-left-style:solid;border-left-color:#0087C3;" >
         <div>KETERANGAN :</div>
         <div class="notice" style="font-size:1.2em;" >1. Harga Nett</div>

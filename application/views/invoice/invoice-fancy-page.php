@@ -107,7 +107,7 @@
           </tr>
         </tfoot>
       </table>
-      <div id="thanks">Thank you!</div>
+      <div id="thanks">Thank you.</div>
       <div id="notices" style="padding-left:6px;border-left-width:6px;border-left-style:solid;border-left-color:#0087C3;" >
         <div>KETERANGAN :</div>
         <div class="notice" style="font-size:1.2em;" >1. Harga Nett</div>
