@@ -86,7 +86,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 // DATA BESHA ANALITIKA
 define("TITLE","BESHA ANALITIKA");
-define("BASE_URL","http://localhost/besha");
+define("BASE_URL","http://localhost/besha/");
+define("ASSET_URL",BASE_URL."assets/"); // front end 
+define("ASSET_ADMIN",ASSET_URL."admin/"); // admin template 
+
 define("NO_TELP","+62-21-4585-6666");
 define("PHONE","(+62-21) 4585-6666");
 define("FAX","(+62 21) 4585 7600");
