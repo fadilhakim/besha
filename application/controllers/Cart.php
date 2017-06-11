@@ -251,13 +251,9 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 		if(empty($user_session["email"]))
 		{
-
-			//echo "test"; exit;
-
 			$this->session->set_flashdata($dt_stat,$dt_msg);
 
 			redirect(base_url("cart/show_cart"));
-
 		}
 		else
 		{
@@ -266,18 +262,9 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$name_pdf = "Besha invoice $date.pdf";
 			$data["user_sess"] = $user_session;
 			$data["name_pdf"] = $name_pdf;
-			
-			//$html = $this->load->view("invoice/invoice-fancy-page",$data,true);
 
 			$html =  $this->load->view("invoice/invoice-fancy-page-inline",$data,true); 
 
-			//print_r($user_session);
-
-			//error_reporting(E_ALL);
-
-			//$from_email = 'beshaanalitika99@gmail.com';
-			//$from_email = "fadil.hakim182@gmail.com";
-			//$from_email = "webbeshaanalitika@gmail.com";
 			$from_email = "info@besha-analitika.co.id";
 			
 			$to_email = $user_session["email"];
@@ -285,33 +272,6 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			$subject = "$name_pdf";
 
 			$message = $html;
-
-			
-
-			//echo !extension_loaded('openssl')?"Not Available":"Available"; exit;
-
-			
-
-			//configure email settings
-
-			/* $config['protocol']  = 'smtp';
-
-			$config['smtp_host'] = 'ssl://smtp.gmail.com'; //smtp host name
-
-			$config['smtp_port'] = '465'; //smtp port number
-
-			$config['smtp_user'] = $from_email;
-
-			$config['smtp_pass'] = 'admbesha'; //$from_email password
-			//$config["smtp_pass"] = "bismilah1";
-			
-			$config['mailtype']  = 'html';
-
-			$config['charset']   = 'iso-8859-1';
-
-			$config['wordwrap']  = TRUE;
-
-			$config['newline']   = "\r\n"; //use double quotes*/
 			
 			$config['protocol']  = 'smtp';
 			$config['mailtype']  = 'html';

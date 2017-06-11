@@ -20,6 +20,48 @@ class Model_sparepart extends CI_Model {
 
     }
 
+    public function list_order() {
+
+        $this -> db -> select('*');
+
+        $this -> db -> from('order_tbl');
+
+        $query = $this -> db -> get();
+
+        return $query -> result();
+
+    }
+
+    public function getorderfromID($id) {
+
+        //$this->db->get_where('product_tbl',array('product_id' => $id));
+
+        $this -> db -> select('*');
+
+        $this -> db -> from('order_tbl');
+
+        $this -> db -> where('id_order = '.$id.
+            '');
+
+        $query = $this -> db -> get();
+
+        if ($query)
+
+        {
+
+            return $query -> result();
+
+        } else
+
+        {
+
+            return false;
+
+        }
+
+    }
+
+
     public function list_kota() {
 
         $this -> db -> select('*');
