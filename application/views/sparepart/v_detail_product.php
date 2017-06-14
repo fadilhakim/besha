@@ -13,7 +13,7 @@
                 <li>
                      <?php
                         $spc = $row->sparepart_category;
-                        $this->db->where('category_id',$spc);
+                        $this->db->where('category_slug',$spc);
                         $r = $this->db->get('sparepart_category');
                         if($r->num_rows()>0)
                         {
@@ -115,6 +115,7 @@
                                                             <input type="hidden" name="sparepart_id" value="<?php echo $row->sparepart_id ?>">
                                                             <input type="hidden" name="sparepart_price" value="<?php echo $new_price ?>">
                                                             <input type="hidden" name="sparepart_code" value="<?php echo $row->sparepart_code ?>">
+                                                             <input type="hidden" name="stock" value="<?php echo $row->stock ?>">
                                                             <input type="hidden" name="sparepart_name" value="<?php echo $row->sparepart_slug ?>">
                                                             <input type="hidden" name="sparepart_image" value="<?php echo $row->sparepart_image ?>">
                                                             <input type="hidden" name="sparepart_manufacturer" value="<?php echo $manu['manu_title'] ?>">

@@ -22,6 +22,7 @@
                                             <th>Sparepart Title</th>
                                             <th>Sparepart Code</th>
                                             <th>Sparepart Display</th>
+                                            <th>Stock</th>
                                             <th>Sparepart Category</th>
                                             <th>Sparepart Manufacturer</th>
                                             <th>Action</th>
@@ -50,6 +51,9 @@
                                                     <img src="<?php echo base_url('assets/sp/images/no-image.png'); ?>" width='120' class="img-responsive">
                                                 <?php } ?>
                                                 
+                                            </td>
+                                            <td>
+                                              <?php echo $p->stock; ?>  
                                             </td>
                                             <td><?php echo $p->sparepart_category; ?></td>
                                             <td>

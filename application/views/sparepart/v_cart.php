@@ -47,6 +47,7 @@ if(!$this->cart->contents()){ ?>
                                             <tr>
                                                 <th class="table-title">Product Name</th>
                                                 <th class="table-title">Product Code</th>
+                                                <th class="table-title">Stock</th>
                                                 <th class="table-title">Unit Price</th>
                                                 <th class="table-title">Quantity</th>
                                                 <th class="table-title">SubTotal</th>
@@ -76,6 +77,7 @@ if(!$this->cart->contents()){ ?>
                                                     </ul>
                                                 </td>
                                                 <td class="product-code"><?php echo $items['code']; ?></td>
+                                                <td class="product-code" style="text-align: center;"><?php echo $items['stock']; ?></td>
                                                 <td class="product-price-col"><span class="product-price-special">Rp <?php echo $this->cart->format_number($items['price']); ?></span>
                                                 <input type="hidden" class="price" value="<?php echo $items['price']; ?>">
                                                 </td>
@@ -106,16 +108,16 @@ if(!$this->cart->contents()){ ?>
                                     </div>
 
                                     <?php echo form_close(); ?>
-                                    <div class="spacer15"></div>
+                                    <!-- <div class="spacer15"></div> -->
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="tab-container left clearfix">
                                                 <!-- Tab nav -->
                                                 <ul class="nav nav-tabs" role="tablist">
-                                                    <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li>
-                                                    <li><a href="#discount" data-toggle="tab">Discount Code</a></li>
+                                                   <!--  <li class="active"><a href="#shipping" data-toggle="tab">Shipping &amp; Taxes</a></li>
+                                                    <li><a href="#discount" data-toggle="tab">Discount Code</a></li> -->
                                                 </ul>
-                                                <div class="tab-content">
+                                                <!-- <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="shipping">
                                                         <form action="#" class="clearfix">
                                                             <p class="ship-desc">Enter your destination to get a shipping estimate</p>
@@ -128,7 +130,7 @@ if(!$this->cart->contents()){ ?>
                                                                         <option value="Germany">Germany</option>
                                                                         <option value="Korea">Korea</option>
                                                                     </select>
-                                                                </div><!-- End .normal-selectbox-->
+                                                                </div>
                                                             </div>
                                                             <div class="ship-row clearfix">
                                                                 <span class="ship-label col-3">Region/State<i>*</i></span>
@@ -138,7 +140,7 @@ if(!$this->cart->contents()){ ?>
                                                                         <option value="Texas">Texas</option>
                                                                         <option value="California">California</option>
                                                                     </select>
-                                                                </div><!-- End .normal-selectbox-->
+                                                                </div>
                                                             </div>
                                                             <div class="ship-row clearfix">
                                                                 <span class="ship-label col-3">Post Codes<i>*</i></span>
@@ -146,7 +148,7 @@ if(!$this->cart->contents()){ ?>
                                                                 <div class="col-3 text-right"><a href="#" class="btn btn-custom-6 btn-block">Get Quotes</a></div>
                                                             </div>
                                                         </form>
-                                                    </div><!-- End .tab-pane -->
+                                                    </div>
                                                     <div class="tab-pane fade" id="discount">
                                                         <p class="ship-desc">Enter your discount coupon here:</p>
                                                         <hr>
@@ -157,11 +159,11 @@ if(!$this->cart->contents()){ ?>
                                                         <div class="ship-row">
                                                             <a href="#" class="btn btn-custom-5">Activate</a>
                                                         </div>
-                                                    </div><!-- End .tab-pane -->
-                                                </div><!-- End .tab-content -->
+                                                    </div>
+                                                </div> -->
                                             </div><!-- End .tab-container -->
                                             <div class="md-margin"></div><!-- space -->
-                                            <a href="<?php echo base_url('spareparts/all'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
+                                            <a href="<?php echo base_url('spareparts/all/1'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
                                         </div><!-- End .col-md-8 -->
                                         <div class="col-md-4">
                                             <table class="table total-table">

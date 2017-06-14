@@ -22,6 +22,8 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	     	$price = $this->input->post('sparepart_price');
 			
 	     	$cty = $this->input->post('quantity');
+	     	
+	     	$stock = $this->input->post('stock');
 
 	     	$image = $this->input->post('sparepart_image');
 
@@ -46,6 +48,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 			        'name'    => $name,
 			        'image'   => $image,
 			        'code' => $code,
+			        'stock' => $stock,
 			        'manu' => $manu
 
 			        /*'options' => array('image' => $image , 'code' => $sparepart_code , 'manu' => $manu)*/
