@@ -114,7 +114,7 @@
       <div class="container">
         <div id="powered" class="clearfix">
           <div class="powered_text pull-left flip">
-            <p>Besha-Analitika © 2016 </a></p>
+            <p>Besha-Analitika © <?php echo date("Y");?> </a></p>
           </div>
           <div class="social pull-right flip"> 
             <a href="#" target="_blank"> 

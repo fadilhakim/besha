@@ -73,7 +73,7 @@
             </div>
             <!-- end row -->
             <footer class="footer">
-                2016 © Besha Analitika | Go To : <a href="<?php echo base_url('home'); ?>" target="_blank" class="text-muted">www.besha-analitika.co.id</a>
+                <?php echo date("Y");?> © Besha Analitika | Go To : <a href="<?php echo base_url('home'); ?>" target="_blank" class="text-muted">www.besha-analitika.co.id</a>
             </footer>
         </div> <!-- container -->
     </div> <!-- content -->

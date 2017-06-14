@@ -1,7 +1,5 @@
 <!doctype html>
 <html dir="ltr" lang="en-US">
-
-<!-- Mirrored from themeforest.stw-services.com/EShop/product-grid-version-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Nov 2016 04:40:19 GMT -->
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="" />
