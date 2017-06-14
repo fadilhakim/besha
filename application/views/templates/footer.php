@@ -65,7 +65,7 @@
       <div class="container">
         <div id="powered" class="clearfix">
           <div class="powered_text pull-left flip">
-            <p>Besha-Analitika © 2016 </a></p>
+            <p>Besha-Analitika © <?php echo date("Y");?> </a></p>
           </div>
           <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
         </div>
@@ -102,5 +102,5 @@ s0.parentNode.insertBefore(s1,s0);
 
 </body>
 
-<!-- Mirrored from demo.harnishdesign.net/html/marketshop/v1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2016 13:25:36 GMT -->
+<!-- Mirrored from demo.harnishdesign.net/html/marketshop/v1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct <?php echo date("Y");?> 13:25:36 GMT -->
 </html>

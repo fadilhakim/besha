@@ -55,7 +55,7 @@
                         <div class="copy">
                         	<div class="row">
                                 <div class="col-sm-8">
-                                    <p>© 2016 Besha-Analitika. All Rights Reserved. Designed by <a href="#">sketchwebstudio.Com</a></p>
+                                    <p>© <?php echo date("Y");?> Besha-Analitika. All Rights Reserved</p>
                                 </div>
                             </div>
                         </div>

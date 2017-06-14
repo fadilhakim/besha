@@ -56,7 +56,7 @@
           <div class="infographic">
             <div class="infographic-inner">
               <div class="infographic-box pull-left flip">
-                <div class="infographic-year">2016</div>
+                <div class="infographic-year"><?php echo date("Y");?></div>
                 <div class="infographic-box-inner">
                   <h4>Lifestyle and Fashion Portfolio</h4>
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui.</p>

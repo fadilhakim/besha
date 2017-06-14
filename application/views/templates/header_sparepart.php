@@ -8,10 +8,6 @@
             	<!--Social icons-->
             	<div class="top-social-icons">
                 	<ul class="clearfix">
-                    	<li><a class="i-facbook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="i-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="i-google" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a class="i-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                         <li class="dropdown">
                             <a class="i-contact dropdown-toggle" data-toggle="dropdown" href="#">
                             	<i class="fa fa-phone"></i>
