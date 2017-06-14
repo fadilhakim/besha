@@ -17,19 +17,12 @@
 			
 			$this->load->library("form_validation");
 			
+			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			$id_province  = $this->input->post("id_province",TRUE);
 			$id_city	  = $this->input->post("id_city",TRUE);
 			$kecamatan	  = $this->input->post("kecamatan",TRUE);
 			$kode_pos	  = $this->input->post("kode_pos",TRUE);
-			
-			$kurir 		  = $this->input->post("kurir",TRUE);
-			$total_weight = $this->input->post("total_weight",TRUE);
-			$layanan_kurir= $this->input->post("layanan_kurir",TRUE);
-			
-			$exp		  = explode("&",$layanan_kurir);
-			$layanan_kurir= $exp[0];
-			$ongkir 	  = $exp[1];
 			
 			$shipping_address = $this->input->post("shipping_address",TRUE);
 			$billing_address = $this->input->post("billing_address",TRUE);
@@ -41,9 +34,9 @@
 			$this->form_validation->set_rules("kecamatan","Kecamatan","required");
 			$this->form_validation->set_rules("kode_pos","Kode Pos","required");
 			
-			$this->form_validation->set_rules("kurir","Kurir","required");
+			/* $this->form_validation->set_rules("kurir","Kurir","required");
 			$this->form_validation->set_rules("total_weight","Total Weight","required");
-			$this->form_validation->set_rules("layanan_kurir","Layanan Kurir","required");
+			$this->form_validation->set_rules("layanan_kurir","Layanan Kurir","required");*/
 			
 			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
 			$this->form_validation->set_rules("billing_address","Billing Address","required");
@@ -65,7 +58,7 @@
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
 				
-				redirect(base_url("checkout/payment/$order[id_order]"));
+				redirect(base_url("besha/sparepart"));
 			}
 			else
 			{

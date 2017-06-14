@@ -1,5 +1,20 @@
 <?php
 
+
+$user_id_sess 	 = $this->session->userdata("user_id");
+$email_user_sess = $this->session->userdata("member_email");
+
+
+
+$cart_total = $this->cart->total();
+$sub_total = $cart_total * TAX;
+$grand_total = $cart_total + $sub_total ;
+
+$arrr = array("grand_total"=>$grand_total);
+$this->session->set_userdata($arrr);
+
+$grand_total_session = $this->session->userdata("grand_total");
+
 if(!$this->cart->contents()){ ?>
 <div class="wrapper-breadcrumbs clearfix">
     <div class="spacer30"></div><!--spacer-->
@@ -108,6 +123,7 @@ if(!$this->cart->contents()){ ?>
                                     <?php echo form_close(); ?>
                                     <div class="spacer15"></div>
                                     <div class="row">
+                                    <form action="<?=base_url("order/insert_order")?>" method="post" > 
                                         <div class="col-md-8">
                                             <div class="tab-container left clearfix">
                                                 <!-- Tab nav -->
@@ -117,35 +133,8 @@ if(!$this->cart->contents()){ ?>
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active" id="shipping">
-                                                        <form action="#" class="clearfix">
-                                                            <p class="ship-desc">Enter your destination to get a shipping estimate</p>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">City<i>*</i></span>
-                                                                <div class="normal-selectbox">
-                                                                    <select id="country" name="country" class="selectpicker">
-                                                                        <option value="">Please select</option>
-                                                                        <option value="Turkey">Turkey</option>
-                                                                        <option value="Germany">Germany</option>
-                                                                        <option value="Korea">Korea</option>
-                                                                    </select>
-                                                                </div><!-- End .normal-selectbox-->
-                                                            </div>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">Region/State<i>*</i></span>
-                                                                <div class="normal-selectbox">
-                                                                    <select id="region" name="region" class="selectpicker">
-                                                                        <option value="">Please select</option>
-                                                                        <option value="Texas">Texas</option>
-                                                                        <option value="California">California</option>
-                                                                    </select>
-                                                                </div><!-- End .normal-selectbox-->
-                                                            </div>
-                                                            <div class="ship-row clearfix">
-                                                                <span class="ship-label col-3">Post Codes<i>*</i></span>
-                                                                <div class="col-3 ship-post"><input type="text" class="form-control text-center" value="12315"></div>
-                                                                <div class="col-3 text-right"><a href="#" class="btn btn-custom-6 btn-block">Get Quotes</a></div>
-                                                            </div>
-                                                        </form>
+                                                    <?php $this->load->view("sparepart/form_shipping_address")?>
+                                                        
                                                     </div><!-- End .tab-pane -->
                                                     <div class="tab-pane fade" id="discount">
                                                         <p class="ship-desc">Enter your discount coupon here:</p>
@@ -166,20 +155,15 @@ if(!$this->cart->contents()){ ?>
                                         <div class="col-md-4">
                                             <table class="table total-table">
                                                 <tbody>
-                                                  <?php
-                                  					$cart_total = $this->cart->total();
-                                  					$sub_total = $cart_total * 0.1;
-                                  					$grand_total = $cart_total + $sub_total;
-
-                                  				?>
+                                                 
                                                     <tr>
                                                         <td class="total-table-title">Subtotal:</td>
                                                         <td>Rp. <?=number_format((float)$cart_total, 2, '.', ',');?></td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td class="total-table-title">Shipping:</td>
                                                         <td>Rp. 0</td>
-                                                    </tr>
+                                                    </tr> -->
                                                     <tr>
                                                         <td class="total-table-title">TAX (10%):</td>
                                                         <td>Rp. <?=number_format((float)$sub_total, 2, '.', ',');?></td>
@@ -188,7 +172,7 @@ if(!$this->cart->contents()){ ?>
                                                 <tfoot>
                                                     <tr>
                                                         <td>Total:</td>
-                                                        <td>Rp. <?=number_format((float)$grand_total, 2, '.', ',');?></td>
+                                                        <td>Rp. <?=number_format((float)$grand_total_session, 2, '.', ',');?></td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -200,7 +184,7 @@ if(!$this->cart->contents()){ ?>
                                             <div class="md-margin"></div><!-- space -->
                                             <div class="text-right">
                                             	<?php if(!empty($email_sess)){ ?>
-                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm">Print Checkout</button></a>
+                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm" type="button">Print Checkout</button></a>
                                                 <?php }else{   ?>
                                                 	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
                                                 <?php } ?>
@@ -208,14 +192,16 @@ if(!$this->cart->contents()){ ?>
 
                                             <div class="text-right">
                                             <?php if(!empty($email_sess)) { ?>
-                                                <a href="<?=base_url("cart/send_email_invoice")?>" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                                <button class="btn btn-success min-width-sm">Checkout</button>
                                             <?php } else {  ?>
-                                            <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm">Checkout</a>
+                                            <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom min-width-sm">Checkout</a>
                                             <?php
 											}
 											?>
                                             </div>
                                         </div><!-- End .col-md-4 -->
+                                        
+                                    </form>
                                     </div><!-- End .row -->
                                 </div>
                             </div>

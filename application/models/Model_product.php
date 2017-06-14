@@ -106,6 +106,8 @@ class Model_product extends CI_Model {
 	        }
         	return false;
    		}
+		
+		
 
 
 }

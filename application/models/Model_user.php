@@ -159,7 +159,6 @@ class model_user extends CI_Model
 	
 
 	function get_user_detail($user_id)
-
 	{
 
 		$str = "SELECT * FROM user_tbl WHERE user_id = '$user_id' ";	
@@ -172,6 +171,15 @@ class model_user extends CI_Model
 
 		return $f;
 
+	}
+	
+	function address_book_list($user_id)
+	{
+		$str = "SELECT * FROM user_address_tbl WHERE user_id = '$user_id' ";
+		$q = $this->db->query($str);
+		$f = $q->result_array();
+		
+		return $f;
 	}
 
 }

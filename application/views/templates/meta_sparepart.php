@@ -18,4 +18,17 @@
     <link href="<?php echo base_url('assets/sp/css/colors.css') ?>" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url('assets/sp/css/responsive.css') ?>" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url('assets/sp/css/swiper.min.css') ?>" rel="stylesheet" type="text/css"/>
+    
+    
+    <script src="<?php echo base_url('assets/sp/js/jquery.js') ?>" type="text/javascript">
+    </script>
+    <script src="<?php echo base_url('assets/sp/jquery-ui/jquery-ui.js') ?>" type="text/javascript">
+    </script>
+    
+    <script src="<?php echo base_url('assets/sp/js/bootstrap-select.js') ?>" type="text/javascript">
+    </script>
+    
+	<script src="<?php echo base_url('assets/sp/js/bootstrap.js') ?>" type="text/javascript">
+	</script>
+    
 </head>

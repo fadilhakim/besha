@@ -145,6 +145,17 @@ class Model_sparepart extends CI_Model {
         }
 
     }
+	
+	function get_detail_sparepart($id)
+		{
+			$this->db->select('*');
+			$this->db->from('sparepart_tbl');
+			$this->db->where('sparepart_id = '.$id.'');
+			$query = $this->db->get();
+			
+			return $query->row_array();
+			
+		}
 
     public function getproductfromIdandCode($id, $code) {
 
