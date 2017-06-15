@@ -282,9 +282,10 @@ class admin extends CI_Controller {
 
 	{
 
-		$this->load->model('model_sparepart');
+		$this->load->model('order_model');
+		$this->load->model("model_user");
 
-		$data['order'] = $this->model_sparepart->list_order();
+		$data['list_order'] = $this->order_model->list_order();
 
 		$this->load->view('templates/meta-admin');
 
@@ -599,6 +600,7 @@ class admin extends CI_Controller {
 		$id=trim($id);
 
 		$this->load->model('model_sparepart');
+		$this->load->model("Order_model");
 
 		$data['order'] = $this->model_sparepart->getorderfromID($id);
 
@@ -612,6 +614,30 @@ class admin extends CI_Controller {
 
 		$this->load->view('templates/footer-admin');
 
+	}
+	
+	function order_detail()
+	{
+		$id = $this->uri->segment(3);
+
+		$id=trim($id);
+
+		$this->load->model('model_sparepart');
+		$this->load->model("order_model");
+
+		$data["detail_list_order"] = $this->order_model->detail_list_order($id);
+		$data['detail_order']      = $this->order_model->detail_order($id);
+
+		$this->load->view('templates/meta-admin');
+
+		$this->load->view('templates/menu-admin');
+
+		$this->load->view('templates/leftsidemenu');
+
+		$this->load->view('admin/v_detail_order',$data);
+
+		$this->load->view('templates/footer-admin');
+		
 	}
 
 

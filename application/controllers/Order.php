@@ -58,7 +58,9 @@
 				$suceess = success("You Successfully save Order. now you must confirm the Payment 24 Hours after you order ");
 				$this->session->set_flashdata("message",$suceess);
 				
-				redirect(base_url("besha/sparepart"));
+				//redirect(base_url("besha/sparepart"));
+				redirect("cart/send_email_invoice");
+				
 			}
 			else
 			{
