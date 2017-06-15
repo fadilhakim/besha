@@ -139,24 +139,24 @@
 			}
 			
 			$no_hp = $this->input->post("no_hp",TRUE);
-			$id_province = $this->input->post("id_province",TRUE);
+			/* $id_province = $this->input->post("id_province",TRUE);
 			$id_city = $this->input->post("id_city",TRUE);
 			$kecamatan = $this->input->post("kecamatan",TRUE);
-			$kode_pos = $this->input->post("kode_pos",TRUE);
+			$kode_pos = $this->input->post("kode_pos",TRUE);*/
 			$shipping_address = $this->input->post("shipping_address",TRUE);
-			//$billing_address = $this->input->post("billing_address",TRUE);	
+			$billing_address = $this->input->post("billing_address",TRUE);	
 			
 			$dt = array(
 			
 				"user_id" => $user_id,
 				"contact_person" => $contact_person,
 				"no_hp" => ($no_hp != NULL) ? $no_hp : "",
-				"provinsi" => $id_province,
+				/* "provinsi" => $id_province,
 				"kota" => $id_city,
 				"kecamatan" => $kecamatan,
-				"kode_pos" => $kode_pos,
+				"kode_pos" => $kode_pos,*/
 				"shipping_address" => $shipping_address,
-				//"billing_address" => $billing_address ,
+				"billing_address" => $billing_address ,
 				"create_date" => $datetime
 			
 			
@@ -185,10 +185,10 @@
 			$status 	  = "pending";
 			
 			$user_add_id  = $this->input->post("address_book",TRUE);
-			$id_province  = $this->input->post("id_province",TRUE);
+			/* $id_province  = $this->input->post("id_province",TRUE);
 			$id_city	  = $this->input->post("id_city",TRUE);
 			$kecamatan	  = $this->input->post("kecamatan",TRUE);
-			$kode_pos	  = $this->input->post("kode_pos",TRUE);
+			$kode_pos	  = $this->input->post("kode_pos",TRUE);*/
 			
 			/*$kurir 		  = $this->input->post("kurir",TRUE);
 			$total_weight = $this->input->post("total_weight",TRUE);

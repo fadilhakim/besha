@@ -36,7 +36,7 @@ if(!$this->cart->contents()){ ?>
 				//echo "aaaaa";
             	//echo $cookie_msg = !empty($this->session->flashdata("error")) ? $this->session->flashdata("error") : "";
 				//print_r($_SESSION);
-				echo $this->session->flashdata("error");
+				echo $this->session->flashdata("message");
 				//print_r($this->session->all_flashdata());
 			?>
         </div>

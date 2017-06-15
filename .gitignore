@@ -5,3 +5,4 @@ vendor/*
 composer.lock
 >>>>>>> f8fa39fdf4e306aebecfcb382d4bccf8e9a1e7de
 application/views/config.php
+system/cache/
