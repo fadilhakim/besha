@@ -42,7 +42,7 @@
                                 <div class="newsletter">
                                     <label>Newsletter</label>
                                     <?php echo form_open('contact/input_subs'); ?>
-                                    <input type="text" required placeholder="Your Email address" name="subs_email">
+                                    <input type="text" required="" placeholder="Your Email address" name="subs_email">
                                     <input type="submit" value="SUBSCRIBE">
                                     <?php echo form_close(); ?>
                                 </div>
@@ -68,18 +68,16 @@
     </div>
 
 
-    <script src="<?php echo base_url('assets/sp/js/owl.carousel.js') ?>" type="text/javascript">
-    </script>
-    <script src="<?php echo base_url('assets/sp/js/plugins.js') ?>" type="text/javascript">
-    </script>
-    
-	<script src="<?php echo base_url('assets/sp/js/main.js') ?>" type="text/javascript"></script>
-    
-	<script src="<?php echo base_url('assets/sp/js/core.js') ?>" type="text/javascript"></script>
-    
+    <script src="<?php echo base_url('assets/sp/js/jquery.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/jquery-ui/jquery-ui.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/bootstrap-select.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/bootstrap.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/owl.carousel.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/plugins.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/main.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/sp/js/core.js') ?>" type="text/javascript"></script>
     <?php if (isset($page_section) == 'detail') { ?>
-    <script src="<?php echo base_url('assets/sp/js/swiper.js') ?>" type="text/javascript">
-    </script>
+    <script src="<?php echo base_url('assets/sp/js/swiper.js') ?>" type="text/javascript"></script>
     <script>
 
     var galleryTop = new Swiper('.gallery-top', {

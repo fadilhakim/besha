@@ -14,16 +14,10 @@
 		
 		function insert_order()
 		{
-			error_reporting(E_ALL);
-			
-			
 			
 			$this->authentification->logged_in();
-			
-			
-			exit("aaaa");
-			$this->load->library("form_validation");
-			
+			//$this->load->library("form_validation");
+			$user_session = $this->session->all_userdata();
 			
 			$id_add_user  = $this->input->post("address_book",TRUE);
 			/* $id_province  = $this->input->post("id_province",TRUE);
@@ -45,12 +39,12 @@
 			$this->form_validation->set_rules("total_weight","Total Weight","required");
 			$this->form_validation->set_rules("layanan_kurir","Layanan Kurir","required");*/
 			
-			$this->form_validation->set_rules("shipping_address","Shipping Address","required");
-			$this->form_validation->set_rules("billing_address","Billing Address","required");
+			//$this->form_validation->set_rules("shipping_address","Shipping Address","required");
+			//$this->form_validation->set_rules("billing_address","Billing Address","required");
 			
 			$cart_content =  $this->cart->contents();
 			
-			if(!empty($cart_content) && $this->form_validation->run() == TRUE)
+			if(!empty($cart_content))
 			{
 				
 				$order = $this->order_model->insert_order();

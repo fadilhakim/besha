@@ -94,7 +94,7 @@
 			if(empty($f))
 			{
 				$int = 1;
-				$str = sprintf("%05d",$int);
+				$str = sprintf("%03d",$int);
 				
 				$new_code = $sph."-".$str."-".$ba."-".$year;
 			}
@@ -106,7 +106,7 @@
 				
 				$int = (int)$exp_id[1];
 				
-				if($int < 9999 && $year == $exp_year) // di check untuk di reset 
+				if($int < 999 && $year == $exp_year) // di check untuk di reset 
 				{
 					$int++;
 				}
@@ -116,7 +116,7 @@
 				}
 					
 				
-				$str = sprintf("%05d",$int);
+				$str = sprintf("%03d",$int);
 				
 				$new_code = $sph."-".$str."-".$ba."-".$year;
 			}
@@ -179,6 +179,7 @@
 			$this->load->library("cart");
 			
 			$user_id 	  = $this->session->userdata("user_id");
+			$user_session = $this->session->all_userdata();
 			
 			$new_code 	  = $this->generate_order_code();
 			
@@ -225,7 +226,7 @@
 				/*"kurir" => $kurir,
 				"total_berat" => $total_weight,
 				"kurir_service" => $layanan_kurir,*/
-				"user_addtr_id"=>$addbook_tr,
+				//"user_addtr_id"=>$addbook_tr,
 				
 				//"purpose_bank" => $purpose_bank,
 				/*"user_add_id" => $user_add_id,
