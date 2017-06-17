@@ -81,9 +81,11 @@
 		{
 			date_default_timezone_set("Asia/jakarta");
 			
-			$mk = "BS";
+			$sph = "SPH";
+			$ba = "BA";
 			$date = date("d");
 			$hour = date("H");
+			$year = date("Y");
 			
 			//echo date("H:i:s"); exit;	
 			
@@ -94,14 +96,17 @@
 				$int = 1;
 				$str = sprintf("%05d",$int);
 				
-				$new_code = $mk.$date.$hour.$str;
+				$new_code = $sph."-".$str."-".$ba."-".$year;
 			}
 			else
 			{
-				$substr = substr($f["id_order"],-5);
-				$int = (int)$substr;
+				$last_id = $f["id_order"];
+				$exp_id = explode("-",$last_id);
+				$exp_year = $exp_id[3];
 				
-				if($int < 9999) // di check untuk di reset 
+				$int = (int)$exp_id[1];
+				
+				if($int < 9999 && $year == $exp_year) // di check untuk di reset 
 				{
 					$int++;
 				}
@@ -113,7 +118,7 @@
 				
 				$str = sprintf("%05d",$int);
 				
-				$new_code = $mk.$date.$hour.$str;
+				$new_code = $sph."-".$str."-".$ba."-".$year;
 			}
 			
 			return $new_code;
@@ -205,7 +210,7 @@
 			
 			$grand_total_session = $this->session->userdata("grand_total");
 			
-			$addbook_tr = 	$addbook_tr = $this->insert_addbook_tr(); // 
+			//$addbook_tr = 	$addbook_tr = $this->insert_addbook_tr(); // 
 			
 			$arr = array(
 			
@@ -296,6 +301,30 @@
 		{
 			
 			return $this->db->get_where("payment_confirm",array("id_order"=>$id_order))->row_array();
+		}
+		
+		function delete_order($id_order)
+		{
+			$check = $this->detail_list_order($id_order);
+			
+			if(!empty($check))
+			{
+				$str = "DELETE FROM order_detail_tbl WHERE id_order = '$id_order' ";
+				$q = $this->db->query($str);
+			
+			
+				$str2 = "DELETE FROM order_tbl WHERE id_order = '$id_order' ";
+				$q2 = $this->db->query($str2);
+				
+				$result = TRUE;	
+			}
+			else
+			{
+				$result = FALSE;
+			}
+			
+			return $result;
+			
 		}
 		
 		function update_order()

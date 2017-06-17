@@ -16,6 +16,16 @@
 			
 		}
 		
+		function modal_submit_default()
+		{
+			
+			$dt = $this->input->post();
+		
+			$json = json_encode($dt);
+			
+			echo info($json);
+		}
+		
 		function load_shipping_data()
 		{
 			$this->load->library("cart");

@@ -14,8 +14,14 @@
 		
 		function insert_order()
 		{
+			error_reporting(E_ALL);
+			
+			
+			
 			$this->authentification->logged_in();
 			
+			
+			exit("aaaa");
 			$this->load->library("form_validation");
 			
 			
@@ -115,9 +121,47 @@
 			
 		}
 		
-		function cancel_order()
+		function modal_delete_order()
+		{
+			$is_ajax = $this->input->is_ajax_request();
+			
+			if($is_ajax)
+			{
+				$id_order = $this->input->post("id_order",TRUE);
+				
+				$data["modal_heading"] = "Delete Order #$id_order";
+				$data["modal_body"]    = "Are yout want to delete order #$id_order ? <input type='hidden' name='id_order' value='$id_order'>";	
+				$data["modal_submit"]  = "Delete";
+				$data["modal_submit_url"] = base_url("order/delete_order_process");
+				$data["modal_id"]	   = "modal_delete_order";			
+				
+				$this->load->view("modal",$data);
+			}
+			else
+			{
+				show_404();	
+			}
+		}
+		
+		function delete_order_process()
 		{
 			$id_order = $this->input->post("id_order");	
+			
+			$is_ajax = $this->input->is_ajax_request();
+			
+			if($is_ajax && !empty($id_order))
+			{
+				$this->order_model->delete_order($id_order);
+				
+				echo success("You Successfully Deleted Order");
+				
+				echo "<script> setTimeout(function(){ location.reload(); }, 3000); </script>";
+			}
+			else
+			{
+				show_404();	
+			}
+			
 			
 		}
 		

@@ -12,6 +12,22 @@
 	*/
 
 ?>
+<script>
+	function delete_order(id_order)
+	{		
+		$.ajax({
+			type:"POST",
+			data:"id_order="+id_order,
+			url:"<?=base_url("order/modal_delete_order")?>",
+			success: function(dt)
+			{
+				
+				$("#modal_temp").html(dt);
+			}
+		});
+	}
+
+</script>
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
@@ -27,7 +43,7 @@
                     	<div class="col-lg-10">
                             <div class="card-box">
                                 <h4 class="header-title m-t-0 m-b-30">List Order</h4>
-
+								<span id="modal_temp"></span>
                                 <table class="table table-bordered table-striped" id="datatable-keytable">
                                     <thead>
                                         <th> ID Order </th>
@@ -60,6 +76,7 @@
                                            		
                                               <li><a href="#">Change Status</a></li>
                                              
+                                              <li><a href="#" onClick="delete_order('<?=$row["id_order"]?>')" > Delete Order </a></li>
                                             </ul>
                                           </div>
                                          </td>
@@ -80,3 +97,5 @@
         </div> <!-- container -->
     </div> <!-- content -->
 </div>
+
+

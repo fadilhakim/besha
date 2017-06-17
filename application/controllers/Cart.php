@@ -180,8 +180,6 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 	function print_invoice()
 	{
 
-
-
 		$this->load->model("model_user");
 
 		$this->load->model("model_sparepart");

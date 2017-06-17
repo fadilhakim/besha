@@ -54,6 +54,46 @@
 			  }
 
 		}
+		
+		function test_modal()
+		{
+			$this->load->helper("alert");
+				
+			$this->load->view('templates/meta_sparepart');
+			$this->load->view('templates/header_sparepart');
+			$this->load->view('test_modal');
+			$this->load->view('templates/footer_sparepart');	
+		}
+		
+		function test_admin_modal()
+		{
+			$this->load->view('templates/meta-admin');
+			$this->load->view('templates/menu-admin');
+			$this->load->view('templates/leftsidemenu');
+			$this->load->view('test_modal');
+			$this->load->view('templates/footer-admin');
+		}
+		
+		function load_modal()
+		{
+			$is_ajax = $this->input->is_ajax_request();
+			
+			if($is_ajax == TRUE)
+			{ 
+			  $dt = array();
+			  $modal_body = $this->load->view("welcome2",$dt,true);
+			  $data = array(
+				  "modal_heading"=>"this is my first title",
+				  "modal_body"=>$modal_body
+			  );
+			  
+			  $this->load->view("modal",$data);
+			}
+			else
+			{
+				show_404();	
+			}
+		}
 
 		function process()
 		{
