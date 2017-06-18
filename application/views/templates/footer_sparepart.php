@@ -15,7 +15,7 @@
                             <p>PT Besha Analitika is a privately held laboratory instrument company based in Jakarta, Indonesia. Since our inception in the year 1999, we are engaged in importing, trading and supplying of scientific laboratory equipment which are known for their high accuracy, precision, durability and high end technology from trusted manufacturer.</p>
                             <ul>
                             	<li class="add"><i class="fa fa-home"></i> <p>Jl. Boulevard Barat Kompleks Perkantoran Gading Bukit Indah Blok N No.23 Kelapa Gading, Jakarta Utara, Indonesia, 14240</p></li>
-                                <li class="mail"><i class="fa fa-envelope"></i><p> info@besha-analitika.co.id</p></li>
+                                <li class="mail"><i class="fa fa-envelope"></i><p>mail to : info@besha-analitika.co.id</p></li>
                                 <li class="phone"><i class="fa fa-phone"></i><p>+62-21-4585-6666</p></li>
                             </ul>
                         </div>

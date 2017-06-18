@@ -62,6 +62,7 @@ if(!$this->cart->contents()){ ?>
                                             <tr>
                                                 <th class="table-title">Product Name</th>
                                                 <th class="table-title">Product Code</th>
+                                                <th class="table-title">Stock</th>
                                                 <th class="table-title">Unit Price</th>
                                                 <th class="table-title">Quantity</th>
                                                 <th class="table-title">SubTotal</th>
@@ -91,6 +92,7 @@ if(!$this->cart->contents()){ ?>
                                                     </ul>
                                                 </td>
                                                 <td class="product-code"><?php echo $items['code']; ?></td>
+                                                <td class="product-code" style="text-align: center;"><?php echo $items['stock']; ?></td>
                                                 <td class="product-price-col"><span class="product-price-special">Rp <?php echo $this->cart->format_number($items['price']); ?></span>
                                                 <input type="hidden" class="price" value="<?php echo $items['price']; ?>">
                                                 </td>

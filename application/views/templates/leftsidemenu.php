@@ -58,8 +58,10 @@
                     <ul>
                         <li><a href="<?php echo base_url('admin/sparepart'); ?>" class="waves-effect"><i class="fa fa-plus"></i> <span>Add New</span> </a></li>
                         <li><a href="<?php echo base_url('admin/list_sparepart'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart List</span> </a></li>
+                        <?php    if($this->session->userdata('role_id')==1){  ?>
                         <li><a href="<?php echo base_url('admin/sparepart_category'); ?>" class="waves-effect"><i class="fa fa-list-alt"></i> <span>Sparepart Category</span> </a></li>
                         <li><a href="<?php echo base_url('admin/order_history'); ?>" class="waves-effect"><i class="zmdi zmdi-collection-text"></i> <span><strong>Order History</strong></span> </a></li>
+                        <?php } ?>
                     </ul>
                 </li>
                 <?php

@@ -216,7 +216,7 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 			$date = date("d-m-Y"); 
 
-			$name_pdf = "Besha invoice $date.pdf";
+			$name_pdf = "Besha Quotation $date.pdf";
 
 			$data["name_pdf"] = $name_pdf;
 

@@ -52,7 +52,6 @@
         <div id="invoice">
           <h1>SURAT PENAWARAN SPAREPART</h1>
           <div class="date">Tanggal Penawaran: <?=$create_date?></div>
-          <div class="date">Ahkir Penawaran: <?=$due_date?></div>
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">

@@ -61,8 +61,8 @@
                                               Kelapa Gading, Jakarta Utara, <br>
                                               Indonesia, 14240 <br></p>
                                             </li>
-                                            <li class="mail"><i class="fa fa-envelope"></i><p>service@besha-analitika.co.id</p></li>
-                                            <li><i class="fa fa-phone"></i><p>+000 0000 00</p></li>
+                                            <li class="mail"><i class="fa fa-envelope"></i><p>mail to : service@besha-analitika.co.id</p></li>
+                                            <li><i class="fa fa-phone"></i><p>+62-21-4585-6666</p></li>
                                         </ul>
                                     </address>
                                 </div>
