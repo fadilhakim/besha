@@ -13,7 +13,7 @@
                             	<i class="fa fa-phone"></i>
                             </a>
                             <div class="i-hover dropdown-menu">
-                            	<span>+62-21-4585-6666</span>
+                            	<a href="tel:+62-21-4585-6666"><span>+62-21-4585-6666</span></a>
                          	</div>
                         </li>
                         <li class="dropdown">
@@ -21,7 +21,7 @@
                             	<i class="fa fa-user"></i>
                             </a>
                          	<div class="i-hover dropdown-menu">
-                            	<span>service@besha-analitika.co.id</span>
+                            	<a href="mailto:service@besha-analitika.co.id"><span>service@besha-analitika.co.id</span></a>
                          	</div>
                         </li>
                     </ul>

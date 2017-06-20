@@ -129,7 +129,7 @@ if(!$this->cart->contents()){ ?>
                                         <div class="col-md-8">
                                             <?php // div left v_cart $this->load->view("sparepart/v_left_cart"); ?>
                                             <div class="md-margin"></div><!-- space -->
-                                            <a href="<?php echo base_url('spareparts/all'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
+                                            <a href="<?php echo base_url('spareparts/all/1'); ?>" class="btn btn-custom btn-lger min-width-lg">Continue Shopping</a>
                                         </div><!-- End .col-md-8 -->
                                         <div class="col-md-4">
                                             <table class="table total-table">
