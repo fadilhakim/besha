@@ -53,6 +53,10 @@
 				$name_pdf = "Besha invoice $date.pdf";
 				$data["user_sess"] = $this->session->all_userdata();
 				$data["name_pdf"] = $name_pdf;
+				$data["id_order"] = $order["id_order"];
+				
+				/* $data["order"] = $this->order_model->detail_order($order["id_order"]);
+				$data["order_detail_list"] = $this->order_model->detail_list_order($order["id_order"]); */
 	
 				$html =  $this->load->view("invoice/invoice-fancy-page-inline",$data,true); 
 	
@@ -92,7 +96,7 @@
 				$this->session->set_flashdata("message",$suceess);*/
 				
 				//echo $this->email->print_debugger();
-				redirect("sparepart/invoice_success_page");
+				redirect("sparepart/invoice_success_page?id_order=$order[id_order]");
 				
 				//redirect(base_url("besha/sparepart"));
 				//redirect("cart/send_email_invoice");

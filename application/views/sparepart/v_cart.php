@@ -161,13 +161,7 @@ if(!$this->cart->contents()){ ?>
 
 											?>
                                             <div class="md-margin"></div><!-- space -->
-                                            <div class="text-right">
-                                            	<?php if(!empty($email_sess)){ ?>
-                                                <a href="<?=base_url("cart/print_invoice")?>" target="_blank"><button onclick="" class="btn btn-custom btn-lger min-width-sm" type="button">Print Checkout</button></a>
-                                                <?php }else{   ?>
-                                                	<a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-custom btn-lger min-width-sm"> Print Checkout</a>
-                                                <?php } ?>
-                                            </div>
+                                            
 
                                             <div class="text-right">
                                             <?php if(!empty($email_sess)) { ?>

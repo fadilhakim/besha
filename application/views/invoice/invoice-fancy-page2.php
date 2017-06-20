@@ -50,8 +50,9 @@
           <div class="email"><a href="mailto:<?=$user_sess["email"]?>"><?=$user_sess["email"]?></a></div>
         </div>
         <div id="invoice">
-          <h1>SURAT PENAWARAN SPAREPART</h1>
+          <h2 style="color:#03C">SURAT PENAWARAN SPAREPART</h2>
           <div class="date">Tanggal Penawaran: <?=$create_date?></div>
+          <h4> Invoice : #<?=$id_order?></h4>
           
         </div>
       </div>
@@ -67,17 +68,17 @@
         </thead>
         <tbody>
           <?php
-		  foreach($this->cart->contents() as $items)
+		  foreach($order_detail_list as $items)
 			{
-				$detail_sparepart = $this->model_sparepart->getproductfromIdandCode($items['id'],$items['code'])->row();
+				$detail_sparepart = $this->model_sparepart->get_detail_sparepart($items['sparepart_id']);
 		  ?>
           <tr>
             <td class=""><img
-                    src="<?=check_image_sparepart($items['id'])?>" width="100" height="100" /></td>
-            <td class="desc"><?=$items["code"]?> / <?=$detail_sparepart->sparepart_name?></td>
-            <td class="unit">Rp. <?=number_format($items["price"])?></td>
+                    src="<?=check_image_sparepart($items['sparepart_id'])?>" width="100" height="100" /></td>
+            <td class="desc"><?=$detail_sparepart["sparepart_code"]?> / <?=$detail_sparepart["sparepart_name"]?></td>
+            <td class="unit">Rp. <?=number_format($detail_sparepart["sparepart_price"])?></td>
             <td class="qty"><?=$items["qty"]?> </td>
-            <td class="total">Rp. <?=number_format($items["subtotal"])?></td>
+            <td class="total">Rp. <?=number_format($items["sub_total"])?></td>
           </tr>
           <?php
 			}
@@ -85,20 +86,21 @@
         </tbody>
         <tfoot>
           <?php
-            $cart_total = $this->cart->total();
-            $sub_total = $cart_total * 0.1;
-            $grand_total = $cart_total + $sub_total;
+           
+            $sub_total     = $order["subtotal"];
+			$sub_total_tax = $order["subtotal"] * TAX;
+            $grand_total   = $order["grand_total"];
 
           ?>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">SUBTOTAL</td>
-            <td><h3> Rp. <?=number_format($cart_total, 2, ',', '.');?> </h3></td>
+            <td><h3> Rp. <?=number_format($sub_total, 2, ',', '.');?> </h3></td>
           </tr>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">TAX 10%</td>
-            <td>Rp. <?=number_format($sub_total, 2, ',', '.');?></td>
+            <td colspan="2">TAX <?=TAX_TEXT?></td>
+            <td>Rp. <?=number_format($sub_total_tax, 2, ',', '.');?></td>
           </tr>
           <tr>
             <td colspan="2"></td>

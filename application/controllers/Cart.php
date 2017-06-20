@@ -179,54 +179,52 @@ class cart extends CI_Controller { // Our Cart class extends the Controller clas
 
 	function print_invoice()
 	{
-
 		$this->load->model("model_user");
-
 		$this->load->model("model_sparepart");
-
+		$this->load->model("order_model");
 		$this->load->library("M_Pdf");
+		
+		$id_order = $this->input->get("id_order");
 
 		$user_session = $this->session->all_userdata();	
 
 		$dt_stat = "error";
 
 		$dt_msg  = '<div class="alert alert-danger alert-dismissable">
-
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-
 						Silakan login terlebih dahulu
-
 					</div>';
 
 		if(empty($user_session["email"]))
 		{
 
 			$this->session->set_flashdata($dt_stat,$dt_msg);
-
 			redirect(base_url("cart/show_cart"));
-	
-
 		}
 
 		else
 
 		{
 
-			$cart = $this->cart->contents();
+			$order = $this->order_model->detail_order($id_order);
+			$order_detail_list = $this->order_model->detail_list_order($id_order);
 
 			$date = date("d-m-Y"); 
 
-			$name_pdf = "Besha Quotation $date.pdf";
+			$name_pdf = "Besha Quotation ".$id_order.".pdf";
 
 			$data["name_pdf"] = $name_pdf;
+			$data["order"]	  = $order;
+			$data["order_detail_list"] = $order_detail_list;
+			$data["id_order"] = $id_order;
 
 			//print_r($cart);
 
 			//$html =  $this->load->view("invoice/invoice-page",$data,true); 
 
-			$html = $this->load->view("invoice/invoice-fancy-page",$data,true);
+			$html = $this->load->view("invoice/invoice-fancy-page2",$data,true);
 
-			$this->m_pdf->generate_pdf($html, "Besha invoice $date.pdf");
+			$this->m_pdf->generate_pdf($html, "Besha Quotation $id_order".".pdf");
 
 		}
 

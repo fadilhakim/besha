@@ -46,9 +46,10 @@
           <div class="email"><a href="<?=$user_sess["email"]?>" style="color:#0087C3;text-decoration:none;" ><?=$user_sess["email"]?></a></div>
         </div>
         <div id="invoice" style="float:right;text-align:right;width:45%;" >
-          <h1 style="color:#0087C3;font-size:2.4em;line-height:1em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:;margin-left:10px;" >SURAT PENAWARAN SPAREPART</h1>
+          <h2 style="color:#0087C3;font-size:2.4em;line-height:1em;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:;margin-left:10px;" >SURAT PENAWARAN SPAREPART</h2>
          <!--  <div class="date" style="font-size:1.5em;color:#777777;" >Quotation No : </div> -->
           <div class="date" style="font-size:1.1em;color:#777777;" >Tanggal Penawaran: <?=$create_date?></div>
+          <h4>Invoice : <b>#<?=$id_order?></b></h4>
           <!-- <div class="date" style="font-size:1.1em;color:#777777;" >Due Date: <?=$due_date?></div> -->
         </div>
       </div>
