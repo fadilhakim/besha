@@ -16,7 +16,7 @@
                             <ul>
                             	<li class="add"><i class="fa fa-home"></i> <p>Jl. Boulevard Barat Kompleks Perkantoran Gading Bukit Indah Blok N No.23 Kelapa Gading, Jakarta Utara, Indonesia, 14240</p></li>
                                 <li class="mail"><a style="color: #fff" href="mailto:service@besha-analitika.co.id">
-                                <i class="fa fa-envelope"></i><p>mail to : info@besha-analitika.co.id</p>
+                                <i class="fa fa-envelope"></i><p>info@besha-analitika.co.id</p>
                                 </a>
                                 </li>
                                 <li class="phone">
