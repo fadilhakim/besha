@@ -12,6 +12,32 @@
 	*/
 
 ?>
+<script>
+	
+	function change_status(stat)
+	{
+		var id_order = "<?=$detail_order["id_order"]?>";
+		
+		$.ajax({
+			
+			type:"POST",
+			url:"<?=base_url("order/change_status_modal")?>",
+			data:"id_order="+id_order+"&status="+stat,
+			success: function(data)
+			{
+				$("#order_temp").html(data);
+				
+			
+			}
+			
+		})
+		
+		
+		
+	}
+
+
+</script>
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
@@ -21,13 +47,24 @@
 		<div class="container">  
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="page-title"> <span class="pull-left"> <strong>#<?=$detail_order["id_order"]?></strong></span>
+                    <h4 class="page-title"> <span class="pull-left"> <strong>#<?=$detail_order["id_order"]?></strong></span></h4>
       
-      <span class="pull-right"><h3 class="label label-primary"> status : <?=$detail_order["status"]?></h3></span></h4>
+      <span class="pull-right">
+      <div class="dropdown"><button class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> status : <?=$detail_order["status"]?> <span class="caret"></span> </button>
+       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#" onClick="change_status('pending')">Pending</a></li>
+        <li><a href="#" onClick="change_status('confirm')">Confirm</a></li>
+        <li><a href="#" onClick="change_status('shipping')">Shipping</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#" onClick="change_status('delivered')">Delivered</a></li>
+      </ul>
+      </div>
+      </span>
                     <span class="clearfix"><br></span>
                     <div class="row">
                     	<div class="col-lg-12">
                             <div class="card-box">
+                               <span id="order_temp"></span>
                                <?=$this->session->flashdata("message");?>
       
                                 <div class="table-responsive">
