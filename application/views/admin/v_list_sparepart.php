@@ -9,8 +9,9 @@
                         <a href="<?php echo base_url('admin/list_sparepart'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">List Sparepart</a>
                         <?php    if($this->session->userdata('role_id')==1){  ?>
                         <a href="<?php echo base_url('admin/sparepart_category'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Category Sparepart</a>
+                         <?php } ?>
                         <a href="<?php echo base_url('admin/order_history'); ?>" class="btn btn-success btn-bordred waves-effect w-md waves-light m-b-5">Order History</a>
-                        <?php } ?>
+                       
                     </h4>
                     <div class="row">
                         <div class="col-lg-12" style="overflow:scroll;">
