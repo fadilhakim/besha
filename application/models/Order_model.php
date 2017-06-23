@@ -49,14 +49,6 @@
 			
 		}
 		
-		function change_status($id_order,$status)
-		{
-			
-			$str = "UPDATE order_tbl SET status = '$status' WHERE id_order = '$id_order' ";
-			return $q = $this->db->query($str);
-			
-		}
-		
 		function get_last_order()
 		{
 			$str = "SELECT id_order,create_date FROM order_tbl ORDER BY create_date DESC LIMIT 1";
@@ -326,6 +318,26 @@
 			
 			return $result;
 			
+		}
+		
+		function change_status($status)
+		{
+			$id_order = $this->input->post("id_order");
+			$check = $this->detail_list_order($id_order);
+			
+			if(!empty($check))
+			{
+				$str = "UPDATE order_tbl SET status = '$status' WHERE id_order = '$id_order' ";
+				$q = $this->db->query($str);
+				
+				$result = TRUE;	
+			}
+			else
+			{
+				$result = FALSE;
+			}
+			
+			return $result;
 		}
 		
 		function update_order()
