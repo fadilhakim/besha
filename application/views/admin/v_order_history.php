@@ -72,11 +72,15 @@
                                               Setting <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
+
                                               <li><a href="<?=base_url("admin/order_detail/$row[id_order]")?>" target="_blank">Detail Order</a></li>
                                            		
-                                       
-                                             
+                                              <?php   if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==3 ){  ?>
+                                              <li><a href="#">Change Status</a></li>
+                                              <?php } ?>
+                                             <?php    if($this->session->userdata('role_id')==1){  ?>
                                               <li><a href="#" onClick="delete_order('<?=$row["id_order"]?>')" > Delete Order </a></li>
+                                              <?php } ?>
                                             </ul>
                                           </div>
                                          </td>
