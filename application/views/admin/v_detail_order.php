@@ -93,10 +93,10 @@
                                       ?>
                                       <tr>
                                       
-                                        <td class="text-center"><a href="<?=$url_product?>" target="_blank"><img height="100" width="80"  src="<?=$img_sparepart?>" alt="<?=$product["sparepart_name"]?>" title="<?=$product["sparepart_name"]?>" class="img-thumbnail" /></a>
+                                        <td class="text-center"><img height="100" width="80"  src="<?=$img_sparepart?>" alt="<?=$product["sparepart_name"]?>" title="<?=$product["sparepart_name"]?>" class="img-thumbnail" />
                                        
                                         </td>
-                                        <td class="text-left"><a href="<?=$url_product?>" target="_blank"> <?=$product["sparepart_name"]?> </a><br />
+                                        <td class="text-left"><?=$product["sparepart_name"]?><br />
                                          </td>
                                         <td class="text-left"><?=$product["sparepart_code"]?></td>
                                         <td class="text-left"><div class="input-group btn-block quantity">

@@ -74,7 +74,7 @@
                                             <ul class="dropdown-menu">
                                               <li><a href="<?=base_url("admin/order_detail/$row[id_order]")?>" target="_blank">Detail Order</a></li>
                                            		
-                                      
+                                       
                                              
                                               <li><a href="#" onClick="delete_order('<?=$row["id_order"]?>')" > Delete Order </a></li>
                                             </ul>
