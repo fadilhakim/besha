@@ -1,4 +1,4 @@
-<?php
+		<?php
 
 	class Order_model extends CI_Model{
 		
@@ -244,12 +244,12 @@
 				  $sub_total = $row["qty"] * $row["price"];
 				  $now = date("Y-m-d H:i:s");
 				  
-				  if($product["stock"] > 0)
-				  {
-				  	$sisa_stock = $product["stock"] - $row["qty"];
-				  	// update stock
-				  	$this->update_stock($sisa_stock,$row["id"]);
-				  }
+				  // if($product["stock"] > 0)
+				  // {
+				  // 	$sisa_stock = $product["stock"] - $row["qty"];
+				  // 	// update stock
+				  // 	$this->update_stock($sisa_stock,$row["id"]);
+				  // }
 				  
 				  $str2  = "INSERT INTO order_detail_tbl SET		 ";
 				  $str2 .= "id_order		= '$new_code'			,";
